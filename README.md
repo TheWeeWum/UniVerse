@@ -31,3 +31,6 @@ On a campus as large as UofT it could be difficult to find a good study spot and
 https://drive.google.com/file/d/1HHD0ERHB9Aw1QVzghszsZIoTiPcA6UNT/view?usp=drive_link
 
 Top has the GeoEncoding api request results and the bottom is a link to an image like the one you see above in the hoppscotch request.
+
+## Example of the code calling the output
+![image](https://github.com/TheWeeWum/UofTMapper/assets/87148396/ee09cbdc-36d7-476d-93fd-59b244f4b94c)
