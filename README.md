@@ -29,3 +29,5 @@ On a campus as large as UofT it could be difficult to find a good study spot and
 
 ## example output of our Java code
 https://drive.google.com/file/d/1HHD0ERHB9Aw1QVzghszsZIoTiPcA6UNT/view?usp=drive_link
+Top has the GeoEncoding api request results
+and the bottom is a link to an image like the one you see above in the hoppscotch request.
