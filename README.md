@@ -16,3 +16,14 @@ On a campus as large as UofT it could be difficult to find a good study spot and
 1. Community Tab: Students can post UofT related content and interact with other students
 2. Events Tab: Keep students updated about school events and where they are occurring. This can help drive more engagement for these events as well.
 3. Adding friends: Allow users to upload their timetables and share their time tables with friends
+
+## List of API
+1. Google map API: https://developers.google.com/maps/documentation/maps-static
+   for map image layout
+2. YouTube API: https://developers.google.com/youtube/v3/getting-started
+   allows us to put youtube videos inside our app (virtual tours of various buildings)
+3. other map APIs: https://blog.hubspot.com/website/free-api-maps
+
+## using a tool to try out the API
+
+## example output of our Java code
