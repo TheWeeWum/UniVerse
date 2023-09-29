@@ -25,7 +25,7 @@ On a campus as large as UofT it could be difficult to find a good study spot and
 3. other map APIs: https://blog.hubspot.com/website/free-api-maps
 
 ## Using a tool to try out the API
-![Capture](https://github.com/TheWeeWum/UofTMapper/assets/87148396/93bcd715-b6a7-4759-9f28-d3e92bcdeaad)
+![Capture2](https://github.com/TheWeeWum/UofTMapper/assets/87148396/442c73e8-34ef-4666-a095-e335b6467c29)
 
 ## Example output of our Java code
 https://drive.google.com/file/d/1HHD0ERHB9Aw1QVzghszsZIoTiPcA6UNT/view?usp=drive_link
@@ -33,4 +33,4 @@ https://drive.google.com/file/d/1HHD0ERHB9Aw1QVzghszsZIoTiPcA6UNT/view?usp=drive
 Top has the GeoEncoding api request results and the bottom is a link to an image like the one you see above in the hoppscotch request.
 
 ## Example of the code calling the output
-![image](https://github.com/TheWeeWum/UofTMapper/assets/87148396/ee09cbdc-36d7-476d-93fd-59b244f4b94c)
+![Capture](https://github.com/TheWeeWum/UofTMapper/assets/87148396/9595e47e-3df0-4ab7-98c1-4e4055d448f2)
