@@ -1,4 +1,4 @@
-package api;
+package main.java.api;
 
 import com.google.gson.*;
 import com.google.maps.errors.ApiException;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class GoogleMapsDB implements MapDB {
+public class GoogleMapsDB implements api.MapDB {
     private static final String API_URL = "";
     private static final String API_TOKEN = "AIzaSyBNWxKThZ-Rq8dU0AH_DOrzJ-itEYicp-E";
     private static final String GEOCODING = "AIzaSyBNWxKThZ-Rq8dU0AH_DOrzJ-itEYicp-E";
