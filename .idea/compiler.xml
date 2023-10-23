@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="grade-api" />
+        <module name="campus-mapper-api" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="grade-api" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

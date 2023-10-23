@@ -19,7 +19,6 @@ public class Main {
         application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         CardLayout cardLayout = new CardLayout();
-
         // The various View objects. Only one view is visible at a time.
         JPanel views = new JPanel(cardLayout);
         application.add(views);
@@ -51,7 +50,12 @@ public class Main {
         viewManagerModel.setActiveView(tempView.viewName);
         viewManagerModel.firePropertyChanged();
 
+        // sets screen size to be just big enough to fit everything
         application.pack();
+
+        // manually set the size of the screen
+        int multiplier = 75;
+        application.setSize(16 * multiplier, 9 * multiplier);
         application.setVisible(true);
     }
 }
