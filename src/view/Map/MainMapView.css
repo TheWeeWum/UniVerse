@@ -1,40 +1,120 @@
 body {
-    background-color: black;
+    background-image: url(UofTMap.png)
 }
 
-/*Change image to fill whole width of the screen*/
-#image img {
-    width: 100%;
-}
-
-/* The navigation bar */
+/*NAVBAR*/
 .navbar {
+    margin-inline: 20px;
+    background-color: #000000;
     overflow: hidden;
-    background-color: #333;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
 }
 
-
-/*NAVBAR - Top thingy that stays fixed and can be interacted with*/
-/* Links inside the navbar */
+/*Navbar text*/
 .navbar a {
     float: left;
-    display: block;
-    color: #f2f2f2;
+    font-size: 16px;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-/* Change background on mouse-over */
+/*Navbar when hovering*/
 .navbar a:hover {
-    background: #ddd;
+    /*background color*/
+    background-color: #ddd;
+    /*text color*/
     color: black;
 }
 
-/* Main content */
-.main {
-    margin-top: 30px; /* Add a top margin to avoid content overlay */
+/*DROPDOWN*/
+/* Style the dropdown menu */
+.dropdown {
+    float: left;
+    overflow: hidden;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/*Initial Button that makes the drop down*/
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/*Dropdown options panel*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 120px;
+    /*size of shadow, and color of shadow*/
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 64);
+    z-index: 1;
+}
+
+/*Dropdown options text*/
+.dropdown-content a {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.underMap {
+    margin-inline: 20px;
+    margin-top: 0px;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 50, 0.9);
+}
+
+.underMap h1, h2, h3, p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+}
+
+.underMap UL {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.underMap p {
+    padding-left: 25px;
+}
+
+.contactInformation {
+    margin-inline: 20px;
+    background-color: #000000;
+}
+
+.contactInformation h1, h2, h3, p {
+    margin-top:-21px;
+    padding-inline: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
 }
