@@ -59,7 +59,7 @@ section {
     background-color: rgba(256, 256, 256, 0.9);
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0px 0px 30px #000000;
+    box-shadow: 0 0 30px #000000;
 }
 
 section h1, section h2, section h3, section p {
