@@ -2,29 +2,30 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #25355A;
     background-image: url(UofTMap.png)
 }
 
 header {
     margin-top: 38px;
-    background-color: #333;
-    color: #fff;
+    background-color: #25355A;
+    color: #F2F4F7;
     text-align: center;
     padding: 20px;
 }
-
+/*very top bar*/
 nav {
-    background-color: #444;
-    color: #fff;
+    background-color: #001340;
+    color: #F2F4F7;
     text-align: center;
     padding: 10px;
     position: fixed;
     top: 0;
     width: 100%;
 }
+/*very top bar text*/
 nav a {
-    color: #fff;
+    color: #F2F4F7;
     text-decoration: none;
     margin: 0 10px;
 }
@@ -38,12 +39,12 @@ nav a:hover {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #3F3F3F;
+    background-color: #25355A;
     min-width: 160px;
     z-index: 1;
 }
 .dropdown-content a {
-    color: #fff;
+    color: #F2F4F7;
     padding: 10px;
     text-decoration: none;
     display: block;
@@ -59,17 +60,17 @@ section {
     background-color: rgba(256, 256, 256, 0.9);
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0 0 30px #000000;
+    box-shadow: 0 0 30px #25355A;
 }
 
 section h1, section h2, section h3, section p {
-    color: #000000;
+    color: #25355A;
 }
 
 
 .contactInformation {
     margin-top: 40px;
-    background-color: #111;
+    background-color: #25355A;
     padding-bottom: 20px;
 }
 
