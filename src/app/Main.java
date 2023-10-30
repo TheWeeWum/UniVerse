@@ -1,15 +1,20 @@
 package app;
 
+import interface_adapter.mainMap.MainMapViewModel;
 import interface_adapter.temp.TempViewModel;
+import view.Map.MainMapView;
 import view.TempView;
 import view.ViewManager;
 import interface_adapter.ViewManagerModel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
+
 
 public class Main {
+    static GraphicsDevice device = GraphicsEnvironment
+            .getLocalGraphicsEnvironment().getScreenDevices()[0];
+
     public static void main(String[] args) {
         // Build the main program window, the main panel containing the
         // various cards, and the layout, and stitch them together.
@@ -30,6 +35,7 @@ public class Main {
         // Other view models here
         // LoginViewModel loginViewModel = new LoginViewModel();
         TempViewModel tempViewModel = new TempViewModel();
+        MainMapViewModel mainMapViewModel = new MainMapViewModel();
 
         // data access objects here
         // FileUserDataAccessObject userDataAccessObject;
@@ -46,16 +52,20 @@ public class Main {
         TempView tempView = new TempView(tempViewModel);
         views.add(tempView, tempView.viewName);
 
+        MainMapView mainMapView = new MainMapView(mainMapViewModel);
+        views.add(mainMapView, mainMapView.viewName);
+
+
         // set initial view
-        viewManagerModel.setActiveView(tempView.viewName);
+        viewManagerModel.setActiveView(mainMapView.viewName);
         viewManagerModel.firePropertyChanged();
 
         // sets screen size to be just big enough to fit everything
         application.pack();
 
         // manually set the size of the screen
-        int multiplier = 75;
-        application.setSize(16 * multiplier, 9 * multiplier);
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        application.setSize((int)size.getWidth(), (int)size.getHeight());
         application.setVisible(true);
     }
 }
