@@ -17,11 +17,11 @@ public class Room extends Reviewable {
      * @param roomNumber the room number on the room (String)
      * @param floor the floor the room is on (String)
      * @param capacity the capacity of the room
+     * @param reviews the list of reviews that people have left for the room
      * @param outletsAvailable whether the room has outlets available or not
      *                         (If you don't include this it will default to false)
-     * @param reviews the list of reviews that people have left for the room
      */
-    public Room(String roomNumber, String floor, int capacity, boolean outletsAvailable, List<Review> reviews) {
+    public Room(String roomNumber, String floor, int capacity, List<Review> reviews, boolean outletsAvailable) {
         super(reviews);
         this.roomNumber = roomNumber;
         this.floor = floor;

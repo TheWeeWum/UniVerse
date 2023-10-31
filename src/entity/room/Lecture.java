@@ -1,11 +1,29 @@
 package entity.room;
 
+import entity.review.Review;
+
+import java.util.List;
+
 public class Lecture extends Room {
-    public Lecture(String roomNumber, String floor, int capacity, boolean outletsAvailable) {
-        super(roomNumber, floor, capacity, outletsAvailable);
+    /**
+     * @param roomNumber the room number on the room (String)
+     * @param floor the floor the room is on (String)
+     * @param capacity the capacity of the room
+     * @param reviews the list of reviews that people have left for the room
+     * @param outletsAvailable whether the room has outlets available or not
+     *                         (If you don't include this it will default to false)
+     */
+    public Lecture(String roomNumber, String floor, int capacity, List<Review> reviews, boolean outletsAvailable) {
+        super(roomNumber, floor, capacity, reviews, outletsAvailable);
     }
 
-    public Lecture(String roomNumber, String floor, int capacity) {
-        super(roomNumber, floor, capacity);
+    /**
+     * @param roomNumber the room number on the room (String)
+     * @param floor the floor the room is on (String)
+     * @param capacity the capacity of the room
+     * @param reviews the list of reviews that people have left for the room
+     */
+    public Lecture(String roomNumber, String floor, int capacity, List<Review> reviews) {
+        super(roomNumber, floor, capacity, reviews);
     }
 }

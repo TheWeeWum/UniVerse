@@ -11,10 +11,10 @@ import java.util.List;
 public class Building extends Reviewable {
     private final String name;
     private final String address;
-    private List<Room> rooms;
-    private List<String> floors;
-    private Location location;
-    private Pin pin;
+    private final List<Room> rooms;
+    private final List<String> floors;
+    private final Location location;
+    private final Pin pin;
 
     /**
      * @param name the name of the building.

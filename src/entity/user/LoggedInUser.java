@@ -17,6 +17,15 @@ public class LoggedInUser implements User {
     private final List<Building> favouriteBuildings;
     private final List<Room> favouriteRooms;
 
+    /**
+     * @param username the users username
+     * @param password the users password
+     * @param id the users ID
+     * @param reviews the list of reviews the user has left
+     * @param favourites the list of all the users favorites
+     * @param favouriteBuildings the list of the users favourite buildings
+     * @param favouriteRooms the list of the users favourite rooms
+     */
     public LoggedInUser(String username, String password, Integer id, List<Review> reviews, List<Reviewable> favourites, List<Building> favouriteBuildings, List<Room> favouriteRooms) {
         this.username = username;
         this.password = password;
@@ -94,7 +103,7 @@ public class LoggedInUser implements User {
      * Precondition: username has been checked to ensure that no other user already has that username
      */
     public void ChangeUsername(String newUsername) {
-        this.username = username;
+        this.username = newUsername;
     }
 
     /**
