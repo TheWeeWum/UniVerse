@@ -1,4 +1,4 @@
 package entity.user;
 
-public class Guest {
+public class Guest implements User {
 }
