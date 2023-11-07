@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url(UofTMap.png)
+}
+
+header {
+    margin-top: 38px;
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #3F3F3F;
+    min-width: 160px;
+    z-index: 1;
+}
+.dropdown-content a {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(256, 256, 256, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 30px #000000;
+}
+
+section h1, section h2, section h3, section p {
+    color: #000000;
+}
+
+
+.contactInformation {
+    margin-top: 40px;
+    background-color: #111;
+    padding-bottom: 20px;
+}
+
+.contactInformation h1, .contactInformation h2, .contactInformation h3, .contactInformation p {
+    margin-top:-21px;
+    padding-inline: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: white;
+}
