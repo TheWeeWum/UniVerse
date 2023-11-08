@@ -14,7 +14,7 @@
 </header>
 
 <nav>
-    <a href="index.html">Main Map</a>
+    <a href="index.jsp">Main Map</a>
     <a href="#about">About</a>
     <a href="profile">Profile</a>
 </nav>

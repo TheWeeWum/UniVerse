@@ -1,5 +1,7 @@
 package com.view;
 
+import com.interface_adapter.signup.SignupController;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,8 +15,11 @@ public class SignupServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Perform data retrieval or processing here
+        SignupController controller = (SignupController) request.getAttribute("controller");
 
         // Set the variables as request attributes
+        HttpSession session = request.getSession();
+        session.setAttribute("controller", controller);
 
         // Send user to the next page
         response.sendRedirect("signup.jsp");
@@ -26,6 +31,9 @@ public class SignupServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String repeatedPassword = request.getParameter("repeated password");
+
+        SignupController controller = (SignupController) request.getAttribute("controller");
+        controller.execute(username, password, repeatedPassword);
 
         // Perform authentication (you can replace this with your actual authentication logic)
         if (isValidUser(username, password, repeatedPassword)) {
