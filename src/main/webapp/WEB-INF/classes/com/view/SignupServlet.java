@@ -15,8 +15,6 @@ public class SignupServlet extends HttpServlet {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    private SignupController controller;
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -33,19 +31,29 @@ public class SignupServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // save the request and response for use later in
+        // sendToProfileScreen and signupFailed
         this.request = request;
         this.response = response;
-        controller = SignupSetup.setup(this);
 
+        // get the username password and repeatedPassword from the input
+        // fields in the jsp file.
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String repeatedPassword = request.getParameter("repeated password");
 
+        // Initialize the loop for the use_case
+        SignupController controller = SignupSetup.setup(this);
+
+        // call the SignupController passing it the inputs
         controller.execute(username, password, repeatedPassword);
     }
 
     public void sendToProfileScreen(SignupOutputData outputData) throws IOException {
+        // get the session to change the data on
         HttpSession session = request.getSession();
+
+        // sets the username field on the jsp
         session.setAttribute("username", outputData.getUsername());
 
         // Redirect to the user profile page
@@ -53,6 +61,7 @@ public class SignupServlet extends HttpServlet {
     }
 
     public void signupFailed(SignupOutputData outputData) throws IOException {
+        // TODO: not implemented yet
         response.sendRedirect("signup.jsp");
     }
 

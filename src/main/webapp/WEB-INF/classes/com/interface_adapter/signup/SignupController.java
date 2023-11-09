@@ -11,9 +11,11 @@ public class SignupController {
     }
 
     public void execute(String username, String password1, String password2) {
+        // create the input data to send to the use_case
         SignupInputData signupInputData = new SignupInputData(
                 username, password1, password2);
 
+        // call the use_case interactor sending the input data
         userSignupUserCaseInteracter.execute(signupInputData);
     }
 }

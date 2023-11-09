@@ -16,7 +16,7 @@
 <nav>
     <a href="#mainMap">Main Map</a>
     <div class="dropdown">
-        <a href="#" class="dropbtn">Profile</a>
+        <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
             <a href="#favourites">Favourites</a>
             <a href="#userReviews">Reviews</a>

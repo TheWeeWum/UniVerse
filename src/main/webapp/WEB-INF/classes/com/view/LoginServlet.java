@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 
             // Redirect to the user profile page (you can replace this URL)
             // TODO: send to the personal users page
-            response.sendRedirect("profile");
+            response.sendRedirect("profile.jsp");
         } else {
             // Authentication failed, redirect back to the login page
             response.sendRedirect("login.jsp");
