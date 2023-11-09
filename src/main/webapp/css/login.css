@@ -1,11 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    background-image: url(UofTMap.png)
-}
-
+/*WARNING, BOTH LOGIN AND SIGNUP PAGES USE THIS CSS FILE*/
 header {
     margin-top: 38px;
     background-color: #333;
@@ -14,46 +7,8 @@ header {
     padding: 20px;
 }
 
-nav {
-    background-color: #444;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-}
-nav a:hover {
-    text-decoration: underline;
-}
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #3F3F3F;
-    min-width: 160px;
-    z-index: 1;
-}
-.dropdown-content a {
-    color: #fff;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-section {
-    max-width: 800px;
+form {
+    max-width: 60%;
     margin: 20px auto;
     padding: 20px;
     background-color: rgba(256, 256, 256, 0.9);
@@ -62,42 +17,28 @@ section {
     box-shadow: 0 0 30px #000000;
 }
 
-section h1, section h2, section h3, section p {
-    color: #000000;
+.input-group {
+    color: black;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-
-.contactInformation {
-    margin-top: 40px;
-    background-color: #111;
-    padding-bottom: 20px;
-}
-
-.contactInformation h1, .contactInformation h2, .contactInformation h3, .contactInformation p {
-    margin-top:-21px;
-    padding-inline: 15px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    color: white;
-}
-
-form {
-    width: 300px;
-    margin: 0 auto;
-}
-
-label, input {
-    display: block;
-    margin: 10px 0;
-}
-
-input[type="text"],
-input[type="password"] {
+.input-group input {
     width: 100%;
     padding: 10px;
+    box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Background color for input fields */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
 }
 
 input[type="submit"] {
@@ -111,5 +52,5 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #005f93; /* Custom hover color */
+    background-color: #000f93; /* Custom hover color */
 }

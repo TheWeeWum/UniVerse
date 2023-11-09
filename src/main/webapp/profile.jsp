@@ -4,6 +4,9 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/user-profile.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/standard_background.css">
     <title>User Profile</title>
 </head>
 
@@ -14,9 +17,18 @@
 </header>
 
 <nav>
-    <a href="index.jsp">Main Map</a>
+    <a href="index">Home</a>
+    <a href="#mainMap">Main Map</a>
+    <div class="dropdown">
+        <a class="dropbtn">Profile</a>
+        <div class="dropdown-content">
+            <a href="#favourites">Favourites</a>
+            <a href="#userReviews">Reviews</a>
+            <a href="profile">Profile</a>
+        </div>
+    </div>
     <a href="#about">About</a>
-    <a href="profile">Profile</a>
+    <a href="signout">Sign Out</a>
 </nav>
 
 <section>
