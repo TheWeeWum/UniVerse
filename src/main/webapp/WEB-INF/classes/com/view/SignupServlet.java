@@ -17,17 +17,9 @@ public class SignupServlet extends HttpServlet {
 
     private SignupController controller;
 
-    public void attatchController(SignupController controller) {
-        this.controller = controller;
-    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.request = request;
-        this.response = response;
-        SignupSetup.setup(this);
-
         // Perform data retrieval or processing here
 
         // Set the variables as request attributes
@@ -43,6 +35,7 @@ public class SignupServlet extends HttpServlet {
             throws ServletException, IOException {
         this.request = request;
         this.response = response;
+        controller = SignupSetup.setup(this);
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");

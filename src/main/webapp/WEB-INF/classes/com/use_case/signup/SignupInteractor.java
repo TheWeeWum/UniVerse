@@ -1,9 +1,9 @@
 package com.use_case.signup;
 
-public class SignupInteracter implements SignupInputBoundary {
+public class SignupInteractor implements SignupInputBoundary {
 
     SignupOutputBoundary profilePresenter;
-    public SignupInteracter(SignupOutputBoundary profilePresenter) {
+    public SignupInteractor(SignupOutputBoundary profilePresenter) {
         this.profilePresenter = profilePresenter;
     }
 
