@@ -2,10 +2,9 @@ package com.interface_adapter.signup;
 
 import com.use_case.signup.SignupInputBoundary;
 import com.use_case.signup.SignupInputData;
-import com.use_case.signup.SignupInteractor;
 
 public class SignupController {
-    final SignupInputBoundary userSignupUserCaseInteracter;
+    private final SignupInputBoundary userSignupUserCaseInteracter;
 
     public SignupController(SignupInputBoundary userSignupUserCaseInteracter) {
         this.userSignupUserCaseInteracter = userSignupUserCaseInteracter;

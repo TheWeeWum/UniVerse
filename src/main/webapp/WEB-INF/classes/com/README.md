@@ -1,3 +1,27 @@
+## HOW TO GET RUNNING
+First you have to install maven and Tomcat
+
+For maven: Binary.zip <br>
+For Tomcat: VERSION 9 is required NOT 10
+
+You'll probably have to set up maven in your system environment
+variables.
+
+Then in intellij set up a new run configuration
+Scroll down until you see Tomcat and select the local server
+not EE.
+
+Then on this code go to the terminal. If you've set up maven
+correctly running <br>
+mvn -version should tell you the version of maven you have. If this did not work
+then you need to run <br>
+mvn clean package <br>
+this creates the runnable server package. Then go back to the
+run configuration you set up and click Deployment then hit the
+add button and add the UniVerse:war from the artifacts tab.
+Then just run the tomcat configuration and it should work!
+
+
 
 ## view:
 This folder contains the Servlets. 

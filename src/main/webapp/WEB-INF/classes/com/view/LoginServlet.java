@@ -23,8 +23,11 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // gets the username and password from the input fields
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
+        // TODO: all of this needs to be changed to the clean architecture setup.
 
         // Perform authentication (you can replace this with your actual authentication logic)
         if (isValidUser(username, password)) {
