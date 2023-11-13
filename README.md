@@ -7,7 +7,7 @@ On a campus as large as UofT it could be difficult to find a good study spot and
 1. Students can write reviews for lecture halls, bathrooms, cafeteria, or overall facilities for specific buildings. Students can indicate whether or not a building has amenities such as microwaves etc.
 2. Students can mark each of their lecture/tutorial room locations
    We can save this info to categorize the buildings into Social Sciences building, Math & Physics building, Engineering building, CS building, etc.
-   New students can look at our app to see where their courses have generally been held in the past, and decide where to live.
+   New students can look at our com.app to see where their courses have generally been held in the past, and decide where to live.
 3. Students can log in to keep their account information, like favorite study spots or favorite bathroom as pins.
 4. Create a heat map of student population/population density for areas so students can avoid crowded areas
    Help students avoid being late to class
@@ -21,7 +21,7 @@ On a campus as large as UofT it could be difficult to find a good study spot and
 1. Google map API: https://developers.google.com/maps/documentation/maps-static
    for map image layout
 2. YouTube API: https://developers.google.com/youtube/v3/getting-started
-   allows us to put youtube videos inside our app (virtual tours of various buildings)
+   allows us to put youtube videos inside our com.app (virtual tours of various buildings)
 3. other map APIs: https://blog.hubspot.com/website/free-api-maps
 
 ## Using a tool to try out the API
