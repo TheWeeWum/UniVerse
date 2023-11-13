@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/campus-mapper-api.iml" filepath="$PROJECT_DIR$/campus-mapper-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UniVerse.iml" filepath="$PROJECT_DIR$/UniVerse.iml" />
     </modules>
   </component>
 </project>
