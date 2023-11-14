@@ -23,6 +23,7 @@
     </div>
     <a href="#about">About</a>
     <a href="signup">Signup</a>
+    <a href="buildings">Buildings</a>
 
     <!-- Add more links as needed -->
 </nav>
