@@ -33,6 +33,10 @@
     <h1>Buildings</h1>
 </header>
 
+<section>
+
+</section>
+
 <a href="https://www.example.com" target="_blank">
     <button>Go to Another Page</button>
 </a>
