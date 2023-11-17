@@ -17,6 +17,7 @@ public class FavouritesServlet extends HttpServlet{
 
         // Send user to the next page
         response.sendRedirect("favourites.jsp");
+
     }
 
     @Override
