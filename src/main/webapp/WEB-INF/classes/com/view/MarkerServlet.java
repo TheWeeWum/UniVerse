@@ -1,5 +1,11 @@
 package com.view;
 
+import com.app.MarkerSetup;
+import com.entity.map.Marker;
+import com.entity.building.Building;
+import com.interface_adapter.marker.MarkerController;
+import com.use_case.display_markers.MarkerOutputData;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServlet;
@@ -7,13 +13,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class MarkerServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // Simulate fetching marker data from a database or other source
-        String markerData = "[{ \"lat\": 43.66234588623047, \"lng\": -79.3955307006836, \"title\": \"Marker 1\" }, { \"lat\": 43.655, \"lng\": -79.394, \"title\": \"Marker 2\" }]";
+    private HttpServletRequest request;
+    private HttpServletResponse response;
 
-        response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        out.print(markerData);
-        out.flush();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        this.request = request;
+        this.response = response;
+
+        // Initialize the loop for the use_case
+        MarkerController controller = MarkerSetup.setup(this);
+
+        // call the SignupController passing it the inputs
+        controller.execute();
+    }
+
+    public void writeMarkers(MarkerOutputData markers) {
+        StringBuilder markerJson = new StringBuilder("[");
+        for (Marker marker : markers.getMarkers()) {
+            Building building = marker.getBuilding();
+            String name = building.getName();
+            float lat = marker.getLatitude();
+            float lon = marker.getLongitude();
+            markerJson.append(String.format("{ \"lat\": %f, \"lng\": %f, \"title\": \"%s\" },", lat, lon, name));
+        }
+        markerJson.append("]");
+
+        try {
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.print(markerJson);
+            out.flush();
+        } catch (IOException e) {
+            System.out.println("Could not write markers");
+        }
     }
 }
