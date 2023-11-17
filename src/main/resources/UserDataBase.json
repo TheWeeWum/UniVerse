@@ -1,0 +1,18 @@
+{
+  "1": {
+    "username": "ikraskov",
+    "password": "Almaty",
+    "id": 5,
+    "reviews": [],
+    "favouriteBuildings": [],
+    "favouriteRooms": []
+  },
+  "2": {
+    "username": "user2",
+    "password": "password2",
+    "id": 2,
+    "reviews": [],
+    "favouriteBuildings": [],
+    "favouriteRooms": []
+  }
+}
