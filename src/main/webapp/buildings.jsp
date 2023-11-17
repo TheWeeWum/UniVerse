@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/standard_background.css">
-    <title>UniVerse</title>
+    <title>Login</title>
 </head>
 <body>
 <!--    NAVBAR-->
@@ -16,35 +16,30 @@
     <div class="dropdown">
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
-            <a href="favourites">Favourites</a>
+            <a href="#favourites">Favourites</a>
             <a href="#userReviews">Reviews</a>
             <a href="profile">Profile</a>
         </div>
     </div>
     <a href="#about">About</a>
     <a href="signup">Signup</a>
+    <a href="login">Login</a>
     <a href="buildings">Buildings</a>
 
     <!-- Add more links as needed -->
 </nav>
 
 <header>
-    <h1>Login</h1>
+    <h1>Buildings</h1>
 </header>
 
-<form action="login" method="post">
-    <div class="input-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-    </div>
+<section>
 
-    <div class="input-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-    </div>
+</section>
 
-    <input class="login-button" type="submit" value="Login">
-</form>
+<a href="https://www.example.com" target="_blank">
+    <button>Go to Another Page</button>
+</a>
 
 </body>
 </html>
