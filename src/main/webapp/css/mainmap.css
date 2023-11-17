@@ -1,0 +1,25 @@
+#map {
+    height: 600px;
+    width: 100%;
+    float: right;
+}
+
+#sidePanel {
+    height: 600px;
+    width: 0;
+    float: right;
+    box-sizing: border-box;
+    background-color: #222;
+}
+
+#sidePanel h2 {
+    background-color: #222;
+    color: #ffffff;
+    text-align: center;
+}
+
+#sidePanel p {
+    background-color: #222;
+    color: #ffffff;
+    text-align: left;
+}

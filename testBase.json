@@ -1,0 +1,26 @@
+{
+  "1": {
+    "username": "user1",
+    "password": "password1",
+    "id": 1,
+    "reviews": [],
+    "favouriteBuildings": [],
+    "favouriteRooms": []
+  },
+  "2": {
+    "username": "user2",
+    "password": "password2",
+    "id": 2,
+    "reviews": [],
+    "favouriteBuildings": [],
+    "favouriteRooms": []
+  },
+  "3": {
+    "username": "user3",
+    "password": "password3",
+    "id": 3,
+    "reviews": [],
+    "favouriteBuildings": [],
+    "favouriteRooms": []
+  }
+}

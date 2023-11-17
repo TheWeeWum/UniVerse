@@ -1,0 +1,72 @@
+{
+  "1": {
+    "username": "user1",
+    "password": "password1",
+    "id": 1,
+    "reviews": [
+      {
+        "reviewText": "This is a review for room A",
+        "roomId": "roomA"
+      },
+      {
+        "reviewText": "Another review for room B",
+        "roomId": "roomB"
+      }
+    ],
+    "favouriteBuildings": [
+      {
+        "id": "buildingC"
+      }
+    ],
+    "favouriteRooms": [
+      {
+        "id": "roomA"
+      },
+      {
+        "id": "roomB"
+      }
+    ]
+  },
+  "2": {
+    "username": "user2",
+    "password": "password2",
+    "id": 2,
+    "reviews": [
+      {
+        "reviewText": "A review for room C",
+        "roomId": "roomC"
+      }
+    ],
+    "favouriteBuildings": [
+      {
+        "id": "buildingD"
+      }
+    ],
+    "favouriteRooms": [
+      {
+        "id": "roomC"
+      }
+    ]
+  },
+  "3": {
+    "username": "user3",
+    "password": "password3",
+    "id": 3,
+    "reviews": [
+      {
+        "reviewText": "Review for room D",
+        "roomId": "roomD"
+      }
+    ],
+    "favouriteBuildings": [
+      {
+        "id": "buildingE"
+      }
+    ],
+    "favouriteRooms": [
+      {
+        "id": "roomD"
+      }
+    ]
+  }
+}
