@@ -42,6 +42,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>BuildingsServlet</servlet-name>
+        <servlet-class>com.view.BuildingsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingsServlet</servlet-name>
+        <url-pattern>/buildings</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>FavouritesServlet</servlet-name>
         <servlet-class>com.view.FavouritesServlet</servlet-class>
     </servlet>

@@ -10,6 +10,7 @@ import java.util.List;
 
 public class Building extends Reviewable {
     private final String name;
+    private final String shortname;
     private final String address;
     private final List<Room> rooms;
     private final List<String> floors;
@@ -18,6 +19,7 @@ public class Building extends Reviewable {
 
     /**
      * @param name the name of the building.
+     * @param shortname the abbreviation of the building's name
      * @param address the address of the building.
      * @param rooms the list of ooms of the building.
      * @param floors the list of floors of the building.
@@ -25,9 +27,10 @@ public class Building extends Reviewable {
      * @param pin of the building on the main map
      * @param reviews the list of reviews for the building.
      */
-    public Building(String name, String address, List<Room> rooms, List<String> floors, Location location, Pin pin, List<Review> reviews) {
+    public Building(String name, String shortname, String address, List<Room> rooms, List<String> floors, Location location, Pin pin, List<Review> reviews) {
         super(reviews);
         this.name = name;
+        this.shortname = shortname;
         this.address = address;
         this.rooms = rooms;
         this.floors = floors;
