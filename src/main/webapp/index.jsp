@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/standard_background.css">
-    <title>Title</title>
+    <title>UniVerse</title>
 </head>
 
 

@@ -17,8 +17,11 @@ function initMap() {
                 });
 
                 marker.addListener('click', function () {
-                    // Redirect or perform other actions when a marker is clicked
-                    console.log('Marker clicked:', markerInfo.title);
+                    document.getElementById('map').style.width = "70%";
+                    document.getElementById('sidePanel').style.width = "30%";
+                    // Update the side panel content when a marker is clicked
+                    sidePanel.innerHTML = '<h2>' + markerInfo.title + '</h2>' +
+                        '<p>Marker Information: Lat ' + markerInfo.lat + ', Lng ' + markerInfo.lng + '</p>';
                 });
             });
         })
