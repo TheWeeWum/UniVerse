@@ -49,4 +49,13 @@
         <servlet-name>BuildingsServlet</servlet-name>
         <url-pattern>/buildings</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FavouritesServlet</servlet-name>
+        <servlet-class>com.view.FavouritesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FavouritesServlet</servlet-name>
+        <url-pattern>/favourites</url-pattern>
+    </servlet-mapping>
 </web-app>
