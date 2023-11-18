@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.entity.review.Review" %>
+<%@ page import="com.entity.Reviewable" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +9,7 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/standard_background.css">
-    <title>UniVerse</title>
+    <title>User Profile</title>
 </head>
 
 <body>
@@ -22,7 +24,7 @@
     <div class="dropdown">
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
-            <a href="favourites">Favourites</a>
+            <a href="#favourites">Favourites</a>
             <a href="#userReviews">Reviews</a>
             <a href="profile">Profile</a>
         </div>
@@ -32,18 +34,29 @@
 </nav>
 
 <section>
+    <% Review[] reviews = (Review[]) session.getAttribute("reviews");%>
     <h1>Welcome, <%= session.getAttribute("username")%></h1>
 
     <h3>Your Reviews</h3>
     <ul id="reviews">
-        <li>Review 1: This is your first review.</li>
-        <li>Review 2: You reviewed another place.</li>
+        <% if (reviews != null && reviews.length > 0) { %>
+        <% for (Review review : reviews) { %>
+        <li><%= review.getContent() %></li>
+        <% } %>
+        <% } else { %>
+        <li>No reviews available.</li>
+        <% } %>
     </ul>
-
+    <% Reviewable[] favourites = (Reviewable[]) session.getAttribute("favourites");%>
     <h3>Your Favorites</h3>
     <ul id="favourites">
-        <li>Favorite 1: Your favorite study spot.</li>
-        <li>Favorite 2: The cleanest bathroom on campus.</li>
+        <% if (favourites != null && favourites.length > 0) { %>
+        <% for (Reviewable place : favourites) { %>
+            <!-- get something-->
+        <% } %>
+        <% } else { %>
+        <li>No reviews available.</li>
+        <% } %>
     </ul>
 </section>
 

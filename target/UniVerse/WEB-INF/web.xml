@@ -40,4 +40,40 @@
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuildingsServlet</servlet-name>
+        <servlet-class>com.view.BuildingsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingsServlet</servlet-name>
+        <url-pattern>/buildings</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MainMapServlet</servlet-name>
+        <servlet-class>com.view.MainMapServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainMapServlet</servlet-name>
+        <url-pattern>/mainmap</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MarkerServlet</servlet-name>
+        <servlet-class>com.view.MarkerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MarkerServlet</servlet-name>
+        <url-pattern>/markers</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FavouritesServlet</servlet-name>
+        <servlet-class>com.view.FavouritesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FavouritesServlet</servlet-name>
+        <url-pattern>/favourites</url-pattern>
+    </servlet-mapping>
 </web-app>

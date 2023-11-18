@@ -4,11 +4,11 @@ public class ProfileInteractor implements ProfileInputBoundary{
 
     final ProfileOutputBoundary profilePresenter;
 
-  //  final ProfileUserDataAccessInterface profileDataAccessObject;
+    final ProfileUserDataAccessInterface profileDataAccessObject;
 
-    public ProfileInteractor(ProfileOutputBoundary profileOutputBoundary){
+    public ProfileInteractor(ProfileUserDataAccessInterface profileDataAccessObject, ProfileOutputBoundary profileOutputBoundary){
         this.profilePresenter = profileOutputBoundary;
-      //  this.profileDataAccessObject = profileDataAccessObject;
+        this.profileDataAccessObject = profileDataAccessObject;
     }
 
     @Override
