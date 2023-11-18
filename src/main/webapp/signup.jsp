@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/standard_background.css">
-    <title>Signup</title>
+    <title>UniVerse</title>
 </head>
 <body>
 
@@ -16,13 +16,14 @@
     <div class="dropdown">
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
-            <a href="#favourites">Favourites</a>
+            <a href="favourites">Favourites</a>
             <a href="#userReviews">Reviews</a>
             <a href="profile">Profile</a>
         </div>
     </div>
     <a href="#about">About</a>
     <a href="login">Login</a>
+    <a href="buildings">Buildings</a>
 
     <!-- Add more links as needed -->
 </nav>
