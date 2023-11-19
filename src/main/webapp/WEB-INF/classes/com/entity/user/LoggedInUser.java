@@ -5,35 +5,48 @@ import com.entity.building.Building;
 import com.entity.review.Review;
 import com.entity.room.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 public class LoggedInUser implements User {
     private String username;
     private String password;
-    private final Integer id;
+    private final int id;
     private final List<Review> reviews;
-    private final List<Reviewable> favourites;
     private final List<Building> favouriteBuildings;
     private final List<Room> favouriteRooms;
+    private final List<Reviewable> favourites;
 
     /**
      * @param username the users username
      * @param password the users password
      * @param id the users ID
      * @param reviews the list of reviews the user has left
-     * @param favourites the list of all the users favorites
      * @param favouriteBuildings the list of the users favourite buildings
      * @param favouriteRooms the list of the users favourite rooms
      */
-    public LoggedInUser(String username, String password, Integer id, List<Review> reviews, List<Reviewable> favourites, List<Building> favouriteBuildings, List<Room> favouriteRooms) {
+    public LoggedInUser(String username, String password, Integer id, List<Review> reviews, List<Building> favouriteBuildings, List<Room> favouriteRooms) {
         this.username = username;
         this.password = password;
         this.id = id;
         this.reviews = reviews;
-        this.favourites = favourites;
         this.favouriteBuildings = favouriteBuildings;
         this.favouriteRooms = favouriteRooms;
+        this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
+    }
+
+
+    // This constructor exists for a sign-up case, so that when we create a user in the interactor, we could pass
+    //only 2 arguments.
+    public LoggedInUser(String username, String password, int id) {
+        this.username = username;
+        this.password = password;
+        this.id = id;
+        this.reviews = new ArrayList<>();
+        this.favouriteBuildings = new ArrayList<>();
+        this.favouriteRooms = new ArrayList<>();
+        this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
     }
 
     // READ
@@ -60,7 +73,7 @@ public class LoggedInUser implements User {
      * @return whether the ID matched.
      */
     public boolean checkID(Integer expectedID) {
-        return id.equals(expectedID);
+        return id == expectedID;
     }
 
     /**
@@ -75,9 +88,11 @@ public class LoggedInUser implements User {
      * Returns any of the users favourites. This includes anything which inherits from the Reviewable Parent.
      * @return any of the users favourites
      */
-    public List<Reviewable> getFavourites() {
-        // TODO: might need to change this to return the favourite buildings + the favourite rooms
-        return favourites;
+    public List<Reviewable> getFavourites(List<Building> favouriteBuildings, List<Room> favouriteRooms) {
+        List<Reviewable> favorites = new ArrayList<>();
+        favorites.addAll(favouriteBuildings); // Add all favorite buildings
+        favorites.addAll(favouriteRooms); // Add all favorite rooms
+        return favorites;
     }
 
     /**
@@ -163,4 +178,13 @@ public class LoggedInUser implements User {
     }
 
 
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
 }

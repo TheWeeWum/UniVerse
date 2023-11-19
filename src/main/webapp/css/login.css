@@ -42,7 +42,7 @@ form {
 }
 
 input[type="submit"] {
-    background-color: #0077b6; /* Custom background color */
+    background-color: #001234; /* Custom background color */
     color: #fff; /* Text color */
     padding: 10px 20px;
     border: none;
@@ -52,5 +52,29 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #000f93; /* Custom hover color */
+    background-color: #ff96ad; /* Custom hover color */
+    box-shadow: 0 0 5px #ff96ad, 0 0 25px #ff96ad, 0 0 50px #ff96ad, 0 0 200px #ff96ad; /* Custom hover effects */
+}
+
+/* Style for the error message frame */
+.error-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+/* Style for the error message itself */
+.error-message {
+    background-color: #ffcccc;
+    border: 1px solid #ff0000;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Style for the text inside the error message */
+.error-text {
+    color: #ff0000;
+    font-weight: bold;
+    text-align: center;
 }
