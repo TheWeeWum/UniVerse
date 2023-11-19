@@ -17,13 +17,13 @@ import java.util.Map;
 
 public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface {
 
-    private final Map<String, Integer> headers = new LinkedHashMap<>();
     private final Map<Integer, User> accounts;
-    private final String filePath = "UserData.json";
-    File file = new File("UserData.json");
-    /**
-     * The filePath must lead a json file with the right format suitable for gson to parse.
-     * */
+
+    // THE ABSOLUTE PATH IS DIFFERENT FOR EVERYONE. TO FIND IT, RIGHT CLICK ON THE UserData.json FILE,
+    // CLICK ON "COPY PATH/REFERENCE",
+    // Pick "ABSOLUTE PATH" and paste it below.
+    private final String filePath = "C:\\Users\\ivans\\IdeaProjects\\UniVerse\\UserData.json";
+
     public FileUserDataAccessObject() throws IOException {
         accounts = new HashMap<>();
         populateAccountsFromJson();
@@ -36,7 +36,7 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
             // Use the inputStream to read the file content
             // Example: You can use libraries like Gson or Jackson to parse the JSON content
 
-        try (Reader reader = new InputStreamReader(inputStream))
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath)))
         {
             Gson gson = new Gson();
             Type userType = new TypeToken<Map<Integer, LoggedInUser>>() {}.getType();
@@ -53,25 +53,11 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
         }
     }
 
-    // TODO I still have to fix it, as even though the code works when I test it locally,
-    //  it has trouble finding the file, and savig the user in it once I run it on the server, which is very weird.
-    //  Like, it works completely fine when you test ut from IntelliJ,
-    //  but refuses to save the user once you are on the server.
-
     @Override
     public void save(User user) {
-        System.out.println("Saving user: " + user.getUsername() + " " + user.getPassword());
         accounts.put(user.getId(), user);
         // UserData.json is our main file where users will be stored, so there's no reason
         // to pass an additional variable to the addUserToJsonFile method
-//        URL resourceUrl = getClass().getResource("/UserData.json");
-//        String filePath = resourceUrl != null ? resourceUrl.getPath() : null;
-//        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("UserData.json");
-//        System.out.println("File Path: " + inputStream); // Check the retrieved file path
-        //print every id of every user
-        //accounts.keySet().forEach(System.out::println);
-
-
         addUserToJsonFile();
     }
 
@@ -102,11 +88,11 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
      */
     public void addUserToJsonFile() {
 
-        try (Writer writer = new FileWriter(file)) {
+        try (Writer writer = new FileWriter(filePath)) {
             Gson gson = new Gson();
             gson.toJson(accounts, writer);
         } catch (IOException e) {
-            System.out.println("Error writing to file Vania: " + e.getMessage());
+            System.out.println("Error writing to file:" + e.getMessage());
         }
     }
 

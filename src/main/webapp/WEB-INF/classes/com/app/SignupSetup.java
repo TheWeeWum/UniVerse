@@ -21,11 +21,8 @@ import java.io.IOException;
 public class SignupSetup {
     public static SignupController setup(SignupServlet signupServlet) throws IOException {
         UserFactory userFactory = new CommonUserFactory();
-        FileUserDataAccessObject userDataAccessObject =
-                new FileUserDataAccessObject();
+        FileUserDataAccessObject userDataAccessObject = new FileUserDataAccessObject();
 
-        // Log that the program got to this place
-        System.out.println("SignupSetup.setup: userDataAccessObject = " + userDataAccessObject);
         SignupOutputBoundary presenter = new SignupPresenter(signupServlet);
         SignupInputBoundary interactor = new SignupInteractor(presenter, userFactory, userDataAccessObject);
 
