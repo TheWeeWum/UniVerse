@@ -22,6 +22,7 @@
         </div>
     </div>
     <a href="#about">About</a>
+    <a href="signup">Signup</a>
     <a href="login">Login</a>
     <a href="buildings">Buildings</a>
 

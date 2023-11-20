@@ -15,7 +15,7 @@ public class BuildingSetup {
         OpenBuildingsListOutputBoundary presenter = new OpenBuildingsListPresenter(buildingsListServlet);
 
         BuildingFactory buildingFactory = new BuildingFactory();
-        OpenBuildingsListDataAccessInterface dataAccess = new BuildingDataAccessObject("C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\buildings.json", buildingFactory);
+        OpenBuildingsListDataAccessInterface dataAccess = new BuildingDataAccessObject("/Users/raonkim/IdeaProjects/UniVerse/external-data/buildings.json", buildingFactory);
 
         OpenBuildingsListInputBoundary interactor = new OpenBuildingsListInteractor(dataAccess, presenter);
         return new OpenBuildingsListController(interactor);
