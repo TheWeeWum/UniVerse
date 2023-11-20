@@ -10,9 +10,6 @@ import com.use_case.display_markers.MarkerInputBoundary;
 import com.use_case.display_markers.MarkerInteractor;
 import com.use_case.display_markers.MarkerOutputBoundary;
 import com.view.MarkerServlet;
-import com.view.SignupServlet;
-
-import java.nio.file.Path;
 
 public class MarkerSetup {
     public static MarkerController setup(MarkerServlet markerServlet) {
