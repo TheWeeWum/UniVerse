@@ -1,4 +1,8 @@
 package com.use_case.open_buildings_list;
+import com.entity.building.Building;
 
-public class OpenBuildingsListDataAccessInterface {
+import java.util.List;
+
+public interface OpenBuildingsListDataAccessInterface {
+    List<Building> getBuildings();
 }
