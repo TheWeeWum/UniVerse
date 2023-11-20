@@ -3,9 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="css/standard_background.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/standard_background.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+
+    <script src="js/buildings.js"></script>
     <title>Login</title>
 </head>
 <body>
@@ -33,13 +37,7 @@
     <h1>Buildings</h1>
 </header>
 
-<section>
-
-</section>
-
-<a href="https://www.example.com" target="_blank">
-    <button>Go to Another Page</button>
-</a>
+<div id="buildings list"></div>
 
 </body>
 </html>

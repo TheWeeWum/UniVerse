@@ -42,12 +42,21 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>BuildingsServlet</servlet-name>
-        <servlet-class>com.view.BuildingsServlet</servlet-class>
+    <servlet-name>BuildingsServlet</servlet-name>
+    <servlet-class>com.view.BuildingsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BuildingsServlet</servlet-name>
         <url-pattern>/buildings</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuildingsListServlet</servlet-name>
+        <servlet-class>com.view.BuildingsListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingsListServlet</servlet-name>
+        <url-pattern>/buildings_list</url-pattern>
     </servlet-mapping>
 
     <servlet>
