@@ -35,18 +35,11 @@ public class SignupServlet extends HttpServlet {
         // sendToProfileScreen and signupFailed
         this.request = request;
         this.response = response;
-
-        // get the username password and repeatedPassword from the input
-        // fields in the jsp file.
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String repeatedPassword = request.getParameter("repeated password");
-
         // Initialize the loop for the use_case
         SignupController controller = SignupSetup.setup(this);
 
         // call the SignupController passing it the inputs
-        controller.execute(username, password, repeatedPassword);
+        controller.execute(request);
     }
 
     public void sendToProfileScreen(SignupOutputData outputData) throws IOException {
@@ -60,9 +53,9 @@ public class SignupServlet extends HttpServlet {
         response.sendRedirect("profile.jsp");
     }
 
-    public void signupFailed(SignupOutputData outputData) throws IOException {
-        // TODO: not implemented yet
-        response.sendRedirect("signup.jsp");
+    public void signupFailed(String message) throws IOException, ServletException {
+        request.setAttribute("errorMessage", message);
+        request.getRequestDispatcher("signup.jsp").forward(request, response);
     }
 
 }
