@@ -1,4 +1,4 @@
-package com.view;
+package com.view.User;
 
 import com.interface_adapter.signup.SignupController;
 import com.use_case.signup.SignupOutputData;
@@ -48,6 +48,7 @@ public class SignupServlet extends HttpServlet {
 
         // sets the username field on the jsp
         session.setAttribute("username", outputData.getUsername());
+        session.setAttribute("id", outputData.getID());
 
         // Redirect to the user profile page
         response.sendRedirect("profile.jsp");

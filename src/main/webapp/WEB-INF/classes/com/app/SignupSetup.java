@@ -10,7 +10,7 @@ import com.use_case.signup.SignupInputBoundary;
 import com.use_case.signup.SignupInteractor;
 import com.use_case.signup.SignupOutputBoundary;
 import com.use_case.signup.SignupUserDataAccessInterface;
-import com.view.SignupServlet;
+import com.view.User.SignupServlet;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;

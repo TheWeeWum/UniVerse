@@ -1,4 +1,4 @@
-package com.view;
+package com.view.Buildings;
 
 import com.entity.building.Building;
 import com.interface_adapter.open_buildings_list.OpenBuildingsListController;
