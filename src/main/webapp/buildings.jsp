@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>UniVerse</title>
     <link rel="stylesheet" href="css/standard_background.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/navbar.css">
@@ -10,7 +11,6 @@
     <link rel="stylesheet" href="css/header.css">
 
     <script src="js/buildings.js"></script>
-    <title>Login</title>
 </head>
 <body>
 <!--    NAVBAR-->
