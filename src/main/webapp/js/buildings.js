@@ -1,25 +1,31 @@
+document.addEventListener('DOMContentLoaded', function() {
+    loadMoreBuildings();
+});
 
-console.log("Hello, World!");
-// Fetch marker data from the servlet using AJAX
-fetch('buildings_list')
-    .then(response => response.json())
-    .then(buildingData => {
-        // Create markers based on the retrieved data
-        buildingData.forEach(function (buildingInfo) {
-            // Create a new section element
-            var newSection = document.createElement('section');
+let buildingsLoaded = 0;
 
-            // Set the content of the section
-            newSection.textContent = buildingInfo.name;
+function loadMoreBuildings() {
+    const container = document.getElementById('buildingsContainer');
 
-            // Append the new section to the container
-            document.getElementById('buildings list').appendChild(newSection);
+    // Fetch additional building data
+    fetch('buildings_list')
+        .then(response => response.json())
+        .then(buildingData => {
+            const nextBuildings = buildingData.slice(buildingsLoaded, buildingsLoaded + 7);
 
-            // var marker = new google.maps.Marker({
-            //     position: { lat: markerInfo.lat, lng: markerInfo.lng },
-            //     map: map,
-            //     title: markerInfo.title
-            // });
-        });
-    })
-    .catch(error => console.error('Error fetching marker data:', error));
+            // Load additional buildings
+            nextBuildings.forEach(buildingInfo => {
+                const newSection = document.createElement('section');
+                newSection.textContent = buildingInfo.name;
+                container.appendChild(newSection);
+            });
+
+            buildingsLoaded += nextBuildings.length;
+
+            // Show/hide the "Load More" button based on whether there are more buildings to load
+            if (buildingsLoaded >= buildingData.length) {
+                document.getElementById('loadMoreButton').style.display = 'none';
+            }
+        })
+        .catch(error => console.error('Error fetching building data:', error));
+}

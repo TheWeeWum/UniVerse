@@ -5,11 +5,10 @@
 <head>
     <title>UniVerse</title>
     <link rel="stylesheet" href="css/standard_background.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/buildings.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
-
     <script src="js/buildings.js"></script>
 </head>
 <body>
@@ -37,7 +36,10 @@
     <h1>Buildings</h1>
 </header>
 
-<div id="buildings list"></div>
+<!-- Container for building sections -->
+<div id="buildingsContainer"></div>
 
+<!-- Load More button -->
+<button id="loadMoreButton" onclick="loadMoreBuildings()">Load More Buildings ↓</button>
 </body>
 </html>
