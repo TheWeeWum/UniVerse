@@ -1,6 +1,8 @@
 package com.app;
 
 import com.data_access.BuildingDataAccessObject;
+import com.entity.building.BuildingFactory;
+import com.entity.map.MarkerFactory;
 import com.interface_adapter.marker.MarkerController;
 import com.interface_adapter.marker.MarkerPresenter;
 import com.use_case.display_markers.BuildingMarkerDataAccessInterface;
@@ -10,11 +12,15 @@ import com.use_case.display_markers.MarkerOutputBoundary;
 import com.view.MarkerServlet;
 import com.view.SignupServlet;
 
+import java.nio.file.Path;
+
 public class MarkerSetup {
     public static MarkerController setup(MarkerServlet markerServlet) {
         MarkerOutputBoundary presenter = new MarkerPresenter(markerServlet);
 
-        BuildingMarkerDataAccessInterface dataAccess = new BuildingDataAccessObject();
+        MarkerFactory markerFactory = new MarkerFactory();
+        BuildingFactory buildingFactory = new BuildingFactory();
+        BuildingMarkerDataAccessInterface dataAccess = new BuildingDataAccessObject("C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\buildings.json", markerFactory, buildingFactory);
 
         MarkerInputBoundary interactor = new MarkerInteractor(presenter, dataAccess);
         return new MarkerController(interactor);
