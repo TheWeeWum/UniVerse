@@ -11,7 +11,7 @@ public class OpenBuildingsListController {
     }
 
 
-    public void execute(String username, String password) {
+    public void execute() {
     openBuildingsListUseCaseInteractor.execute();
     }
 }

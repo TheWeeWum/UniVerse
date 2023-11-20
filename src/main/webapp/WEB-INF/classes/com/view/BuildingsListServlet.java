@@ -1,9 +1,11 @@
 package com.view;
 
+import com.app.BuildingSetup;
 import com.app.MarkerSetup;
 import com.entity.map.Marker;
 import com.entity.building.Building;
 import com.interface_adapter.marker.MarkerController;
+import com.interface_adapter.open_buildings_list.OpenBuildingsListController;
 import com.use_case.display_markers.MarkerOutputData;
 import com.use_case.open_buildings_list.OpenBuildingsListOutputData;
 
@@ -22,10 +24,10 @@ public class BuildingsListServlet extends HttpServlet {
         this.response = response;
 
         // Initialize the loop for the use_case
-
+        OpenBuildingsListController controller = BuildingSetup.setup(this);
 
         // call the SignupController passing it the inputs
-
+        controller.execute();
     }
 
     public void writeBuildings(OpenBuildingsListOutputData openBuildingsListOutputData) {
@@ -33,11 +35,13 @@ public class BuildingsListServlet extends HttpServlet {
         for (Building building : openBuildingsListOutputData.getBuildings()) {
             String name = building.getName();
 
-            buildingsJson.append(String.format("{ \"name\": \"%s\" }, ", name));
+            buildingsJson.append(String.format("{ \"name\": \"%s\" },", name));
         }
         // delete comma at the end
         buildingsJson.delete(buildingsJson.length() - 1, buildingsJson.length());
         buildingsJson.append("]");
+
+        System.out.println(buildingsJson);
 
         try {
             System.out.println("Trying to write buildings");
