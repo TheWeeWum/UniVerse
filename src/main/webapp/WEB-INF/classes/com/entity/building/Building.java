@@ -21,9 +21,9 @@ public class Building extends Reviewable {
      * @param name the name of the building.
      * @param shortname the abbreviation of the building's name
      * @param address the address of the building.
-     * @param rooms the list of ooms of the building.
+     * @param rooms the list of rooms of the building.
      * @param floors the list of floors of the building.
-     * @param location the location object to be attatched to the building
+     * @param location the location object to be attached to the building
      * @param pin of the building on the main map
      * @param reviews the list of reviews for the building.
      */
