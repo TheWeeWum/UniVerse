@@ -1,4 +1,4 @@
-package com.view;
+package com.view.User;
 
 import com.entity.user.LoggedInUser;
 

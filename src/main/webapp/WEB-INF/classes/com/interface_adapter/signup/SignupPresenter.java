@@ -2,7 +2,7 @@ package com.interface_adapter.signup;
 
 import com.use_case.signup.SignupOutputBoundary;
 import com.use_case.signup.SignupOutputData;
-import com.view.SignupServlet;
+import com.view.User.SignupServlet;
 
 import java.io.IOException;
 

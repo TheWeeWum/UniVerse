@@ -1,6 +1,8 @@
-package com.view;
+package com.view.MainMap;
 
 import com.app.MarkerSetup;
+import com.entity.building.Address;
+import com.entity.building.Location;
 import com.entity.map.Marker;
 import com.entity.building.Building;
 import com.interface_adapter.marker.MarkerController;
@@ -31,12 +33,35 @@ public class MarkerServlet extends HttpServlet {
         StringBuilder markerJson = new StringBuilder("[");
         for (Marker marker : markers.getMarkers()) {
             Building building = marker.getBuilding();
+
+            Location location = building.getLocation();
+            String code = building.getCode();
             String name = building.getName();
+            String shortname = building.getShortname();
+            String campus = building.getCampus();
+
+            Address address = building.getAddress();
+            String street = address.getStreet();
+            String city = address.getCity();
+            String province = address.getProvince();
+            String country = address.getCountry();
+            String postal = address.getPostal();
 
             float lat = marker.getLatitude();
             float lon = marker.getLongitude();
 
-            markerJson.append(String.format("{ \"lat\": %f, \"lng\": %f, \"title\": \"%s\" },", lat, lon, name));
+            markerJson.append(String.format("{ " +
+                    "\"name\": \"%s\", " +
+                    "\"code\": \"%s\", " +
+                    "\"campus\": \"%s\", " +
+                    "\"street\": \"%s\", " +
+                    "\"city\": \"%s\", " +
+                    "\"province\": \"%s\", " +
+                    "\"country\": \"%s\", " +
+                    "\"postal\": \"%s\", " +
+                    "\"lat\": %f, " +
+                    "\"lng\": %f " +
+                    "},", name, code, campus, street, city, province, country, postal, lat, lon));
         }
         markerJson.delete(markerJson.length()-1, markerJson.length());
         markerJson.append("]");

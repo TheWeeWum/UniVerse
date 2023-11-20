@@ -1,4 +1,4 @@
-package com.view;
+package com.view.User;
 
 import com.interface_adapter.signup.SignupController;
 import com.use_case.signup.SignupOutputData;

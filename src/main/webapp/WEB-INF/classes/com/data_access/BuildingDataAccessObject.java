@@ -1,7 +1,9 @@
 package com.data_access;
 
+import com.entity.building.Address;
 import com.entity.building.Building;
 import com.entity.building.BuildingFactory;
+import com.entity.building.Location;
 import com.entity.map.Marker;
 import com.entity.map.MarkerFactory;
 import com.google.gson.*;
@@ -43,21 +45,32 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
 
     @Override
     public List<Marker> getMarkers() {
-        // TODO Auto-generated method stub
         try {
             JsonObject jsonObject = JsonParser.parseReader(new FileReader(path)).getAsJsonObject();
             JsonArray jsonArr = jsonObject.getAsJsonArray("buildings");
 
             for (JsonElement temp : jsonArr) {
                 JsonObject b = temp.getAsJsonObject();
+
+                String code = b.get("code").getAsString();
+                String name = b.get("name").getAsString();
+                String shortName = b.get("short_name").getAsString();
+                String campus = b.get("campus").getAsString();
                 float lat = b.get("lat").getAsFloat();
                 float lon = b.get("lng").getAsFloat();
-                String name = b.get("name").getAsString();
-                // TODO: Fix this, probably need to create an address class
-                // Or at least parse this properly
-                // String address = b.get("address").getAsString();;
 
-                Building building = buildingFactory.create(name, "address");
+                // TODO: turn into a location builder call
+                Location location = new Location(lat, lon);
+
+                JsonObject jo = b.get("address").getAsJsonObject();
+                String street = jo.get("street").getAsString();
+                String city = jo.get("city").getAsString();
+                String province = jo.get("province").getAsString();
+                String country = jo.get("country").getAsString();
+                String postal = jo.get("postal").getAsString();
+                Address address = new Address(street, city, province, country, postal);
+
+                Building building = buildingFactory.create(code, name, shortName, campus, address, null, null, location, null);
                 buildings.add(building);
                 markers.add(markerFactory.create(building, lat, lon));
             }
@@ -77,12 +90,26 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
 
             for (JsonElement temp : jsonArr) {
                 JsonObject b = temp.getAsJsonObject();
-                String name = b.get("name").getAsString();
-                // TODO: Fix this, probably need to create an address class
-                // Or at least parse this properly
-                // String address = b.get("address").getAsString();;
 
-                Building building = buildingFactory.create(name, "address");
+                String code = b.get("code").getAsString();
+                String name = b.get("name").getAsString();
+                String shortName = b.get("short_name").getAsString();
+                String campus = b.get("campus").getAsString();
+                float lat = b.get("lat").getAsFloat();
+                float lon = b.get("lng").getAsFloat();
+
+                // TODO: turn into a location builder call
+                Location location = new Location(lat, lon);
+
+                JsonObject jo = b.get("address").getAsJsonObject();
+                String street = jo.get("street").getAsString();
+                String city = jo.get("city").getAsString();
+                String province = jo.get("province").getAsString();
+                String country = jo.get("country").getAsString();
+                String postal = jo.get("postal").getAsString();
+                Address address = new Address(street, city, province, country, postal);
+
+                Building building = buildingFactory.create(code, name, shortName, campus, address, null, null, location, null);
                 buildings.add(building);
             }
 

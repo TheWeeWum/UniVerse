@@ -1,4 +1,4 @@
-package com.view;
+package com.view.Buildings;
 
 import com.app.MarkerSetup;
 import com.entity.map.Marker;
@@ -20,12 +20,6 @@ public class BuildingsListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.request = request;
         this.response = response;
-
-        // Initialize the loop for the use_case
-
-
-        // call the SignupController passing it the inputs
-
     }
 
     public void writeBuildings(OpenBuildingsListOutputData openBuildingsListOutputData) {
@@ -40,7 +34,6 @@ public class BuildingsListServlet extends HttpServlet {
         buildingsJson.append("]");
 
         try {
-            System.out.println("Trying to write buildings");
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
             out.print(buildingsJson);

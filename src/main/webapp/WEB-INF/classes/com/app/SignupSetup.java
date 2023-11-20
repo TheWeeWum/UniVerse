@@ -5,7 +5,7 @@ import com.interface_adapter.signup.SignupPresenter;
 import com.use_case.signup.SignupInputBoundary;
 import com.use_case.signup.SignupInteractor;
 import com.use_case.signup.SignupOutputBoundary;
-import com.view.SignupServlet;
+import com.view.User.SignupServlet;
 
 public class SignupSetup {
     public static SignupController setup(SignupServlet signupServlet) {
