@@ -20,18 +20,21 @@ function initMap() {
                     document.getElementById('map').style.width = "70%";
                     document.getElementById('sidePanel').style.width = "30%";
                     // Update the side panel content when a marker is clicked
-                    sidePanel.innerHTML = '<h2>' + markerInfo.name + '</h2>' +
-                        '<h1> Building Information: </h1>' +
-                        '<p>' +
-                        'Building Code: ' + markerInfo.code + '<br>' +
-                        'Campus: ' + markerInfo.campus + '<br>' +
-                        'Street: ' + markerInfo.street + '<br>' +
-                        'City: ' + markerInfo.city + '<br>' +
-                        'Province: ' + markerInfo.province + '<br>' +
-                        'Country: ' + markerInfo.country + '<br>' +
-                        'Postal: ' + markerInfo.postal + '<br>' +
+                    sidePanel.innerHTML = '<h1>' + markerInfo.name + '</h1>' +
+                        '<h2> Building Information: </h2>' +
+                        '<p> Building Code: ' + markerInfo.code + '</p>' +
+                        '<p> Campus: ' + markerInfo.campus + '</p>' +
+                        '<p> ' +
+                        'Address: ' +
+                        markerInfo.street + '<br>' +
+                        markerInfo.city + ', ' +
+                        markerInfo.province + ', ' +
+                        markerInfo.country + ', ' +
+                        markerInfo.postal +
+                        '</p>' +
+                        '<p> ' +
                         'Lat ' + markerInfo.lat + ', ' +
-                        'Lng ' + markerInfo.lng + '<br>' +
+                        'Lng ' + markerInfo.lng +
                         '</p>';
                 });
             });
