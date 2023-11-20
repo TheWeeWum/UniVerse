@@ -1,4 +1,4 @@
-package com.view;
+package com.view.Buildings;
 
 import com.app.BuildingSetup;
 import com.app.MarkerSetup;

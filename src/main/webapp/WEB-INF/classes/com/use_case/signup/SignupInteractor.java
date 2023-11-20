@@ -55,7 +55,7 @@ public class SignupInteractor implements SignupInputBoundary {
     }
     private void prepareSuccess(SignupInputData inputData)
     {
-        SignupOutputData outputData = new SignupOutputData(inputData.getUsername());
+        SignupOutputData outputData = new SignupOutputData(inputData.getUsername(), inputData.getId());
         // send the output data to the presenter
         presenter.prepareSuccessView(outputData);
     }
