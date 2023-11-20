@@ -1,7 +1,8 @@
 package com.use_case.open_profile;
 
 public interface ProfileOutputBoundary {
-    void prepareGuestView();
 
-    void prepareUserView(ProfileOutputData user);
+    void prepareSuccessView(ProfileOutputData user);
+
+    void prepareGuestView();
 }
