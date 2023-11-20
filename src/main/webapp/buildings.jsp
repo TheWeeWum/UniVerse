@@ -19,7 +19,7 @@
     <div class="dropdown">
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
-            <a href="#favourites">Favourites</a>
+            <a href="favourites">Favourites</a>
             <a href="#userReviews">Reviews</a>
             <a href="profile">Profile</a>
         </div>
@@ -37,9 +37,12 @@
 </header>
 
 <!-- Container for building sections -->
-<div id="buildingsContainer"></div>
+<div id="buildingsContainer">
+</div>
 
 <!-- Load More button -->
-<button id="loadMoreButton" onclick="loadMoreBuildings()">Load More Buildings ↓</button>
+<button id="loadMoreButton" onclick="loadMoreBuildings()"> Load More Buildings ↓</button>
+
+
 </body>
 </html>

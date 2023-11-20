@@ -1,6 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    loadMoreBuildings();
-});
+document.addEventListener('DOMContentLoaded', function() { loadMoreBuildings(); });
 
 let buildingsLoaded = 0;
 
@@ -18,6 +16,12 @@ function loadMoreBuildings() {
                 const newSection = document.createElement('section');
                 newSection.textContent = buildingInfo.name;
                 container.appendChild(newSection);
+                newSection.addEventListener('click', () => document.location.href = "https://www.google.com/search?q=" + buildingInfo.name)
+
+                // const button = document.createElement('button')
+                // button.innerText = 'More Information'
+                // newSection.appendChild(button)
+
             });
 
             buildingsLoaded += nextBuildings.length;

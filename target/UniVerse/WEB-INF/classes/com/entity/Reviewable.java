@@ -45,6 +45,9 @@ public abstract class Reviewable {
     }
 
     private float calculateRating() {
+        if (reviews == null) {
+            return 0;
+        }
         float total = 0;
         int numOfReviews = 0;
         for (Review r : reviews) {

@@ -32,11 +32,15 @@ public class MarkerServlet extends HttpServlet {
         for (Marker marker : markers.getMarkers()) {
             Building building = marker.getBuilding();
             String name = building.getName();
+
             float lat = marker.getLatitude();
             float lon = marker.getLongitude();
+
             markerJson.append(String.format("{ \"lat\": %f, \"lng\": %f, \"title\": \"%s\" },", lat, lon, name));
         }
+        markerJson.delete(markerJson.length()-1, markerJson.length());
         markerJson.append("]");
+        System.out.println(markerJson);
 
         try {
             response.setContentType("application/json");
