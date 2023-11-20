@@ -1,10 +1,13 @@
 package com.view;
 
+import com.app.BuildingSetup;
 import com.app.MarkerSetup;
 import com.entity.map.Marker;
 import com.entity.building.Building;
 import com.interface_adapter.marker.MarkerController;
+import com.interface_adapter.open_buildings_list.OpenBuildingsListController;
 import com.use_case.display_markers.MarkerOutputData;
+import com.use_case.open_buildings_list.OpenBuildingsListOutputData;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MarkerServlet extends HttpServlet {
+public class BuildingsListServlet extends HttpServlet {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
@@ -21,34 +24,33 @@ public class MarkerServlet extends HttpServlet {
         this.response = response;
 
         // Initialize the loop for the use_case
-        MarkerController controller = MarkerSetup.setup(this);
+        OpenBuildingsListController controller = BuildingSetup.setup(this);
 
         // call the SignupController passing it the inputs
         controller.execute();
     }
 
-    public void writeMarkers(MarkerOutputData markers) {
-        StringBuilder markerJson = new StringBuilder("[");
-        for (Marker marker : markers.getMarkers()) {
-            Building building = marker.getBuilding();
+    public void writeBuildings(OpenBuildingsListOutputData openBuildingsListOutputData) {
+        StringBuilder buildingsJson = new StringBuilder("[");
+        for (Building building : openBuildingsListOutputData.getBuildings()) {
             String name = building.getName();
 
-            float lat = marker.getLatitude();
-            float lon = marker.getLongitude();
-
-            markerJson.append(String.format("{ \"lat\": %f, \"lng\": %f, \"title\": \"%s\" },", lat, lon, name));
+            buildingsJson.append(String.format("{ \"name\": \"%s\" },", name));
         }
-        markerJson.delete(markerJson.length()-1, markerJson.length());
-        markerJson.append("]");
-        System.out.println(markerJson);
+        // delete comma at the end
+        buildingsJson.delete(buildingsJson.length() - 1, buildingsJson.length());
+        buildingsJson.append("]");
+
+        System.out.println(buildingsJson);
 
         try {
+            System.out.println("Trying to write buildings");
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
-            out.print(markerJson);
+            out.print(buildingsJson);
             out.flush();
         } catch (IOException e) {
-            System.out.println("Could not write markers");
+            System.out.println("Could not write buildings");
         }
     }
 }
