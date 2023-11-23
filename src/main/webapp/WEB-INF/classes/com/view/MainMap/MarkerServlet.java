@@ -3,7 +3,6 @@ package com.view.MainMap;
 import com.app.MarkerSetup;
 import com.entity.building.Address;
 import com.entity.building.Location;
-import com.entity.map.Marker;
 import com.entity.building.Building;
 import com.interface_adapter.marker.MarkerController;
 import com.use_case.display_markers.MarkerOutputData;
@@ -29,10 +28,9 @@ public class MarkerServlet extends HttpServlet {
         controller.execute();
     }
 
-    public void writeMarkers(MarkerOutputData markers) {
+    public void writeMarkers(MarkerOutputData buildings) {
         StringBuilder markerJson = new StringBuilder("[");
-        for (Marker marker : markers.getMarkers()) {
-            Building building = marker.getBuilding();
+        for (Building building : buildings.getBuildings()) {
 
             Location location = building.getLocation();
             String code = building.getCode();
@@ -47,8 +45,8 @@ public class MarkerServlet extends HttpServlet {
             String country = address.getCountry();
             String postal = address.getPostal();
 
-            float lat = marker.getLatitude();
-            float lon = marker.getLongitude();
+            float lat = location.getLatitude();
+            float lon = location.getLongitude();
 
             markerJson.append(String.format("{ " +
                     "\"name\": \"%s\", " +
