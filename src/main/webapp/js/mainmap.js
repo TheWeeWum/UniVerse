@@ -35,6 +35,10 @@ function initMap() {
                         '<p> ' +
                         'Lat ' + markerInfo.lat + ', ' +
                         'Lng ' + markerInfo.lng +
+                        '</p>' +
+                        '<p>GoogleMaps: ' +
+                        '<a href="https://www.google.com/maps/search/?api=1&query="' +
+                        markerInfo.name + markerInfo.city + '></a>' +
                         '</p>';
                 });
             });

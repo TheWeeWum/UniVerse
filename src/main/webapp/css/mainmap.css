@@ -14,12 +14,14 @@
 }
 
 #sidePanel h1 {
+    padding-inline: 18px;
     padding-bottom: 4px;
     background-color: #222;
     text-align: center;
 }
 
 #sidePanel h2 {
+    padding-inline: 18px;
     padding-bottom: 4px;
     background-color: #222;
     text-align: center;
@@ -27,6 +29,7 @@
 
 
 #sidePanel p {
+    padding-inline: 18px;
     padding-bottom: 4px;
     background-color: #222;
     text-align: left;
