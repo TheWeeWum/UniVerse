@@ -1,6 +1,7 @@
 package com.entity.room;
 
 import com.entity.Reviewable;
+import com.entity.event.Event;
 import com.entity.review.Review;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public class Room extends Reviewable {
     private final String floor;
     private final int capacity;
     private final boolean outletsAvailable;
+    private List<Event> events;
 
 
     /**
@@ -20,13 +22,15 @@ public class Room extends Reviewable {
      * @param reviews the list of reviews that people have left for the room
      * @param outletsAvailable whether the room has outlets available or not
      *                         (If you don't include this it will default to false)
+     * @param events the list of events taking place in this room
      */
-    public Room(String roomNumber, String floor, int capacity, List<Review> reviews, boolean outletsAvailable) {
+    public Room(String roomNumber, String floor, int capacity, List<Review> reviews, List<Event> events, boolean outletsAvailable) {
         super(reviews);
         this.roomNumber = roomNumber;
         this.floor = floor;
         this.capacity = capacity;
         this.outletsAvailable = outletsAvailable;
+        this.events = events;
     }
 
     /**
@@ -34,13 +38,15 @@ public class Room extends Reviewable {
      * @param floor the floor the room is on (String)
      * @param capacity the capacity of the room
      * @param reviews the list of reviews that people have left for the room
+     * @param events the list of events taking place in this room
      */
-    public Room(String roomNumber, String floor, int capacity, List<Review> reviews) {
+    public Room(String roomNumber, String floor, int capacity, List<Review> reviews, List<Event> events) {
         super(reviews);
         this.roomNumber = roomNumber;
         this.floor = floor;
         this.capacity = capacity;
         this.outletsAvailable = false;
+        this.events = events;
     }
 
     /**
@@ -69,5 +75,13 @@ public class Room extends Reviewable {
      */
     public boolean getOutletAvailable() {
         return outletsAvailable;
+    }
+
+    /**
+     * Gets the list of events taking place in this room.
+     * @return the list of events taking place in this room.
+     */
+    public List<Event> getEvents() {
+        return events;
     }
 }

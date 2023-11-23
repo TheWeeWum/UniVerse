@@ -1,6 +1,7 @@
 package com.entity.building;
 
 import com.entity.Reviewable;
+import com.entity.event.Event;
 import com.entity.map.Pin;
 import com.entity.review.Review;
 import com.entity.room.Room;
@@ -17,6 +18,7 @@ public class Building extends Reviewable {
     private final List<Room> rooms;
     private final List<String> floors;
     private final Location location;
+    private List<Event> events;
 
     /**
      * @param code the code name of the building (MB).
@@ -28,8 +30,9 @@ public class Building extends Reviewable {
      * @param floors the list of floors of the building.
      * @param location the location object to be attached to the building
      * @param reviews the list of reviews for the building.
+     * @param events the list of events taking place in this building.
      */
-    public Building(String code, String name, String shortname, String campus, Address address, List<Room> rooms, List<String> floors, Location location, List<Review> reviews) {
+    public Building(String code, String name, String shortname, String campus, Address address, List<Room> rooms, List<String> floors, Location location, List<Review> reviews, List<Event> events) {
         super(reviews);
         this.code = code;
         this.name = name;
@@ -39,6 +42,7 @@ public class Building extends Reviewable {
         this.rooms = rooms;
         this.floors = floors;
         this.location = location;
+        this.events = events;
     }
 
     /**
@@ -135,4 +139,13 @@ public class Building extends Reviewable {
     public Location getLocation() {
         return location;
     }
+
+    /**
+     * Gets the list of events taking place at this building.
+     * @return the list of events taking place at this building.
+     */
+    public List<Event> getEvents() {
+        return events;
+    }
+
 }

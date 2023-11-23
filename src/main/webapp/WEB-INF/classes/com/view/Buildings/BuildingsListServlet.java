@@ -1,12 +1,8 @@
 package com.view.Buildings;
 
 import com.app.BuildingSetup;
-import com.app.MarkerSetup;
-import com.entity.map.Marker;
 import com.entity.building.Building;
-import com.interface_adapter.marker.MarkerController;
 import com.interface_adapter.open_buildings_list.OpenBuildingsListController;
-import com.use_case.display_markers.MarkerOutputData;
 import com.use_case.open_buildings_list.OpenBuildingsListOutputData;
 
 import java.io.IOException;
