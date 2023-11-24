@@ -80,7 +80,6 @@ public class MarkerServlet extends HttpServlet {
         }
         markerJson.delete(markerJson.length()-1, markerJson.length());
         markerJson.append("]");
-        System.out.println(markerJson);
 
         try {
             response.setContentType("application/json");

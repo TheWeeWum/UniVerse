@@ -28,6 +28,7 @@ public class BuildingsListServlet extends HttpServlet {
 
     public void writeBuildings(OpenBuildingsListOutputData openBuildingsListOutputData) {
         StringBuilder buildingsJson = new StringBuilder("[");
+
         for (Building building : openBuildingsListOutputData.getBuildings()) {
             String name = building.getName();
 
