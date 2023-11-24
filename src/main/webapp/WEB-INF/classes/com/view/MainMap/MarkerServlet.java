@@ -4,11 +4,13 @@ import com.app.MarkerSetup;
 import com.entity.building.Address;
 import com.entity.building.Location;
 import com.entity.building.Building;
+import com.entity.event.Event;
 import com.interface_adapter.marker.MarkerController;
 import com.use_case.display_markers.MarkerOutputData;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,6 +50,8 @@ public class MarkerServlet extends HttpServlet {
             float lat = location.getLatitude();
             float lon = location.getLongitude();
 
+            List<Event> events = building.getEvents();
+
             markerJson.append(String.format("{ " +
                     "\"name\": \"%s\", " +
                     "\"code\": \"%s\", " +
@@ -58,8 +62,21 @@ public class MarkerServlet extends HttpServlet {
                     "\"country\": \"%s\", " +
                     "\"postal\": \"%s\", " +
                     "\"lat\": %f, " +
-                    "\"lng\": %f " +
-                    "},", name, code, campus, street, city, province, country, postal, lat, lon));
+                    "\"lng\": %f, " +
+                    "\"events\": [ ",
+                    name, code, campus, street, city, province, country, postal, lat, lon));
+            for (Event event : events) {
+                markerJson.append(String.format("{" +
+                        "\"building\": \"%s\"," +
+                        "\"room\": \"%s\"," +
+                        "\"name\":\"%s\"," +
+                        "\"organizer\":\"%s\"," +
+                        "\"date\":\"%s\"" +
+                        "},",
+                        code, event.getLocation(), event.getName(), event.getOrganizer(), event.getDate()));
+            }
+            markerJson.delete(markerJson.length()-1, markerJson.length());
+            markerJson.append("]},");
         }
         markerJson.delete(markerJson.length()-1, markerJson.length());
         markerJson.append("]");

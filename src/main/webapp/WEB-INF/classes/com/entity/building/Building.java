@@ -148,4 +148,11 @@ public class Building extends Reviewable {
         return events;
     }
 
+    /**
+     * Gets the string representation of the Building object.
+     * @return the string representation of the Building object.
+     */
+    public String toString() {
+        return name;
+    }
 }

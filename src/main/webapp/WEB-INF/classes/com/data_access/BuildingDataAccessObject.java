@@ -53,7 +53,7 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
 
                 // get location information
                 float lat = b.get("lat").getAsFloat();
-                float lon = b.get("lng").getAsFloat();
+                float lon = b.get("lng").getAsFloat();;
                 // TODO: turn into a location builder call
                 Location location = new Location(lat, lon);
 
@@ -69,21 +69,23 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
 
                 // get events information
                 List<Event> events = new ArrayList<>();
-                JsonArray eventsInBuilding = jsonEvents.get(code).getAsJsonArray();
-                for (JsonElement eventElement : eventsInBuilding) {
-                    JsonObject eo = eventElement.getAsJsonObject();
-                    String ename = eo.get("name").getAsString();
-                    String organizer = eo.get("organizer").getAsString();
-                    String dateStr = eo.get("date").getAsString();
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    Date date = sdf.parse(dateStr);
-                    Event event = eventFactory.create(ename, organizer, null, date);
-                    events.add(event);
+                try {
+                    JsonArray eventsInBuilding = jsonEvents.get(code).getAsJsonObject().get("events").getAsJsonArray();
+                    for (JsonElement eventElement : eventsInBuilding) {
+                        JsonObject eo = eventElement.getAsJsonObject();
+                        String ename = eo.get("name").getAsString();
+                        String organizer = eo.get("organizer").getAsString();
+                        String dateStr = eo.get("date").getAsString();
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        Date date = sdf.parse(dateStr);
+                        Event event = eventFactory.create(ename, organizer, null, date);
+                        events.add(event);
+                    }
+                } catch (NullPointerException e) {
+                    // event list was hopefully empty
                 }
-
                 // create building
                 Building building = buildingFactory.create(code, name, shortName, campus, address, null, null, location, null, events);
-
                 // add building to event so we have 2 way connections
                 for (Event event : events) {
                     event.setLocation(building);

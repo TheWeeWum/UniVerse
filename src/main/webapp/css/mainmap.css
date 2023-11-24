@@ -5,6 +5,7 @@
 }
 
 #sidePanel {
+    overflow-y: auto;
     height: 600px;
     width: 0;
     float: right;

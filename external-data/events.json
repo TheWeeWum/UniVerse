@@ -18,10 +18,14 @@
     ]
   },
   "HH": {
-    "building": "HH",
-    "room": "testroom",
-    "name": "Chess Club",
-    "organizer": "PHYSU",
-    "date": "2023-12-25 12:00:00"
+    "events": [
+      {
+        "building": "HH",
+        "room": "testroom",
+        "name": "Chess Club",
+        "organizer": "PHYSU",
+        "date": "2023-12-25 12:00:00"
+      }
+    ]
   }
 }

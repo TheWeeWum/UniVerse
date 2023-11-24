@@ -84,4 +84,12 @@ public class Room extends Reviewable {
     public List<Event> getEvents() {
         return events;
     }
+
+    /**
+     * Gets the string representation of the Room object.
+     * @return the string representation of the Room object.
+     */
+    public String toString() {
+        return roomNumber;
+    }
 }

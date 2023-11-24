@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BuildingFactory {
     public Building create(String code, String name, String shortname, String campus, Address address, List<Room> rooms, List<String> floor, Location location, List<Review> reviews, List<Event> events) {
-        return new Building(code, name, shortname, campus, address, null, null, null, null, events);
+        return new Building(code, name, shortname, campus, address, rooms, floor, location, reviews, events);
     }
 
 }
