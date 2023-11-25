@@ -11,7 +11,7 @@ public class EventsPageServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String buildingCode = request.getParameter("location");
+        String buildingCode = request.getParameter("buildingCode");
         HttpSession session = request.getSession();
 
         session.setAttribute("buildingCode", buildingCode);

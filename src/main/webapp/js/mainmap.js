@@ -31,7 +31,7 @@ function initMap() {
                         if (event.room !== '') {
                             eventstr +=
                                 'Event name: ' + event.name + '<br>' +
-                                'room: ' + event.room + '<br>' +
+                                'Room: ' + event.room + '<br>' +
                                 'Organizer: ' + event.organizer + '<br>' +
                                 'Event date: ' + event.date + '<br><br>';
                         } else {
@@ -41,6 +41,17 @@ function initMap() {
                                 'Event date: ' + event.date + '<br><br>';
                         }
                     }
+
+
+                    var reviewstr = ""
+                    // TODO: undo comment
+                    // for (let i = 0; markerInfo.reviews.length; i++) {
+                    //     var review = markerInfo.reviews[i];
+                    //     reviewstr +=
+                    //         'User id: ' + review.userid + '<br>' +
+                    //         'Date: ' + review.date + '<br>'
+                    //         'Comment: ' + review.content + '<br><br>';
+                    // }
 
                     // Update the side panel content when a marker is clicked
                     sidePanel.innerHTML = '<h1>' + markerInfo.name + '</h1>' +
@@ -60,7 +71,8 @@ function initMap() {
                         'Lng ' + markerInfo.lng +
                         '</p>' +
                         '<p>GoogleMaps: <a href=https://www.google.com/maps/search/?api=1&query=' + addr + '>Link to GoogleMaps</a></p>' +
-                        '<h2><a href=events?location=' + markerInfo.code + '>Events:</a><br></h2><p>' + eventstr + '</p>' +
+                        '<h2><a href=events?buildingCode=' + markerInfo.code + '>Events:</a><br></h2><p>' + eventstr + '</p>' +
+                        '<h2><a href=reviews?buildingCode=' + markerInfo.code + '>Reviews:</a><br></h2><p>' + reviewstr + '</p>' +
                         '';
                 });
             });
