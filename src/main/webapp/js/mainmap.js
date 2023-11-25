@@ -31,7 +31,7 @@ function initMap() {
                         if (event.room !== '') {
                             eventstr +=
                                 'Event name: ' + event.name + '<br>' +
-                                'room: ' + event.room + '<br>' +
+                                'Room: ' + event.room + '<br>' +
                                 'Organizer: ' + event.organizer + '<br>' +
                                 'Event date: ' + event.date + '<br><br>';
                         } else {

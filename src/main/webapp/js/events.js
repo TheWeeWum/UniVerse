@@ -10,21 +10,21 @@ function loadMoreEvents() {
     // Fetch additional building data
     fetch('building_events')
         .then(response => response.json())
-        .then(buildingData => {
-            console.log(buildingData)
-            const nextBuildings = buildingData.slice(buildingsLoaded, buildingsLoaded + 7);
+        .then(eventData => {
+            console.log(eventData)
+            const nextEvents = eventData.slice(buildingsLoaded, buildingsLoaded + 7);
 
             // Load additional buildings
-            nextBuildings.forEach(buildingInfo => {
+            nextEvents.forEach(eventInfo => {
                 const newSection = document.createElement('section');
-                newSection.textContent = buildingInfo.name;
+                newSection.textContent = eventInfo.name;
                 container.appendChild(newSection);
             });
 
-            buildingsLoaded += nextBuildings.length;
+            buildingsLoaded += nextEvents.length;
 
             // Show/hide the "Load More" button based on whether there are more buildings to load
-            if (buildingsLoaded >= buildingData.length) {
+            if (buildingsLoaded >= eventData.length) {
                 document.getElementById('loadMoreButton').style.display = 'none';
             }
         })
