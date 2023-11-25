@@ -3,8 +3,6 @@ package com.view.MainMap;
 import com.app.MarkerSetup;
 import com.entity.building.Address;
 import com.entity.building.Location;
-import com.entity.map.Marker;
-import com.entity.building.Building;
 import com.entity.building.Building;
 import com.entity.event.Event;
 import com.interface_adapter.marker.MarkerController;

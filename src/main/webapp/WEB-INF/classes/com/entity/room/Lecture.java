@@ -1,5 +1,6 @@
 package com.entity.room;
 
+import com.entity.event.Event;
 import com.entity.review.Review;
 
 import java.util.List;
@@ -13,8 +14,8 @@ public class Lecture extends Room {
      * @param outletsAvailable whether the room has outlets available or not
      *                         (If you don't include this it will default to false)
      */
-    public Lecture(String roomNumber, String floor, int capacity, List<Review> reviews, boolean outletsAvailable) {
-        super(roomNumber, floor, capacity, reviews, outletsAvailable);
+    public Lecture(String roomNumber, String floor, int capacity, List<Review> reviews, List<Event> events, boolean outletsAvailable) {
+        super(roomNumber, floor, capacity, reviews, events, outletsAvailable);
     }
 
     /**
@@ -23,7 +24,7 @@ public class Lecture extends Room {
      * @param capacity the capacity of the room
      * @param reviews the list of reviews that people have left for the room
      */
-    public Lecture(String roomNumber, String floor, int capacity, List<Review> reviews) {
-        super(roomNumber, floor, capacity, reviews);
+    public Lecture(String roomNumber, String floor, int capacity, List<Review> reviews, List<Event> events) {
+        super(roomNumber, floor, capacity, reviews, events);
     }
 }
