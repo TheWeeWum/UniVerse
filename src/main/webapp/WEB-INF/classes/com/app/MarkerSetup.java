@@ -17,7 +17,7 @@ public class MarkerSetup {
 
         MarkerFactory markerFactory = new MarkerFactory();
         BuildingFactory buildingFactory = new BuildingFactory();
-        BuildingMarkerDataAccessInterface dataAccess = new BuildingDataAccessObject("C:\\Users\\evan_\\Documents\\UofT\\year2\\csc207\\IdeaProjects\\UniVerse\\external-data\\buildings.json", markerFactory, buildingFactory);
+        BuildingMarkerDataAccessInterface dataAccess = new BuildingDataAccessObject("/Users/raonkim/IdeaProjects/UniVerse/external-data/buildings.json", markerFactory, buildingFactory);
 
         MarkerInputBoundary interactor = new MarkerInteractor(presenter, dataAccess);
         return new MarkerController(interactor);

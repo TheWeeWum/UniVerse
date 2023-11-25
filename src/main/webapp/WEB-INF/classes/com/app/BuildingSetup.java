@@ -8,7 +8,7 @@ import com.use_case.open_buildings_list.OpenBuildingsListDataAccessInterface;
 import com.use_case.open_buildings_list.OpenBuildingsListInputBoundary;
 import com.use_case.open_buildings_list.OpenBuildingsListInteractor;
 import com.use_case.open_buildings_list.OpenBuildingsListOutputBoundary;
-import com.view.BuildingsListServlet;
+import com.view.Buildings.BuildingsListServlet;
 
 public class BuildingSetup {
     public static OpenBuildingsListController setup(BuildingsListServlet buildingsListServlet) {

@@ -1,5 +1,7 @@
 package com.use_case.signup;
 
 public interface SignupOutputBoundary {
-    void execute(SignupOutputData outputData);
+
+    void prepareFailView(String s);
+    void prepareSuccessView(SignupOutputData outputData);
 }

@@ -13,15 +13,29 @@ function initMap() {
                 var marker = new google.maps.Marker({
                     position: { lat: markerInfo.lat, lng: markerInfo.lng },
                     map: map,
-                    title: markerInfo.title
+                    title: markerInfo.name
                 });
 
                 marker.addListener('click', function () {
                     document.getElementById('map').style.width = "70%";
                     document.getElementById('sidePanel').style.width = "30%";
                     // Update the side panel content when a marker is clicked
-                    sidePanel.innerHTML = '<h2>' + markerInfo.title + '</h2>' +
-                        '<p>Marker Information: Lat ' + markerInfo.lat + ', Lng ' + markerInfo.lng + '</p>';
+                    sidePanel.innerHTML = '<h1>' + markerInfo.name + '</h1>' +
+                        '<h2> Building Information: </h2>' +
+                        '<p> Building Code: ' + markerInfo.code + '</p>' +
+                        '<p> Campus: ' + markerInfo.campus + '</p>' +
+                        '<p> ' +
+                        'Address: ' +
+                        markerInfo.street + '<br>' +
+                        markerInfo.city + ', ' +
+                        markerInfo.province + ', ' +
+                        markerInfo.country + ', ' +
+                        markerInfo.postal +
+                        '</p>' +
+                        '<p> ' +
+                        'Lat ' + markerInfo.lat + ', ' +
+                        'Lng ' + markerInfo.lng +
+                        '</p>';
                 });
             });
         })
