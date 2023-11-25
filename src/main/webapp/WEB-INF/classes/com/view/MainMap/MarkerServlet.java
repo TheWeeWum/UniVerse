@@ -3,13 +3,14 @@ package com.view.MainMap;
 import com.app.MarkerSetup;
 import com.entity.building.Address;
 import com.entity.building.Location;
-import com.entity.map.Marker;
 import com.entity.building.Building;
+import com.entity.event.Event;
 import com.interface_adapter.marker.MarkerController;
 import com.use_case.display_markers.MarkerOutputData;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,10 +30,9 @@ public class MarkerServlet extends HttpServlet {
         controller.execute();
     }
 
-    public void writeMarkers(MarkerOutputData markers) {
+    public void writeMarkers(MarkerOutputData buildings) {
         StringBuilder markerJson = new StringBuilder("[");
-        for (Marker marker : markers.getMarkers()) {
-            Building building = marker.getBuilding();
+        for (Building building : buildings.getBuildings()) {
 
             Location location = building.getLocation();
             String code = building.getCode();
@@ -47,8 +47,10 @@ public class MarkerServlet extends HttpServlet {
             String country = address.getCountry();
             String postal = address.getPostal();
 
-            float lat = marker.getLatitude();
-            float lon = marker.getLongitude();
+            float lat = location.getLatitude();
+            float lon = location.getLongitude();
+
+            List<Event> events = building.getEvents();
 
             markerJson.append(String.format("{ " +
                     "\"name\": \"%s\", " +
@@ -60,12 +62,24 @@ public class MarkerServlet extends HttpServlet {
                     "\"country\": \"%s\", " +
                     "\"postal\": \"%s\", " +
                     "\"lat\": %f, " +
-                    "\"lng\": %f " +
-                    "},", name, code, campus, street, city, province, country, postal, lat, lon));
+                    "\"lng\": %f, " +
+                    "\"events\": [ ",
+                    name, code, campus, street, city, province, country, postal, lat, lon));
+            for (Event event : events) {
+                markerJson.append(String.format("{" +
+                        "\"building\": \"%s\"," +
+                        "\"room\": \"%s\"," +
+                        "\"name\":\"%s\"," +
+                        "\"organizer\":\"%s\"," +
+                        "\"date\":\"%s\"" +
+                        "},",
+                        code, event.getLocation(), event.getName(), event.getOrganizer(), event.getDate()));
+            }
+            markerJson.delete(markerJson.length()-1, markerJson.length());
+            markerJson.append("]},");
         }
         markerJson.delete(markerJson.length()-1, markerJson.length());
         markerJson.append("]");
-        System.out.println(markerJson);
 
         try {
             response.setContentType("application/json");

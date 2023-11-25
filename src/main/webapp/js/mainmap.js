@@ -19,6 +19,29 @@ function initMap() {
                 marker.addListener('click', function () {
                     document.getElementById('map').style.width = "70%";
                     document.getElementById('sidePanel').style.width = "30%";
+                    var address = markerInfo.street.split(' ');
+                    var addr = "";
+                    for (let i = 0; i < address.length; i++) {
+                        addr += address[i] + "+";
+                    }
+
+                    var eventstr = ""
+                    for (let i = 0; i < markerInfo.events.length; i++) {
+                        var event = markerInfo.events[i];
+                        if (event.room !== '') {
+                            eventstr +=
+                                'Event name: ' + event.name + '<br>' +
+                                'room: ' + event.room + '<br>' +
+                                'Organizer: ' + event.organizer + '<br>' +
+                                'Event date: ' + event.date + '<br><br>';
+                        } else {
+                            eventstr +=
+                                'Event name: ' + event.name + '<br>' +
+                                'Organizer: ' + event.organizer + '<br>' +
+                                'Event date: ' + event.date + '<br><br>';
+                        }
+                    }
+
                     // Update the side panel content when a marker is clicked
                     sidePanel.innerHTML = '<h1>' + markerInfo.name + '</h1>' +
                         '<h2> Building Information: </h2>' +
@@ -35,7 +58,10 @@ function initMap() {
                         '<p> ' +
                         'Lat ' + markerInfo.lat + ', ' +
                         'Lng ' + markerInfo.lng +
-                        '</p>';
+                        '</p>' +
+                        '<p>GoogleMaps: <a href=https://www.google.com/maps/search/?api=1&query=' + addr + '>Link to GoogleMaps</a></p>' +
+                        '<h2><a href=events?location=' + markerInfo.code + '>Events:</a><br></h2><p>' + eventstr + '</p>' +
+                        '';
                 });
             });
         })

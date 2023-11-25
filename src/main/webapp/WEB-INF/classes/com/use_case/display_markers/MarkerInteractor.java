@@ -1,8 +1,6 @@
 package com.use_case.display_markers;
 
-import com.data_access.BuildingDataAccessObject;
-import com.use_case.signup.SignupOutputBoundary;
-import com.entity.map.Marker;
+import com.entity.building.Building;
 
 import java.util.List;
 
@@ -20,10 +18,10 @@ public class MarkerInteractor implements MarkerInputBoundary {
         // No input data
 
         // get the markers from the database
-        List<Marker> markers = dataAccess.getMarkers();
+        List<Building> buildings = dataAccess.getBuildings();
 
         // compile into a output data object
-        MarkerOutputData outputData = new MarkerOutputData(markers);
+        MarkerOutputData outputData = new MarkerOutputData(buildings);
 
         // set back up the chain
         markerPresenter.execute(outputData);
