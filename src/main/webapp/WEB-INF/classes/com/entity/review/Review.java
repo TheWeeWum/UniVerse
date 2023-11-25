@@ -1,5 +1,6 @@
 package com.entity.review;
 
+import com.entity.Reviewable;
 import com.entity.user.LoggedInUser;
 import com.entity.user.User;
 
@@ -19,7 +20,7 @@ public class Review {
      * @param content the content of the review (String format only)
      * @param rating the rating of the review
      */
-    public Review(LoggedInUser user, Date timeWritten, String title, String content, float rating) {
+    public Review(User user, Date timeWritten, String title, String content, float rating) {
         this.user = user;
         this.timeWritten = timeWritten;
         this.title = title;

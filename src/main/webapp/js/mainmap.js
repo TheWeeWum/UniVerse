@@ -44,14 +44,16 @@ function initMap() {
 
 
                     var reviewstr = ""
-                    // TODO: undo comment
+                    // TODO uncomment
                     // for (let i = 0; markerInfo.reviews.length; i++) {
                     //     var review = markerInfo.reviews[i];
                     //     reviewstr +=
-                    //         'User id: ' + review.userid + '<br>' +
-                    //         'Date: ' + review.date + '<br>'
+                    //         'User id: ' + review.user + '<br>' +
+                    //         'Date: ' + review.date + '<br>' +
+                    //         'Title: ' + review.title + '<br>' +
+                    //         'Rating: ' + review.rating + '<br>' +
                     //         'Comment: ' + review.content + '<br><br>';
-                    // }
+                    //}
 
                     // Update the side panel content when a marker is clicked
                     sidePanel.innerHTML = '<h1>' + markerInfo.name + '</h1>' +
