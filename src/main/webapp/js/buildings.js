@@ -13,14 +13,12 @@ function loadMoreBuildings() {
 
             // Load additional buildings
             nextBuildings.forEach(buildingInfo => {
-                const newSection = document.createElement('section');
-                newSection.textContent = buildingInfo.name;
-                container.appendChild(newSection);
-                newSection.addEventListener('click', () => document.location.href = "https://www.google.com/search?q=" + buildingInfo.name)
+                var text = '' + '<h3><a href=building?buildingCode=' + buildingInfo.code + '>' + buildingInfo.name + '</a></h3>'
 
-                // const button = document.createElement('button')
-                // button.innerText = 'More Information'
-                // newSection.appendChild(button)
+                const newSection = document.createElement('section');
+                newSection.innerHTML = text;
+                // newSection.style.background = 'pink';
+                container.appendChild(newSection);
 
             });
 

@@ -8,6 +8,7 @@ import com.entity.event.Event;
 import com.entity.event.EventFactory;
 import com.google.gson.*;
 import com.use_case.display_markers.BuildingMarkerDataAccessInterface;
+import com.use_case.open_building.OpenBuildingDataAccessInterface;
 import com.use_case.open_buildings_list.OpenBuildingsListDataAccessInterface;
 
 import java.io.FileReader;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterface, OpenBuildingsListDataAccessInterface {
+public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterface, OpenBuildingsListDataAccessInterface, OpenBuildingDataAccessInterface {
     private BuildingFactory buildingFactory = null;
     private EventFactory eventFactory = null;
 
@@ -110,5 +111,16 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
         // class contained everything we needed anyways.
         getBuildingsHelper();
         return buildings;
+    }
+
+    @Override
+    public Building getBuilding(String buildingCode) {
+        getBuildingsHelper();
+        for (int i = 0; i < buildings.size(); i ++) {
+            if (buildings.get(i).getCode().equals(buildingCode)) {
+                return buildings.get(i);
+            }
+        }
+        return null;
     }
 }

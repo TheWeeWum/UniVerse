@@ -1,6 +1,6 @@
 package com.view.Buildings;
 
-import com.app.BuildingSetup;
+import com.app.BuildingListSetup;
 import com.entity.building.Building;
 import com.interface_adapter.open_buildings_list.OpenBuildingsListController;
 import com.use_case.open_buildings_list.OpenBuildingsListOutputData;
@@ -20,7 +20,7 @@ public class BuildingsListServlet extends HttpServlet {
         this.response = response;
 
         // Initialize the loop for the use_case
-        OpenBuildingsListController controller = BuildingSetup.setup(this);
+        OpenBuildingsListController controller = BuildingListSetup.setup(this);
 
         // call the SignupController passing it the inputs
         controller.execute();
@@ -31,8 +31,9 @@ public class BuildingsListServlet extends HttpServlet {
 
         for (Building building : openBuildingsListOutputData.getBuildings()) {
             String name = building.getName();
+            String code = building.getCode();
 
-            buildingsJson.append(String.format("{ \"name\": \"%s\" },", name));
+            buildingsJson.append(String.format("{ " + "\"name\": \"%s\", " + "\"code\": \"%s\" " + "},", name, code));
         }
         // delete comma at the end
         buildingsJson.delete(buildingsJson.length() - 1, buildingsJson.length());

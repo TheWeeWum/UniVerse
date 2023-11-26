@@ -1,7 +1,6 @@
 package com.use_case.open_building;
 
 import com.entity.building.Building;
-import com.use_case.open_building.OpenBuildingInputBoundary;
 
 public class OpenBuildingInteractor implements OpenBuildingInputBoundary {
     final OpenBuildingDataAccessInterface openBuildingDataAccessObject;
@@ -12,14 +11,15 @@ public class OpenBuildingInteractor implements OpenBuildingInputBoundary {
         this.openBuildingDataAccessObject = openBuildingDataAccessInterface;
         this.openBuildingPresenter = openBuildingOutputBoundary;
     }
+
     @Override
-    public void execute() {
-        // no input data
-        // get buildings from database
-        Building building = openBuildingDataAccessObject.getBuilding();
+    public void execute(OpenBuildingInputData inputData) {
+
+        Building building = openBuildingDataAccessObject.getBuilding(inputData.getBuildingCode());
 
         // compile into output data
         OpenBuildingOutputData openBuildingOutputData = new OpenBuildingOutputData(building);
+
         openBuildingPresenter.prepareSuccessView(openBuildingOutputData);
     }
 }
