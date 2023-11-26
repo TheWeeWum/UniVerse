@@ -3,7 +3,7 @@ package com.data_access;
 import com.entity.review.Review;
 import com.entity.review.ReviewFactory;
 import com.entity.user.User;
-import com.use_case.reviews.ReviewsDataAccessInterface;
+import com.use_case.building_reviews.BuildingReviewsDataAccessInterface;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,14 +14,14 @@ import java.util.Date;
 import java.util.List;
 import com.google.gson.*;
 
-public class ReviewDataAccessObject implements ReviewsDataAccessInterface {
+public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccessInterface {
     private ReviewFactory reviewFactory = null;
 
     private final String reviewPath;
 
     private final FileUserDataAccessObject userDao;
 
-    public ReviewDataAccessObject(String reviewPath, ReviewFactory reviewFactory, FileUserDataAccessObject userDao) {
+    public BuildingReviewDataAccessObject(String reviewPath, ReviewFactory reviewFactory, FileUserDataAccessObject userDao) {
         this.reviewPath = reviewPath;
         this.reviewFactory = reviewFactory;
         this.userDao = userDao;

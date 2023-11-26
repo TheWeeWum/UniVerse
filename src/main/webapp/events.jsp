@@ -33,7 +33,7 @@
 </nav>
 
 <header>
-    <h1>Buildings</h1>
+    <h1>Events</h1>
 </header>
 
 <!-- Container for building sections -->

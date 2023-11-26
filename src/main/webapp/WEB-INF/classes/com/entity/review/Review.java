@@ -8,21 +8,21 @@ import java.util.Date;
 
 public class Review {
     private final User user;
-    private final Date timeWritten;
+    private final Date date;
     private String title;
     private String content;
     private float rating;
 
     /**
      * @param user the user who wrote the review
-     * @param timeWritten the time the review was written
+     * @param date the time the review was written
      * @param title the title of the review
      * @param content the content of the review (String format only)
      * @param rating the rating of the review
      */
-    public Review(User user, Date timeWritten, String title, String content, float rating) {
+    public Review(User user, Date date, String title, String content, float rating) {
         this.user = user;
-        this.timeWritten = timeWritten;
+        this.date = date;
         this.title = title;
         this.content = content;
         this.rating = rating;
@@ -40,8 +40,8 @@ public class Review {
     /**
      * @return the time the review was written
      */
-    public Date timeWritten() {
-        return timeWritten;
+    public Date getDate() {
+        return date;
     }
 
     /**

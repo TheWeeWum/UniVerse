@@ -1,4 +1,4 @@
-package com.use_case.buildingEvents;
+package com.use_case.building_events;
 
 import com.entity.event.Event;
 

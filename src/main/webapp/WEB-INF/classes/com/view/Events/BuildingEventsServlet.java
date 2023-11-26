@@ -3,7 +3,7 @@ package com.view.Events;
 import com.app.BuildingEventsSetup;
 import com.entity.event.Event;
 import com.interface_adapter.event.BuildingEventsController;
-import com.use_case.buildingEvents.BuildingEventsOutputData;
+import com.use_case.building_events.BuildingEventsOutputData;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -59,7 +59,7 @@ public class BuildingEventsServlet extends HttpServlet {
             out.print(eventsJson);
             out.flush();
         } catch (IOException e) {
-            System.out.println("Could not write markers");
+            System.out.println("Could not write events");
         }
     }
 }
