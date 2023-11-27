@@ -1,15 +1,10 @@
 package com.data_access;
 
-import com.entity.building.Address;
-import com.entity.building.Building;
-import com.entity.building.BuildingFactory;
-import com.entity.building.Location;
 import com.entity.event.Event;
 import com.entity.event.EventFactory;
 import com.google.gson.*;
-import com.use_case.buildingEvents.BuildingEventsDataAccessInterface;
-import com.use_case.display_markers.BuildingMarkerDataAccessInterface;
-import com.use_case.open_buildings_list.OpenBuildingsListDataAccessInterface;
+import com.use_case.add_event.AddEventDataAccessInterface;
+import com.use_case.building_events.BuildingEventsDataAccessInterface;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -19,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class EventDataAccessObject implements BuildingEventsDataAccessInterface {
+public class EventDataAccessObject implements BuildingEventsDataAccessInterface, AddEventDataAccessInterface {
     private EventFactory eventFactory = null;
 
     private final String eventPath;
@@ -27,6 +22,10 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface 
     public EventDataAccessObject(String eventPath, EventFactory eventFactory) {
         this.eventFactory = eventFactory;
 
+        this.eventPath = eventPath;
+    }
+
+    public EventDataAccessObject(String eventPath) {
         this.eventPath = eventPath;
     }
 

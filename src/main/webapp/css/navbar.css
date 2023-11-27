@@ -1,4 +1,5 @@
 nav {
+    z-index: 1000;
     background-color: #444;
     color: #fff;
     text-align: center;
@@ -24,7 +25,7 @@ nav a:hover {
     position: absolute;
     background-color: #3F3F3F;
     min-width: 160px;
-    z-index: 1;
+    z-index: 1001;
 }
 .dropdown-content a {
     color: #fff;

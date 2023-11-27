@@ -1,8 +1,7 @@
 package com.interface_adapter.event;
 
-import com.use_case.buildingEvents.BuildingEventsInputBoundary;
-import com.use_case.buildingEvents.BuildingEventsInputData;
-import com.use_case.display_markers.MarkerInputBoundary;
+import com.use_case.building_events.BuildingEventsInputBoundary;
+import com.use_case.building_events.BuildingEventsInputData;
 
 public class BuildingEventsController {
     BuildingEventsInputBoundary interactor;

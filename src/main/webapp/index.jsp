@@ -17,6 +17,7 @@
 
 <!--    NAVBAR-->
 <nav>
+    <a href="index">Home</a>
     <a href="mainmap">Main Map</a>
     <div class="dropdown">
         <a class="dropbtn">Profile</a>

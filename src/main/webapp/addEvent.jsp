@@ -17,7 +17,7 @@
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
             <a href="favourites">Favourites</a>
-            <a href="#userReviews">Reviews</a>
+            <a href="userReviews">Reviews</a>
             <a href="profile">Profile</a>
         </div>
     </div>
@@ -30,35 +30,41 @@
 </nav>
 
 <header>
-    <h1>Signup</h1>
+    <h1>Add Event</h1>
 </header>
 
-<form action="signup" method="post">
+<form action="addEvent" method="post">
     <div class="input-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
     </div>
 
     <div class="input-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+        <label for="organizer">Organizer:</label>
+        <input type="text" id="organizer" name="organizer" required><br><br>
     </div>
 
     <div class="input-group">
-        <label for="repeat-password">Repeat Password:</label>
-        <input type="password" id="repeat-password" name="repeated password" required><br><br>
+        <label for="time">Time:</label>
+        <input type="datetime-local" id="time" name="time" required><br><br>
     </div>
-    <input type="submit" value="Signup">
+
+    <div class="input-group">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required><br><br>
+    </div>
+
+    <input type="submit" value="AddEvent">
 </form>
 
-<!--   if the getAttribute("errorMessage") of the request isn't 0, then there's an error with the Sign-Up.-->
+<!--   if the getAttribute("errorMessage") of the request isn't 0, then there's an error with the AddEvent.-->
 <% if (request.getAttribute("errorMessage") != null) { %>
-    <div class="error-frame">
-        <div class="error-message">
-            <%-- Display error message here --%>
-            <p class="error-text"><%= request.getAttribute("errorMessage")%></p>
-        </div>
+<div class="error-frame">
+    <div class="error-message">
+        <%-- Display error message here --%>
+        <p class="error-text"><%= request.getAttribute("errorMessage")%></p>
     </div>
+</div>
 <% } %>
 
 

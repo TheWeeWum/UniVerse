@@ -41,8 +41,8 @@ function loadBuilding() {
 
 
     const container4 = document.getElementById('map');
-    container4.style.width = '834px'
-    container4.style.outline = '2px solid grey'
+    container4.style.width = '834px';
+    container4.style.outline = '2px solid grey';
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
@@ -56,6 +56,7 @@ function loadBuilding() {
                 center: { lat: lat, lng: lng },
                 zoom: 18
             });
+            // map.style.zIndex = '5';
 
             container4Element1.append(map);
             // Adjust size

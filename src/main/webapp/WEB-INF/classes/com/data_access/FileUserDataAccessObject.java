@@ -22,9 +22,9 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
     // THE ABSOLUTE PATH IS DIFFERENT FOR EVERYONE. TO FIND IT, RIGHT CLICK ON THE UserData.json FILE,
     // CLICK ON "COPY PATH/REFERENCE",
     // Pick "ABSOLUTE PATH" and paste it below.
-    private final String filePath = "C:\\Users\\ivans\\IdeaProjects\\UniVerse\\UserData.json";
+    private final String filePath = "/Users/raonkim/IdeaProjects/UniVerse/external-data/UserDataBase.json";
 
-    public FileUserDataAccessObject() throws IOException {
+    public FileUserDataAccessObject() {
         accounts = new HashMap<>();
         populateAccountsFromJson();
 
