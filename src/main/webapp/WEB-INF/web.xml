@@ -103,4 +103,22 @@
         <servlet-name>BuildingEvents</servlet-name>
         <url-pattern>/building_events</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Reviews</servlet-name>
+        <servlet-class>com.view.Reviews.ReviewsPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Reviews</servlet-name>
+        <url-pattern>/reviews</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuildingReviews</servlet-name>
+        <servlet-class>com.view.Reviews.BuildingReviewsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingReviews</servlet-name>
+        <url-pattern>/building_reviews</url-pattern>
+    </servlet-mapping>
 </web-app>

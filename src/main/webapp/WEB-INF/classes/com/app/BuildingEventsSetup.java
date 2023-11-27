@@ -4,10 +4,10 @@ import com.data_access.EventDataAccessObject;
 import com.entity.event.EventFactory;
 import com.interface_adapter.event.BuildingEventsController;
 import com.interface_adapter.event.BuildingEventsPresenter;
-import com.use_case.buildingEvents.BuildingEventsDataAccessInterface;
-import com.use_case.buildingEvents.BuildingEventsInputBoundary;
-import com.use_case.buildingEvents.BuildingEventsInteractor;
-import com.use_case.buildingEvents.BuildingEventsOutputBoundary;
+import com.use_case.building_events.BuildingEventsDataAccessInterface;
+import com.use_case.building_events.BuildingEventsInputBoundary;
+import com.use_case.building_events.BuildingEventsInteractor;
+import com.use_case.building_events.BuildingEventsOutputBoundary;
 import com.view.Events.BuildingEventsServlet;
 
 public class BuildingEventsSetup {
@@ -15,7 +15,7 @@ public class BuildingEventsSetup {
         BuildingEventsOutputBoundary presenter = new BuildingEventsPresenter(buildingsEventsServlet);
 
         EventFactory eventFactory = new EventFactory();
-        String eventPath = "C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\events.json";
+        String eventPath = "/Users/raonkim/IdeaProjects/UniVerse/external-data/events.json";
         BuildingEventsDataAccessInterface dataAccess = new EventDataAccessObject(eventPath, eventFactory);
 
         BuildingEventsInputBoundary interactor = new BuildingEventsInteractor(presenter, dataAccess);

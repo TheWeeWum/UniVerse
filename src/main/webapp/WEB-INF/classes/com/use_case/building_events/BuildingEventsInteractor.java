@@ -1,4 +1,4 @@
-package com.use_case.buildingEvents;
+package com.use_case.building_events;
 
 import com.entity.event.Event;
 
@@ -17,10 +17,10 @@ public class BuildingEventsInteractor implements BuildingEventsInputBoundary {
     public void execute(BuildingEventsInputData inputData) {
         // No input data
 
-        // get the markers from the database
+        // get the events from the database
         List<Event> events = dataAccess.getEvents(inputData.getBuildingCode());
 
-        // compile into a output data object
+        // compile into an output data object
         BuildingEventsOutputData outputData = new BuildingEventsOutputData(events);
 
         // set back up the chain

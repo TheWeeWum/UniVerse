@@ -17,8 +17,8 @@ public class BuildingSetup {
 
         BuildingFactory buildingFactory = new BuildingFactory();
         EventFactory eventFactory = new EventFactory();
-        String buildingPath = "C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\buildings.json";
-        String eventPath = "C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\events.json";
+        String buildingPath = "/Users/raonkim/IdeaProjects/UniVerse/external-data/buildings.json";
+        String eventPath = "/Users/raonkim/IdeaProjects/UniVerse/external-data/events.json";
         OpenBuildingsListDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath,eventPath, buildingFactory, eventFactory);
 
         OpenBuildingsListInputBoundary interactor = new OpenBuildingsListInteractor(dataAccess, presenter);

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
-    <script src="js/events.js"></script>
+    <script src="js/buildingreviews.js"></script>
 </head>
 <body>
 <!--    NAVBAR-->
@@ -33,11 +33,12 @@
 </nav>
 
 <header>
-    <h1>Events</h1>
+    <h1>Reviews</h1>
 </header>
 
 <!-- Container for building sections -->
-<div id="eventsContainer"></div>
+<div id="reviewsContainer"></div>
 
 </body>
 </html>
+

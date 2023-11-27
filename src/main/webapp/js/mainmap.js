@@ -25,6 +25,18 @@ function initMap() {
                         addr += address[i] + "+";
                     }
 
+                    var reviewstr = "";
+                    // for (let i = 0; markerInfo.reviews.length; i++) {
+                    //     var review = markerInfo.reviews[i];
+                    //     reviewstr +=
+                    //         'User id: ' + review.user + '<br>' +
+                    //         'Date: ' + review.date + '<br>' +
+                    //         'Title: ' + review.title + '<br>' +
+                    //         'Rating: ' + review.rating + '<br>' +
+                    //         'Comment: ' + review.content + '<br><br>';
+                    // }
+
+
                     var eventstr = ""
                     for (let i = 0; i < markerInfo.events.length; i++) {
                         var event = markerInfo.events[i];
@@ -60,7 +72,8 @@ function initMap() {
                         'Lng ' + markerInfo.lng +
                         '</p>' +
                         '<p>GoogleMaps: <a href=https://www.google.com/maps/search/?api=1&query=' + addr + '>Link to GoogleMaps</a></p>' +
-                        '<h2><a href=events?location=' + markerInfo.code + '>Events:</a><br></h2><p>' + eventstr + '</p>' +
+                        '<h2><a href=reviews?buildingCode=' + markerInfo.code + '>Reviews:</a><br></h2><p>' + reviewstr + '</p>' +
+                        '<h2><a href=events?buildingCode=' + markerInfo.code + '>Events:</a><br></h2><p>' + eventstr + '</p>' +
                         '';
                 });
             });
