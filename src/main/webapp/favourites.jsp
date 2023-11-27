@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.entity.Reviewable" %><%--
   Created by IntelliJ IDEA.
   User: evan
   Date: 11/17/2023
@@ -41,9 +41,16 @@
     <h1>Welcome, <%= session.getAttribute("username")%></h1>
 
     <h3>Your Favorites</h3>
+    <% Reviewable[] favourites = (Reviewable[]) session.getAttribute("favourites");%>
+    <h3>Your Favorites</h3>
     <ul id="favourites">
-        <li>Favorite 1: Your favorite study spot.</li>
-        <li>Favorite 2: The cleanest bathroom on campus.</li>
+        <% if (favourites != null && favourites.length > 0) { %>
+        <% for (Reviewable place : favourites) { %>
+        <!-- get something-->
+        <% } %>
+        <% } else { %>
+        <li>No favourites available.</li>
+        <% } %>
     </ul>
 </section>
 

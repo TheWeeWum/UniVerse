@@ -1,7 +1,7 @@
 package com.use_case.open_profile;
 
-import com.entity.Reviewable;
-import com.entity.user.User;
+
+import com.entity.user.LoggedInUser;
 
 public class ProfileInteractor implements ProfileInputBoundary{
 
@@ -19,10 +19,10 @@ public class ProfileInteractor implements ProfileInputBoundary{
         // no input data
 
         // get output data
-        User user = profileDataAccessObject.get();
+        LoggedInUser user = profileDataAccessObject.getUser();
 
+        // create output object
         ProfileOutputData profile = new ProfileOutputData(user);
-
         profilePresenter.prepareSuccessView(profile);
 
     }

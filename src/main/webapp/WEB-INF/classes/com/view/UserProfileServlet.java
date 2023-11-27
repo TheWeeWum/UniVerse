@@ -1,7 +1,5 @@
 package com.view;
 
-import com.entity.user.LoggedInUser;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +24,7 @@ public class UserProfileServlet extends HttpServlet {
         if (session.getAttribute("username") == null) {
             session.setAttribute("username", "You are not signed in");
         } else {
-            // if user is signed in things go here. Mostly will be handled
-            // elsewhere though I think.
+
         }
 
         response.sendRedirect("profile.jsp");
