@@ -36,6 +36,10 @@
     <h1>Events</h1>
 </header>
 
+<section>
+    <a href="add_event">Add Event</a>
+</section>
+
 <!-- Container for building sections -->
 <div id="eventsContainer"></div>
 

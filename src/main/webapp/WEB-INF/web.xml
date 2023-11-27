@@ -105,6 +105,25 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>BuildingInfoServlet</servlet-name>
+        <servlet-class>com.view.Building.BuildingInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingInfoServlet</servlet-name>
+        <url-pattern>/building_info</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuildingPageServlet</servlet-name>
+        <servlet-class>com.view.Building.BuildingPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingPageServlet</servlet-name>
+        <url-pattern>/building</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>Reviews</servlet-name>
         <servlet-class>com.view.Reviews.ReviewsPageServlet</servlet-class>
     </servlet>
@@ -120,5 +139,14 @@
     <servlet-mapping>
         <servlet-name>BuildingReviews</servlet-name>
         <url-pattern>/building_reviews</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddEvent</servlet-name>
+        <servlet-class>com.view.Events.AddEventServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddEvent</servlet-name>
+        <url-pattern>/add_event</url-pattern>
     </servlet-mapping>
 </web-app>
