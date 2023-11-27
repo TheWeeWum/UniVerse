@@ -34,30 +34,27 @@
 </nav>
 
 <section>
-    <% Review[] reviews = (Review[]) session.getAttribute("reviews");%>
     <h1>Welcome, <%= session.getAttribute("username")%></h1>
-
-    <h3>Your Reviews</h3>
-    <ul id="reviews">
-        <% if (reviews != null && reviews.length > 0) { %>
-        <% for (Review review : reviews) { %>
-        <li><%= review.getContent() %></li>
-        <% } %>
-        <% } else { %>
-        <li>No reviews available.</li>
-        <% } %>
-    </ul>
-    <% Reviewable[] favourites = (Reviewable[]) session.getAttribute("favourites");%>
-    <h3>Your Favorites</h3>
-    <ul id="favourites">
-        <% if (favourites != null && favourites.length > 0) { %>
-        <% for (Reviewable place : favourites) { %>
-            <!-- get something-->
-        <% } %>
-        <% } else { %>
-        <li>No reviews available.</li>
-        <% } %>
-    </ul>
+</section>
+<section>
+    <h2>Favourites</h2>
+    <div>id="favouritesContainer"</div>
+</section>
+<section>
+    <h2>Favourite Buildings</h2>
+    <div>id="favBuildingsContainer"</div>
+</section>
+<section>
+    <h2>Favourite Buildings</h2>
+    <div>id="favBuildingsContainer"</div>
+</section>
+<section>
+    <h2>Favourite Rooms</h2>
+    <div>id="favRoomsContainer"</div>
+</section>
+<section>
+    <h2>Your Reviews</h2>
+    <div>id="reviewContainer"</div>
 </section>
 
 <div class="contactInformation">
