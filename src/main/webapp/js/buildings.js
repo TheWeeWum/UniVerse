@@ -1,6 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    loadMoreBuildings();
-});
+document.addEventListener('DOMContentLoaded', function() { loadMoreBuildings(); });
 
 let buildingsLoaded = 0;
 
@@ -15,9 +13,13 @@ function loadMoreBuildings() {
 
             // Load additional buildings
             nextBuildings.forEach(buildingInfo => {
+                var text = '' + '<h3><a href=building?buildingCode=' + buildingInfo.code + '>' + buildingInfo.name + '</a></h3>'
+
                 const newSection = document.createElement('section');
-                newSection.textContent = buildingInfo.name;
+                newSection.innerHTML = text;
+                // newSection.style.background = 'pink';
                 container.appendChild(newSection);
+
             });
 
             buildingsLoaded += nextBuildings.length;

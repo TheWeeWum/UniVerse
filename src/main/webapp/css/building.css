@@ -1,0 +1,34 @@
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(256, 256, 256, 0.9);
+    border: 2px solid grey;
+    border-radius: 0px;
+    box-shadow: 0 0 20px #000000;
+
+}
+
+/*section h1, section h2, section h3, section p {*/
+/*    color: #000000;*/
+/*}*/
+
+#favouritesButton {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px; /* Adjust the padding to make the button bigger */
+    font-size: 16px; /* Adjust the font size as needed */
+    background-color: white; /* Change the color code to the desired color */
+    color: black; /* Change the text color to contrast with the background */
+    border: none; /* Remove the default button border */
+    border-radius: 5px; /* Add some border-radius for a rounded appearance */
+    cursor: pointer;
+    box-shadow: 0 0 20px #000000;
+}
+#favouritesButton.favourited {
+    background-color: #fa93af; /* Style for favourited state */
+    color: black;
+}
+#favouritesButton:hover {
+    background-color: pink; /* Set your desired hover color */
+}
