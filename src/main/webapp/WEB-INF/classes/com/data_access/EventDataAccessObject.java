@@ -29,6 +29,7 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
         this.eventPath = eventPath;
     }
 
+    @Override
     public List<Event> getEvents(String buildingCode) {
         List<Event> events = new ArrayList<>();
         try {
@@ -55,5 +56,10 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
         }
 
         return events;
+    }
+
+    @Override
+    public void addEvent(String title, String organizer, Date time, String description) {
+
     }
 }

@@ -23,7 +23,7 @@ public class AddEventSetup {
     public static AddEventController setup(AddEventServlet servlet) {
         AddEventOutputBoundary presenter = new AddEventPresenter(servlet);
 
-        String eventPath = "C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\events.json";
+        String eventPath = Path.path + "external-data\\events.json";
         AddEventDataAccessInterface dataAccess = new EventDataAccessObject(eventPath);
 
         AddEventInputBoundary interactor = new AddEventInteractor(presenter, dataAccess);
