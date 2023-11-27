@@ -1,7 +1,7 @@
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 43.66234588623047, lng: -79.3955307006836 },
-        zoom: 14
+        zoom: 16
     });
 
     // Fetch marker data from the servlet using AJAX
