@@ -1,18 +1,1 @@
-{
-  "1": {
-    "username": "ikraskov",
-    "password": "Almaty",
-    "id": 5,
-    "reviews": [],
-    "favouriteBuildings": [],
-    "favouriteRooms": []
-  },
-  "2": {
-    "username": "user2",
-    "password": "password2",
-    "id": 2,
-    "reviews": [],
-    "favouriteBuildings": [],
-    "favouriteRooms": []
-  }
-}
+{"1":{"username":"ikraskov","password":"Almaty","id":1,"reviews":[],"favouriteBuildings":[],"favouriteRooms":[]},"2":{"username":"user2","password":"password2","id":2,"reviews":[],"favouriteBuildings":[],"favouriteRooms":[]},"447938204":{"username":"Kim","password":"helo","id":447938204,"reviews":[],"favouriteBuildings":[],"favouriteRooms":[],"favourites":[]}}
