@@ -50,7 +50,7 @@
 <div id="events"></div>
 
 <!-- Container for events -->
-<button id="favouritesButton" onclick="favourite()"> 🩷 Add to Favourites 🩷 </button>
+<button id="favouritesButton" onclick="favourite()" onmouseover="changeText()" onmouseout="restoreText()"> 🤍 Add to Favourites 🤍 </button>
 
 <div class="contactInformation">
     <h1>
