@@ -2,10 +2,7 @@ package com.interface_adapter.marker;
 
 import com.use_case.display_markers.MarkerOutputBoundary;
 import com.use_case.display_markers.MarkerOutputData;
-import com.use_case.signup.SignupOutputBoundary;
-import com.view.MarkerServlet;
-
-import java.io.IOException;
+import com.view.MainMap.MarkerServlet;
 
 public class MarkerPresenter implements MarkerOutputBoundary {
     MarkerServlet markerServlet;

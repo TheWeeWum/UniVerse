@@ -5,21 +5,33 @@
 }
 
 #sidePanel {
+    overflow-y: auto;
     height: 600px;
     width: 0;
     float: right;
     box-sizing: border-box;
     background-color: #222;
+    color: white;
 }
 
-#sidePanel h2 {
+#sidePanel h1 {
+    padding-inline: 18px;
+    padding-bottom: 4px;
     background-color: #222;
-    color: #ffffff;
     text-align: center;
 }
 
-#sidePanel p {
+#sidePanel h2 {
+    padding-inline: 18px;
+    padding-bottom: 4px;
     background-color: #222;
-    color: #ffffff;
+    text-align: center;
+}
+
+
+#sidePanel p {
+    padding-inline: 18px;
+    padding-bottom: 4px;
+    background-color: #222;
     text-align: left;
 }

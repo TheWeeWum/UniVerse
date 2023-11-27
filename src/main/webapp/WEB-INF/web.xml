@@ -7,7 +7,7 @@
     <!-- Define your servlets, filters, listeners, and other configurations here -->
     <servlet>
         <servlet-name>UserProfileServlet</servlet-name>
-        <servlet-class>com.view.UserProfileServlet</servlet-class>
+        <servlet-class>com.view.User.UserProfileServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserProfileServlet</servlet-name>
@@ -16,7 +16,7 @@
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.view.LoginServlet</servlet-class>
+        <servlet-class>com.view.User.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -25,7 +25,7 @@
 
     <servlet>
         <servlet-name>SignupServlet</servlet-name>
-        <servlet-class>com.view.SignupServlet</servlet-class>
+        <servlet-class>com.view.User.SignupServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignupServlet</servlet-name>
@@ -34,7 +34,7 @@
 
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>com.view.IndexServlet</servlet-class>
+        <servlet-class>com.view.User.IndexServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
@@ -43,7 +43,7 @@
 
     <servlet>
     <servlet-name>BuildingsServlet</servlet-name>
-    <servlet-class>com.view.BuildingsServlet</servlet-class>
+    <servlet-class>com.view.Buildings.BuildingsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BuildingsServlet</servlet-name>
@@ -52,7 +52,7 @@
 
     <servlet>
         <servlet-name>BuildingsListServlet</servlet-name>
-        <servlet-class>com.view.BuildingsListServlet</servlet-class>
+        <servlet-class>com.view.Buildings.BuildingsListServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BuildingsListServlet</servlet-name>
@@ -61,7 +61,7 @@
 
     <servlet>
         <servlet-name>MainMapServlet</servlet-name>
-        <servlet-class>com.view.MainMapServlet</servlet-class>
+        <servlet-class>com.view.MainMap.MainMapServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MainMapServlet</servlet-name>
@@ -70,7 +70,7 @@
 
     <servlet>
         <servlet-name>MarkerServlet</servlet-name>
-        <servlet-class>com.view.MarkerServlet</servlet-class>
+        <servlet-class>com.view.MainMap.MarkerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MarkerServlet</servlet-name>
@@ -79,10 +79,74 @@
 
     <servlet>
         <servlet-name>FavouritesServlet</servlet-name>
-        <servlet-class>com.view.FavouritesServlet</servlet-class>
+        <servlet-class>com.view.User.FavouritesServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>FavouritesServlet</servlet-name>
         <url-pattern>/favourites</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Events</servlet-name>
+        <servlet-class>com.view.Events.EventsPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Events</servlet-name>
+        <url-pattern>/events</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuildingEvents</servlet-name>
+        <servlet-class>com.view.Events.BuildingEventsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingEvents</servlet-name>
+        <url-pattern>/building_events</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuildingInfoServlet</servlet-name>
+        <servlet-class>com.view.Building.BuildingInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingInfoServlet</servlet-name>
+        <url-pattern>/building_info</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuildingPageServlet</servlet-name>
+        <servlet-class>com.view.Building.BuildingPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingPageServlet</servlet-name>
+        <url-pattern>/building</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Reviews</servlet-name>
+        <servlet-class>com.view.Reviews.ReviewsPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Reviews</servlet-name>
+        <url-pattern>/reviews</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuildingReviews</servlet-name>
+        <servlet-class>com.view.Reviews.BuildingReviewsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingReviews</servlet-name>
+        <url-pattern>/building_reviews</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddEvent</servlet-name>
+        <servlet-class>com.view.Events.AddEventServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddEvent</servlet-name>
+        <url-pattern>/add_event</url-pattern>
     </servlet-mapping>
 </web-app>

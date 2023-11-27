@@ -26,21 +26,6 @@ public class Map {
     }
 
     /**
-     * Gets the building at the specified location.
-     *
-     * @param location the location which the building resides at.
-     * @return the building at that location.
-     */
-    public Building getBuilding(Location location) {
-        for (Building building : buildings) {
-            if (location.contains(building.getLocation())) {
-                return building;
-            }
-        }
-        return null;
-    }
-
-    /**
      * Gets the building at the specified address or name.
      *
      * @param addressOrName the address or name of the building.
@@ -57,18 +42,4 @@ public class Map {
         }
         return null;
     }
-
-    /**
-     * Gets the pins on the map.
-     * @return the pins on the map.
-     */
-    public List<Pin> getPins() {
-        List<Pin> pins = new ArrayList<>();
-        for (Building building : buildings) {
-            pins.add(building.getPin());
-        }
-        return pins;
-    }
-
-    // TODO: add get image to map
 }

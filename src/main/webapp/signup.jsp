@@ -12,7 +12,7 @@
 <!--    NAVBAR-->
 <nav>
     <a href="index">Home</a>
-    <a href="#mainMap">Main Map</a>
+    <a href="mainmap">Main Map</a>
     <div class="dropdown">
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
@@ -22,6 +22,7 @@
         </div>
     </div>
     <a href="#about">About</a>
+    <a href="signup">Signup</a>
     <a href="login">Login</a>
     <a href="buildings">Buildings</a>
 
@@ -44,11 +45,22 @@
     </div>
 
     <div class="input-group">
-        <label for="repeat password">Repeat Password:</label>
-        <input type="password" id="repeat password" name="repeat password" required><br><br>
+        <label for="repeat-password">Repeat Password:</label>
+        <input type="password" id="repeat-password" name="repeated password" required><br><br>
     </div>
     <input type="submit" value="Signup">
 </form>
+
+<!--   if the getAttribute("errorMessage") of the request isn't 0, then there's an error with the Sign-Up.-->
+<% if (request.getAttribute("errorMessage") != null) { %>
+    <div class="error-frame">
+        <div class="error-message">
+            <%-- Display error message here --%>
+            <p class="error-text"><%= request.getAttribute("errorMessage")%></p>
+        </div>
+    </div>
+<% } %>
+
 
 
 </body>

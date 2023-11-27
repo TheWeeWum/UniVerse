@@ -12,7 +12,7 @@
 <!--    NAVBAR-->
 <nav>
     <a href="index">Home</a>
-    <a href="#mainMap">Main Map</a>
+    <a href="mainmap">Main Map</a>
     <div class="dropdown">
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
@@ -23,6 +23,7 @@
     </div>
     <a href="#about">About</a>
     <a href="signup">Signup</a>
+    <a href="login">Login</a>
     <a href="buildings">Buildings</a>
 
     <!-- Add more links as needed -->
