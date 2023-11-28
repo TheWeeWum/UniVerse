@@ -2838,8 +2838,8 @@
       "name": "Queen's Park-90",
       "short_name": "Queen'sPk-90",
       "campus": "UTSG",
-      "lat": 0,
-      "lng": 0,
+      "lat": 43.667150,
+      "lng": -79.393770,
       "polygon": [],
       "address": {
         "street": "90 Queen's Park",
@@ -12620,8 +12620,8 @@
       "name": "Cardinal Flahiff Building",
       "short_name": "Card Flahiff",
       "campus": "UTSG",
-      "lat": 0,
-      "lng": 0,
+      "lat": 43.665050,
+      "lng": -79.388530,
       "polygon": [],
       "address": {
         "street": "95 St. Joseph Street",

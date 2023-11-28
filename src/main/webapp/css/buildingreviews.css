@@ -1,0 +1,42 @@
+#reviewsContainer {
+    display: flex;
+    justify-content: center; /* Center the reviews horizontally */
+    align-items: center; /* Center the reviews vertically */
+}
+
+.reviewSection {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    width: 300px;
+    background-color: rgba(256, 256, 256, 0.9);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewHeader {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.reviewDate {
+    font-size: 0.8em;
+    color: #555;
+    align-self: flex-end;
+}
+
+.reviewRating {
+    color: #ff9800; /* Adjust the color based on your rating scale */
+    font-weight: bold;
+}
+
+.reviewTitle {
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.reviewContent {
+    margin-top: 10px;
+}
