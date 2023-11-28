@@ -15,7 +15,7 @@ public class BuildingEventsSetup {
         BuildingEventsOutputBoundary presenter = new BuildingEventsPresenter(buildingsEventsServlet);
 
         EventFactory eventFactory = new EventFactory();
-        String eventPath = "C:\\Users\\evan_\\Documents\\UofT\\year2\\csc207\\IdeaProjects\\UniVerse\\src\\main\\webapp\\js\\events.js";
+        String eventPath = Path.path + "external-data\\events.json";
         BuildingEventsDataAccessInterface dataAccess = new EventDataAccessObject(eventPath, eventFactory);
 
         BuildingEventsInputBoundary interactor = new BuildingEventsInteractor(presenter, dataAccess);
