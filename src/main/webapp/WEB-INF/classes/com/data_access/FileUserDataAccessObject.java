@@ -64,6 +64,16 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
     }
 
     @Override
+    public Integer existsByUsernameAndPassword(String username, String password) {
+        for (User user : accounts.values()) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                return user.getId();
+            }
+        }
+        return null;
+    }
+
+    @Override
     public Integer existsByUsername(String username) {
         for (User user : accounts.values()) {
             if (user.getUsername().equals(username)) {
