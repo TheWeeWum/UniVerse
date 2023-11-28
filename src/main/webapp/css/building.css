@@ -27,8 +27,9 @@ section {
 }
 #favouritesButton.favourited {
     background-color: #fa93af; /* Style for favourited state */
-    color: black;
+    box-shadow: 0 0 40px deeppink;
 }
 #favouritesButton:hover {
     background-color: pink; /* Set your desired hover color */
+    box-shadow: 0 0 40px white;
 }

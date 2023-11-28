@@ -41,8 +41,8 @@ function loadBuilding() {
 
 
     const container4 = document.getElementById('map');
-    container4.style.width = '834px';
-    container4.style.outline = '2px solid grey';
+    container4.style.width = '839px'
+    container4.style.outline = '2px solid grey'
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
@@ -107,10 +107,6 @@ function loadBuilding() {
     container5Element.innerText = "Events: ";
     container5.appendChild(container5Element);
 
-
-    // document.getElementById('favourites')
-
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -122,13 +118,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (isFavourited) {
             favouritesButton.classList.add('favourited');
-            favouritesButton.textContent = '🤍 Remove from Favourites 🤍';
+            favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
             // Perform additional actions when favourited
         }
         else {
             favouritesButton.classList.remove('favourited');
-            favouritesButton.textContent = '🩷 Add to Favourites 🩷';
+            favouritesButton.textContent = '🤍 Add to Favourites 🤍';
             // Perform additional actions when not favourited
+        }
+    });
+    // Add event listener for mouseover (hover)
+    favouritesButton.addEventListener("mouseover", function() {
+        // Change the text when hovered
+        if (isFavourited) {
+            favouritesButton.textContent = '💔 Remove from Favourites 💔';
+            // Perform additional actions when favourited
+        }
+    });
+
+    // Add event listener for mouseout (when the mouse leaves)
+    favouritesButton.addEventListener("mouseout", function() {
+        // Restore the original text
+        if (isFavourited) {
+            favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
+            // Perform additional actions when favourited
         }
     });
 });

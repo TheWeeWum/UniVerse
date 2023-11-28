@@ -1,6 +1,5 @@
 package com.data_access;
 
-import com.app.Path;
 import com.entity.user.LoggedInUser;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -8,12 +7,9 @@ import java.lang.reflect.Type;
 
 import com.entity.user.User;
 import com.use_case.signup.SignupUserDataAccessInterface;
-import com.entity.user.UserFactory;
 import com.use_case.login.LoginUserDataAccessInterface;
 import java.io.*;
-import java.net.URL;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface {
@@ -64,6 +60,16 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
 
     @Override
     public User get(Integer id) {
+        return null;
+    }
+
+    @Override
+    public Integer existsByUsernameAndPassword(String username, String password) {
+        for (User user : accounts.values()) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                return user.getId();
+            }
+        }
         return null;
     }
 

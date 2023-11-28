@@ -4,7 +4,8 @@ import com.entity.user.User;
 
 public interface LoginUserDataAccessInterface {
 
-    void save(User user);
 
     User get(Integer id);
+
+    Integer existsByUsernameAndPassword(String username, String password);
 }
