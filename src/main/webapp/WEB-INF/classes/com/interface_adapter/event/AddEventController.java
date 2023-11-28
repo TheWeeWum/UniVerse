@@ -44,7 +44,7 @@ public class AddEventController {
         // create input data to send onwards
         AddEventInputData inputData = new AddEventInputData(buildingCode, title, organizer, room, t, description);
 
-        if (title == null || organizer == null || time == null || description == null) {
+        if (title == null || organizer == null || t == null || description == null) {
             System.out.println("Error getting request parameters in AddEventController");
         }
 
