@@ -16,10 +16,16 @@ function loadMoreReviews() {
 
             // Load additional reviews
             nextReviews.forEach(reviewInfo => {
-                const newSection = document.createElement('section');
-                newSection.innerHTML = '' +
-                    '<h2>' + reviewInfo.username + '</h2>' +
-                    '<p>' + reviewInfo.date + '</p>';
+                const newSection = document.createElement('div');
+                newSection.classList.add('reviewSection');
+
+                newSection.innerHTML = `
+                        <div class="reviewHeader">${reviewInfo.username}</div>
+                        <div class="reviewDate">${reviewInfo.date}</div>
+                        <div class="reviewRating">Rating: ${reviewInfo.rating}</div>
+                        <div class="reviewTitle">${reviewInfo.title}</div>
+                        <div class="reviewContent">${reviewInfo.content}</div>
+                    `;
                 container.appendChild(newSection);
             });
 

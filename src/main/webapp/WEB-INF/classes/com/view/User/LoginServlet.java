@@ -1,5 +1,9 @@
 package com.view.User;
 
+import com.app.LoginSetup;
+import com.interface_adapter.login.LoginController;
+import com.use_case.login.LoginOutputData;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
+
+    private HttpServletRequest request;
+    private HttpServletResponse response;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -23,18 +30,26 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // gets the username and password from the input fields
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        this.request = request;
+        this.response = response;
+        LoginController controller = LoginSetup.setup(this);
+        controller.execute(request);
 
-        // TODO: all of this needs to be changed to the clean architecture setup.
+    }
 
-        // Create a session and store the username
+    public void signInFailed(String message) throws IOException, ServletException {
+        request.setAttribute("errorMessage", message);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
+
+    public void sendToProfileScreen(LoginOutputData outputData) throws IOException {
         HttpSession session = request.getSession();
-        session.setAttribute("username", username);
 
-        // Redirect to the user profile page (you can replace this URL)
-        // TODO: send to the personal users page
+        // sets the username field on the jsp
+        session.setAttribute("username", outputData.getUsername());
+        session.setAttribute("id", outputData.getId());
+        session.setAttribute("loggedIn", true);
+        // Redirect to the user profile page
         response.sendRedirect("profile.jsp");
     }
 }

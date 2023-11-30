@@ -17,8 +17,8 @@ public class MarkerSetup {
 
         BuildingFactory buildingFactory = new BuildingFactory();
         EventFactory eventFactory = new EventFactory();
-        String buildingPath = "C:\\Users\\evan_\\Documents\\UofT\\year2\\csc207\\IdeaProjects\\UniVerse\\src\\main\\webapp\\js\\buildings.js";
-        String eventPath = "C:\\Users\\evan_\\Documents\\UofT\\year2\\csc207\\IdeaProjects\\UniVerse\\src\\main\\webapp\\js\\events.js";
+        String buildingPath = "C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\buildings.json";
+        String eventPath = "C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\events.json";
         BuildingMarkerDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath, eventPath, buildingFactory, eventFactory);
 
         MarkerInputBoundary interactor = new MarkerInteractor(presenter, dataAccess);

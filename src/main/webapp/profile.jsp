@@ -17,7 +17,15 @@
 <header>
     <h1>User Profile</h1>
 </header>
+<%
+    // Retrieve the HttpSession object
+    boolean loggedIn = false; // Default to false if no session or 'loggedIn' attribute found
 
+// Check if the session exists and if the 'loggedIn' attribute is present and not null
+    if (session != null && session.getAttribute("loggedIn") != null) {
+        loggedIn = (boolean) session.getAttribute("loggedIn");
+    }
+%>
 <nav>
     <a href="index">Home</a>
     <a href="mainmap">Main Map</a>
@@ -30,8 +38,10 @@
         </div>
     </div>
     <a href="#about">About</a>
+        <% if (loggedIn == false) { %>
     <a href="signup">Signup</a>
     <a href="login">Login</a>
+        <% } %>
     <a href="buildings">Buildings</a>
     <a href="signout">Sign Out</a>
 </nav>

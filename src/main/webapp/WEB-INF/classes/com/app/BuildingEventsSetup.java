@@ -1,6 +1,7 @@
 package com.app;
 
 import com.data_access.EventDataAccessObject;
+import com.data_access.Path;
 import com.entity.event.EventFactory;
 import com.interface_adapter.event.BuildingEventsController;
 import com.interface_adapter.event.BuildingEventsPresenter;
@@ -15,7 +16,7 @@ public class BuildingEventsSetup {
         BuildingEventsOutputBoundary presenter = new BuildingEventsPresenter(buildingsEventsServlet);
 
         EventFactory eventFactory = new EventFactory();
-        String eventPath = "C:\\Users\\evan_\\Documents\\UofT\\year2\\csc207\\IdeaProjects\\UniVerse\\src\\main\\webapp\\js\\events.js";
+        String eventPath = Path.path + "external-data\\events.json";
         BuildingEventsDataAccessInterface dataAccess = new EventDataAccessObject(eventPath, eventFactory);
 
         BuildingEventsInputBoundary interactor = new BuildingEventsInteractor(presenter, dataAccess);

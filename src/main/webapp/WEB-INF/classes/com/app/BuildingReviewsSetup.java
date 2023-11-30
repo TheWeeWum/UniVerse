@@ -3,6 +3,7 @@ package com.app;
 
 import com.data_access.BuildingReviewDataAccessObject;
 import com.data_access.FileUserDataAccessObject;
+import com.data_access.Path;
 import com.entity.review.ReviewFactory;
 import com.interface_adapter.building_reviews.BuildingReviewsController;
 import com.interface_adapter.building_reviews.BuildingReviewsPresenter;
@@ -17,7 +18,7 @@ public class BuildingReviewsSetup {
         BuildingReviewsOutputBoundary presenter = new BuildingReviewsPresenter(buildingsReviewsServlet);
 
         ReviewFactory reviewFactory = new ReviewFactory();
-        String reviewPath = "C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\buildingreviews.json";
+        String reviewPath = Path.path + "external-data\\buildingreviews.json";
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
         BuildingReviewsDataAccessInterface dataAccess = new BuildingReviewDataAccessObject(reviewPath, reviewFactory, userDAO);
 
