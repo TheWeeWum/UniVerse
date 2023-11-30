@@ -19,9 +19,10 @@ public class ProfileOutputData {
     public ProfileOutputData(LoggedInUser user) {
         this.user = user;
         this.reviews = user.getReviews();
-        this.favourites = user.getFavourites();
         this.favouriteBuildings = user.getFavouriteBuildings();
         this.favouriteRooms = user.getFavouriteRooms();
+        this.favourites = user.getFavourites(this.favouriteBuildings, this.favouriteRooms);
+
          }
     public User getUser() {return user;}
 

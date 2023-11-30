@@ -2,7 +2,8 @@ package com.interface_adapter.open_profile;
 
 import com.use_case.open_profile.ProfileOutputBoundary;
 import com.use_case.open_profile.ProfileOutputData;
-import com.view.UserProfileServlet;
+import com.view.User.UserProfileServlet;
+
 
 public class ProfilePresenter implements ProfileOutputBoundary {
     UserProfileServlet userProfileServlet;

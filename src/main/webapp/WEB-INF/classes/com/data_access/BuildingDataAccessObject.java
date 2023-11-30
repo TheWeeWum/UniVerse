@@ -113,14 +113,18 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
         return buildings;
     }
 
-    @Override
+    // adding to get individual buildings for profile class
     public Building getBuilding(String buildingCode) {
-        getBuildingsHelper();
-        for (int i = 0; i < buildings.size(); i ++) {
-            if (buildings.get(i).getCode().equals(buildingCode)) {
-                return buildings.get(i);
+        List<Building> buildings = getBuildings();
+
+        // Find the building with the specified code
+        for (Building building : buildings) {
+            if (building.getCode().equals(buildingCode)) {
+                return building;
             }
         }
+
+        // Return null if the building with the given code is not found
         return null;
     }
 }

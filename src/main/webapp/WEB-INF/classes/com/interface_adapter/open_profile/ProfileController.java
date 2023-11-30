@@ -1,17 +1,17 @@
 package com.interface_adapter.open_profile;
 
-import com.use_case.open_myreviews.OpenReviewInputBoundary;
+import com.use_case.open_profile.ProfileInputBoundary;
 
 public class ProfileController {
 
-    final OpenReviewInputBoundary openReviewsUseCaseInteractor;
+    final ProfileInputBoundary openProfileUseCaseInteractor;
 
-    public ProfileController(OpenReviewInputBoundary openReviewsUseCaseInteractor) {
-        this.openReviewsUseCaseInteractor = openReviewsUseCaseInteractor;
+    public ProfileController(ProfileInputBoundary openProfileUseCaseInteractor) {
+        this.openProfileUseCaseInteractor = openProfileUseCaseInteractor;
     }
 
 
     public void execute() {
-        openReviewsUseCaseInteractor.execute();
+        openProfileUseCaseInteractor.execute();
     }
 }
