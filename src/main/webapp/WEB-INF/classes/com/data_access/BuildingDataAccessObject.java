@@ -2,10 +2,10 @@ package com.data_access;
 
 import com.entity.building.Address;
 import com.entity.building.Building;
-import com.entity.building.BuildingFactory;
+import com.entity.building.BuildingBuilder;
 import com.entity.building.Location;
 import com.entity.event.Event;
-import com.entity.event.EventFactory;
+import com.entity.event.EventBuilder;
 import com.google.gson.*;
 import com.use_case.display_markers.BuildingMarkerDataAccessInterface;
 import com.use_case.open_building.OpenBuildingDataAccessInterface;
@@ -18,17 +18,17 @@ import java.util.Date;
 import java.util.List;
 
 public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterface, OpenBuildingsListDataAccessInterface, OpenBuildingDataAccessInterface {
-    private BuildingFactory buildingFactory = null;
-    private EventFactory eventFactory = null;
+    private BuildingBuilder buildingBuilder = null;
+    private EventBuilder eventBuilder = null;
 
     private final String buildingPath;
     private final String eventPath;
 
     private List<Building> buildings;
 
-    public BuildingDataAccessObject(String buildingPath, String eventPath, BuildingFactory buildingFactory, EventFactory eventFactory) {
-        this.buildingFactory = buildingFactory;
-        this.eventFactory = eventFactory;
+    public BuildingDataAccessObject(String buildingPath, String eventPath, BuildingBuilder buildingBuilder, EventBuilder eventBuilder) {
+        this.buildingBuilder = buildingBuilder;
+        this.eventBuilder = eventBuilder;
 
         this.buildingPath = buildingPath;
         this.eventPath = eventPath;
@@ -67,6 +67,7 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
                 String postal = jo.get("postal").getAsString();
                 // TODO: turn into builder call
                 Address address = new Address(street, city, province, country, postal);
+                buildingBuilder.createBuilding(code, name, shortName, campus, address, new ArrayList<>(), new ArrayList<>(), location, new ArrayList<>());
 
                 // get events information
                 List<Event> events = new ArrayList<>();
@@ -79,18 +80,19 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
                         String dateStr = eo.get("date").getAsString();
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                         Date date = sdf.parse(dateStr);
-                        Event event = eventFactory.create(ename, organizer, null, date);
-                        events.add(event);
+                        eventBuilder.createEvent(ename, organizer, date);
+                        eventBuilder.setLocation(buildingBuilder.getBuilding());
+                        events.add(eventBuilder.getEvent());
                     }
                 } catch (NullPointerException e) {
                     // event list was hopefully empty
                 }
-                // create building
-                Building building = buildingFactory.create(code, name, shortName, campus, address, null, null, location, null, events);
-                // add building to event so we have 2 way connections
-                for (Event event : events) {
-                    event.setLocation(building);
-                }
+
+                // TODO: TEST THIS, I changed the way the buildings and events contruct themselves
+                // to match the builder pattern, may not be connected properly, requires testing
+
+                buildingBuilder.setEvents(events);
+                Building building = buildingBuilder.getBuilding();
 
                 // add finished building to list
                 buildings.add(building);
