@@ -12,13 +12,15 @@ public class AddEventInteractor implements AddEventInputBoundary {
 
     public void execute(AddEventInputData inputData) {
         // get information from inputData
+        String buildingCode = inputData.getBuildingCode();
         String title = inputData.getTitle();
         String organizer = inputData.getOrganizer();
+        String room = inputData.getRoom();
         Date time = inputData.getTime();
         String description = inputData.getDescription();
 
         // call dao to add event to the json files
-        dao.addEvent(title, organizer, time, description);
+        dao.addEvent(buildingCode, title, organizer, room, time, description);
 
         // send back to presenter.
         AddEventOutputData outputData = new AddEventOutputData();

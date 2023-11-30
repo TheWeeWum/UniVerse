@@ -28,6 +28,8 @@ public class AddEventServlet extends HttpServlet {
         // Send user to the next page
 
         // TODO: old. but new not implemented yet
+        HttpSession session = request.getSession();
+        String buildingCode = session.getAttribute("buildingCode").toString();
         response.sendRedirect("addEvent.jsp");
     }
 

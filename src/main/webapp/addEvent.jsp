@@ -33,7 +33,7 @@
     <h1>Add Event</h1>
 </header>
 
-<form action="addEvent" method="post">
+<form action="add_event" method="post">
     <div class="input-group">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br><br>
@@ -42,6 +42,11 @@
     <div class="input-group">
         <label for="organizer">Organizer:</label>
         <input type="text" id="organizer" name="organizer" required><br><br>
+    </div>
+
+    <div class="input-group">
+        <label for="room">Room:</label>
+        <input type="text" id="room" name="room" required><br><br>
     </div>
 
     <div class="input-group">
