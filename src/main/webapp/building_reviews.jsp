@@ -33,9 +33,7 @@
     <!-- Add more links as needed -->
 </nav>
 
-<header>
-    <h1>Reviews</h1>
-</header>
+<header id="title"></header>
 
 <!-- Container for building sections -->
 <div id="reviewsContainer"></div>

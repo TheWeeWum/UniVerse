@@ -27,16 +27,29 @@ function initMap() {
 
                     var reviewstr = "";
                     console.log(markerInfo.reviews)
-                    for (let i = 0; i < markerInfo.reviews.length; i++) {
-                        var review = markerInfo.reviews[i];
-                        console.log(review);
-                        reviewstr +=
-                            'Username: ' + review.user.username + '<br>' +
-                            'Date: ' + review.date + '<br>' +
-                            'Title: ' + review.title + '<br>' +
-                            'Rating: ' + review.rating + '<br>' +
-                            'Comment: ' + review.content + '<br><br>';
-                    }
+                    if (markerInfo.reviews.length <= 3) {
+                        for (let i = 0; i < markerInfo.reviews.length; i++) {
+                            var review = markerInfo.reviews[i];
+                            console.log(review);
+                            reviewstr +=
+                                'Username: ' + review.user.username + '<br>' +
+                                'Date: ' + review.date + '<br>' +
+                                'Title: ' + review.title + '<br>' +
+                                'Rating: ' + review.rating + '<br>' +
+                                'Comment: ' + review.content + '<br><br>';
+                        }
+                    } else {
+                            for (let i = 0; i < 3; i++) {
+                                var review = markerInfo.reviews[i];
+                                console.log(review);
+                                reviewstr +=
+                                    'Username: ' + review.user.username + '<br>' +
+                                    'Date: ' + review.date + '<br>' +
+                                    'Title: ' + review.title + '<br>' +
+                                    'Rating: ' + review.rating + '<br>' +
+                                    'Comment: ' + review.content + '<br><br>';
+                            }
+                        }
 
 
                     var eventstr = ""
