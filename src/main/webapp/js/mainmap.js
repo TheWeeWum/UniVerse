@@ -26,7 +26,6 @@ function initMap() {
                     }
 
                     var reviewstr = "";
-                    console.log(markerInfo.reviews)
                     for (let i = 0; i < markerInfo.reviews.length; i++) {
                         var review = markerInfo.reviews[i];
                         console.log(review);
