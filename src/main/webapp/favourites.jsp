@@ -33,7 +33,7 @@
             <a href="profile">Profile</a>
         </div>
     </div>
-    <a href="#about">About</a>
+    <a href="about">About</a>
     <a href="signout">Sign Out</a>
 </nav>
 

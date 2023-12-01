@@ -37,7 +37,7 @@
             <a href="profile">Profile</a>
         </div>
     </div>
-    <a href="#about">About</a>
+    <a href="about">About</a>
         <% if (loggedIn == false) { %>
     <a href="signup">Signup</a>
     <a href="login">Login</a>
