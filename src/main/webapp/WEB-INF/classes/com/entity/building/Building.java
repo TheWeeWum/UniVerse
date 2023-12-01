@@ -3,7 +3,6 @@ package com.entity.building;
 import com.entity.JsonRepresentation;
 import com.entity.Reviewable;
 import com.entity.event.Event;
-import com.entity.map.Pin;
 import com.entity.review.Review;
 import com.entity.room.Room;
 
@@ -101,7 +100,7 @@ public class Building extends Reviewable implements JsonRepresentation {
      * @return the list of rooms on the specified floor of the building.
      */
     public List<Room> getRooms(String floor) {
-        List<Room> roomsOnFloor = new ArrayList<Room>();
+        List<Room> roomsOnFloor = new ArrayList<>();
         for (Room room : rooms) {
             if (room.getFloor().equals(floor)) {
                 roomsOnFloor.add(room);

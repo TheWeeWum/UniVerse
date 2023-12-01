@@ -1,4 +1,4 @@
-package Entity;
+package src.Entity;
 
 import com.data_access.BuildingDataAccessObject;
 import com.data_access.BuildingReviewDataAccessObject;
