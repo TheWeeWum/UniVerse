@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 
 public class BuildingReviewsServlet extends HttpServlet {
     private HttpServletRequest request;
@@ -35,11 +36,14 @@ public class BuildingReviewsServlet extends HttpServlet {
     }
 
     public void displayReviews(BuildingReviewsOutputData buildingReviewsOutputData) {
+        List<Review> reviews = buildingReviewsOutputData.getReviews();
         StringBuilder reviewsJson = new StringBuilder("[");
-        for (Review review: buildingReviewsOutputData.getReviews()) {
-            reviewsJson.append(review.getJsonRepresentation());
+        for (Review review: reviews) {
+            reviewsJson.append(review.getJsonRepresentation()).append(",");
         }
-        reviewsJson.delete(reviewsJson.length() - 1, reviewsJson.length());
+        if (!reviews.isEmpty()) {
+            reviewsJson.delete(reviewsJson.length() - 1, reviewsJson.length());
+        }
         reviewsJson.append("]");
 
 
