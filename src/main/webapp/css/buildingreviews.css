@@ -1,4 +1,5 @@
 .reviewSection {
+    position: relative; /* Set the positioning context for absolute positioning */
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
@@ -16,7 +17,9 @@
 .reviewDate {
     font-size: 0.8em;
     color: #555;
-    align-self: flex-end;
+    position: absolute;
+    top: 10px; /* Adjust as needed for the desired vertical position */
+    right: 10px; /* Adjust as needed for the desired horizontal position */
 }
 
 .reviewRating {
