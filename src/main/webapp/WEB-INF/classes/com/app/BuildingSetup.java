@@ -24,8 +24,8 @@ public class BuildingSetup {
         BuildingBuilder buildingBuilder = new BuildingBuilder();
         EventBuilder eventBuilder = new EventBuilder();
         ReviewBuilder reviewBuilder = new ReviewBuilder();
-        String buildingPath = Path.path + "external-data\\buildings.json";
-        String eventPath = Path.path + "external-data\\events.json";
+        String buildingPath = Path.path + "external-data/buildings.json";
+        String eventPath = Path.path + "external-data/events.json";
         String reviewPath = Path.path + "external-data\\buildingreviews.json";
 
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
