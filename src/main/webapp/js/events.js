@@ -17,7 +17,12 @@ function loadMoreEvents() {
             // Load additional buildings
             nextEvents.forEach(eventInfo => {
                 const newSection = document.createElement('section');
-                newSection.textContent = eventInfo.name;
+                newSection.innerHTML =
+                    "<h2>" + eventInfo.name + "</h2><br>" +
+                    "<p>Organizer: " + eventInfo.organizer + "</p><br>" +
+                    "<p>Location: " + eventInfo.location + "</p><br>" +
+                    "<p>Date: " + eventInfo.date + "</p><br>";
+
                 container.appendChild(newSection);
             });
 

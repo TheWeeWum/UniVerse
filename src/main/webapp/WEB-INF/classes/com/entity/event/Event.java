@@ -85,13 +85,13 @@ public class Event implements JsonRepresentation {
     public String getJsonRepresentation() {
         String time = date.toString();
         return "{" +
-                "name: " + name +
+                "\"name\": \"" + name + "\"" +
                 "," +
-                "organizer: " + organizer +
+                "\"organizer\": \"" + organizer + "\"" +
                 "," +
-                "location: " + location.getDeadEndJson() +
+                "\"location\": " + location.getDeadEndJson() +
                 "," +
-                "date: " + time +
+                "\"date\": \"" + time + "\"" +
                 "}";
     }
 

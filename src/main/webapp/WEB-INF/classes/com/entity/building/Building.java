@@ -192,7 +192,7 @@ public class Building extends Reviewable implements JsonRepresentation {
      *              {floor: String}, {...}, ...
      *             ],
      *     lat: float,
-     *     long: float,
+     *     lng: float,
      *     reviews: reviews,
      *     rating: float
      *     events: events
@@ -224,7 +224,7 @@ public class Building extends Reviewable implements JsonRepresentation {
 
         StringBuilder reviewsJson = new StringBuilder("[");
         for (Review review : reviews) {
-            reviewsJson.append("{").append(review.getJsonRepresentation()).append("}").append(",");
+            reviewsJson.append(review.getJsonRepresentation()).append(",");
         }
         if (!reviews.isEmpty()) {
             reviewsJson.deleteCharAt(reviewsJson.length() - 1);
@@ -233,7 +233,7 @@ public class Building extends Reviewable implements JsonRepresentation {
 
         StringBuilder eventsJson = new StringBuilder("[");
         for (Event event : events) {
-            eventsJson.append("{").append(event.getJsonRepresentation()).append("}").append(",");
+            eventsJson.append(event.getJsonRepresentation()).append(",");
         }
         if (!events.isEmpty()) {
             eventsJson.deleteCharAt(eventsJson.length() - 1);
@@ -241,27 +241,27 @@ public class Building extends Reviewable implements JsonRepresentation {
         eventsJson.append("]");
 
         return "{" +
-                    "name: " + name +
+                    "\"name\": \"" + name + "\"" +
                     "," +
-                    "code: " + code +
+                    "\"code\": \"" + code + "\"" +
                     "," +
-                    "shortname: " + shortname +
+                    "\"shortname\": \"" + shortname + "\"" +
                     "," +
-                    "campus: " + campus +
+                    "\"campus\": \"" + campus + "\"" +
                     "," +
-                    "address: " + address.getJsonRepresentation() +
+                    "\"address\": " + address.getJsonRepresentation() +
                     "," +
-                    "rooms: " + roomsJson +
+                    "\"rooms\": " + roomsJson +
                     "," +
-                    "floors: " + floorsJson +
+                    "\"floors\": " + floorsJson +
                     "," +
-                    "lat: " + location.getLatitude() +
+                    "\"lat\": " + location.getLatitude() +
                     "," +
-                    "long: " + location.getLongitude() +
+                    "\"lng\": " + location.getLongitude() +
                     "," +
-                    "reviews: " + reviewsJson +
+                    "\"reviews\": " + reviewsJson +
                     "," +
-                    "events: " + eventsJson +
+                    "\"events\": " + eventsJson +
                 "}";
 
     }
@@ -282,26 +282,26 @@ public class Building extends Reviewable implements JsonRepresentation {
      *          postal: String
      *     },
      *     lat: float,
-     *     long: float
+     *     lng: float
      * }
      * </pre>
      * @return String in Json format.
      */
     public String getDeadEndJson() {
         return "{" +
-                "name: " + name +
+                "\"name\": \"" + name + "\"" +
                 "," +
-                "code: " + code +
+                "\"code\": \"" + code + "\"" +
                 "," +
-                "shortname: " + shortname +
+                "\"shortname\": \"" + shortname + "\"" +
                 "," +
-                "campus: " + campus +
+                "\"campus\": \"" + campus + "\"" +
                 "," +
-                "address: " + address.getJsonRepresentation() +
+                "\"address\": " + address.getJsonRepresentation() +
                 "," +
-                "lat: " + location.getLatitude() +
+                "\"lat\": " + location.getLatitude() +
                 "," +
-                "long: " + location.getLongitude() +
+                "\"lng\": " + location.getLongitude() +
                 "}";
     }
 
@@ -310,5 +310,12 @@ public class Building extends Reviewable implements JsonRepresentation {
      */
     protected void setEvents(List<Event> events) {
         this.events = events;
+    }
+
+    /**
+     * @param reviews the list of reviews for this building.
+     */
+    protected void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }

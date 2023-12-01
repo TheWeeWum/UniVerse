@@ -20,7 +20,7 @@ function loadMoreReviews() {
                 newSection.classList.add('reviewSection');
 
                 newSection.innerHTML = `
-                        <div class="reviewHeader">${reviewInfo.username}</div>
+                        <div class="reviewHeader">${reviewInfo.user.username}</div>
                         <div class="reviewDate">${reviewInfo.date}</div>
                         <div class="reviewRating">Rating: ${reviewInfo.rating}</div>
                         <div class="reviewTitle">${reviewInfo.title}</div>

@@ -1,6 +1,7 @@
 package Entity;
 
 import com.data_access.BuildingDataAccessObject;
+import com.data_access.BuildingReviewDataAccessObject;
 import com.data_access.FileUserDataAccessObject;
 import com.data_access.Path;
 import com.entity.building.Building;
@@ -8,14 +9,18 @@ import com.entity.building.BuildingBuilder;
 import com.entity.event.EventBuilder;
 import com.entity.map.Map;
 import com.entity.review.Review;
+import com.entity.review.ReviewBuilder;
 import com.entity.user.LoggedInUser;
 import com.entity.user.User;
+import com.use_case.building_reviews.BuildingReviewsDataAccessInterface;
+import com.use_case.display_markers.BuildingMarkerDataAccessInterface;
 import com.use_case.open_buildings_list.OpenBuildingsListDataAccessInterface;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
 
+import static java.nio.file.FileSystems.getDefault;
 import static org.junit.Assert.*;
 
 
@@ -33,13 +38,19 @@ public class EntityTest {
         // Create buildings
         BuildingBuilder buildingBuilder = new BuildingBuilder();
         EventBuilder eventBuilder = new EventBuilder();
+        ReviewBuilder reviewBuilder = new ReviewBuilder();
         String buildingPath = Path.path + "external-data\\buildings.json";
         String eventPath = Path.path + "external-data\\events.json";
-        OpenBuildingsListDataAccessInterface buildingDAO = new BuildingDataAccessObject(buildingPath,eventPath, buildingBuilder, eventBuilder);
+        String reviewPath = Path.path + "external-data\\buildingreviews.json";
+
+        FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
+
+        BuildingReviewsDataAccessInterface reviewDataAccessObject = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);
+
+        OpenBuildingsListDataAccessInterface buildingDAO = new BuildingDataAccessObject(buildingPath,eventPath, buildingBuilder, eventBuilder, reviewDataAccessObject);
         buildings = buildingDAO.getBuildings();
 
         // Create Users
-        FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
         users = new ArrayList<>(userDAO.getAccounts().values());
 
         // Get some random reviews for each user, each user will have 0-3 reviews after this
@@ -57,38 +68,51 @@ public class EntityTest {
         // creates a map object, which essentially just stores the list of buildings attached to it.
         map = new Map(buildings);
     }
+    
+
 
     @Test
-    public void testBuildingsDataAccess() {
+    public void testBuildingsJsonRepresentation() {
         // Create buildings
         BuildingBuilder buildingBuilder = new BuildingBuilder();
         EventBuilder eventBuilder = new EventBuilder();
+        ReviewBuilder reviewBuilder = new ReviewBuilder();
         String buildingPath = Path.path + "external-data\\buildings.json";
         String eventPath = Path.path + "external-data\\events.json";
-        OpenBuildingsListDataAccessInterface buildingDAO = new BuildingDataAccessObject(buildingPath,eventPath, buildingBuilder, eventBuilder);
+        String reviewPath = Path.path + "external-data\\buildingreviews.json";
+
+        FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
+        BuildingReviewsDataAccessInterface reviewDataAccessObject = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);
+
+        OpenBuildingsListDataAccessInterface buildingDAO = new BuildingDataAccessObject(buildingPath,eventPath, buildingBuilder, eventBuilder, reviewDataAccessObject);
         List<Building> testBuildings = buildingDAO.getBuildings();
 
         String expectedString = "{" +
-                "name: University College" + "," +
-                "code: UC" + "," +
-                "shortname: UC" + "," +
-                "campus: UTSG" + "," +
-                "address: {" +
-                    "street: " + "15 King's College Circle" + "," +
-                    "city: Toronto" + "," +
-                    "province: ON" + "," +
-                    "country: Canada" + "," +
-                    "postal: M5S 3H7" +
+                "\"name\": \"University College\"" + "," +
+                "\"code\": \"UC\"" + "," +
+                "\"shortname\": \"UC\"" + "," +
+                "\"campus\": \"UTSG\"" + "," +
+                "\"address\": {" +
+                    "\"street\": \"15 King's College Circle\"" + "," +
+                    "\"city\": \"Toronto\"" + "," +
+                    "\"province\": \"ON\"" + "," +
+                    "\"country\": \"Canada\"" + "," +
+                    "\"postal\": \"M5S 3H7\"" +
                     "}" + "," +
-                "rooms: []" + "," +
-                "floors: []" + "," +
-                "lat: 43.663197" + "," +
-                "long: -79.39582" + "," +
-                "reviews: []" + "," +
-                "events: []" +
+                "\"rooms\": []" + "," +
+                "\"floors\": []" + "," +
+                "\"lat\": 43.663197" + "," +
+                "\"lng\": -79.39582" + "," +
+                "\"reviews\": []" + "," +
+                "\"events\": []" +
                 "}";
 
         String JsonStringForBuilding = testBuildings.get(0).getJsonRepresentation();
         assertEquals(expectedString, JsonStringForBuilding);
+    }
+
+    @Test
+    public void testBuildingGet() {
+        assertEquals("University College", buildings.get(0).getName());
     }
 }

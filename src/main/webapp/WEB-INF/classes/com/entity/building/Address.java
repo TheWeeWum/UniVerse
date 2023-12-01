@@ -80,15 +80,15 @@ public class Address implements JsonRepresentation {
     @Override
     public String getJsonRepresentation() {
         return "{" +
-                "street: " + street +
+                "\"street\": \"" + street + "\"" +
                 "," +
-                "city: " + city +
+                "\"city\": \"" + city + "\"" +
                 "," +
-                "province: " + province +
+                "\"province\": \"" + province + "\"" +
                 "," +
-                "country: " + country +
+                "\"country\": \"" + country + "\"" +
                 "," +
-                "postal: " + postal +
+                "\"postal\": \"" + postal + "\"" +
                 "}";
     }
 

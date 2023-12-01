@@ -19,22 +19,24 @@ function initMap() {
                 marker.addListener('click', function () {
                     document.getElementById('map').style.width = "70%";
                     document.getElementById('sidePanel').style.width = "30%";
-                    var address = markerInfo.street.split(' ');
+                    var address = markerInfo.address.street.split(' ');
                     var addr = "";
                     for (let i = 0; i < address.length; i++) {
                         addr += address[i] + "+";
                     }
 
                     var reviewstr = "";
-                    // for (let i = 0; markerInfo.reviews.length; i++) {
-                    //     var review = markerInfo.reviews[i];
-                    //     reviewstr +=
-                    //         'User id: ' + review.user + '<br>' +
-                    //         'Date: ' + review.date + '<br>' +
-                    //         'Title: ' + review.title + '<br>' +
-                    //         'Rating: ' + review.rating + '<br>' +
-                    //         'Comment: ' + review.content + '<br><br>';
-                    // }
+                    console.log(markerInfo.reviews)
+                    for (let i = 0; i < markerInfo.reviews.length; i++) {
+                        var review = markerInfo.reviews[i];
+                        console.log(review);
+                        reviewstr +=
+                            'Username: ' + review.user.username + '<br>' +
+                            'Date: ' + review.date + '<br>' +
+                            'Title: ' + review.title + '<br>' +
+                            'Rating: ' + review.rating + '<br>' +
+                            'Comment: ' + review.content + '<br><br>';
+                    }
 
 
                     var eventstr = ""
@@ -61,11 +63,11 @@ function initMap() {
                         '<p> Campus: ' + markerInfo.campus + '</p>' +
                         '<p> ' +
                         'Address: ' +
-                        markerInfo.street + '<br>' +
-                        markerInfo.city + ', ' +
-                        markerInfo.province + ', ' +
-                        markerInfo.country + ', ' +
-                        markerInfo.postal +
+                        markerInfo.address.street + '<br>' +
+                        markerInfo.address.city + ', ' +
+                        markerInfo.address.province + ', ' +
+                        markerInfo.address.country + ', ' +
+                        markerInfo.address.postal +
                         '</p>' +
                         '<p> ' +
                         'Lat ' + markerInfo.lat + ', ' +

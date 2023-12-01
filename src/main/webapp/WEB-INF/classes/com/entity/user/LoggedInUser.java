@@ -232,15 +232,15 @@ public class LoggedInUser implements User, JsonRepresentation {
         favRoomsJson.append("]");
 
         return "{" +
-                "username: " + username +
+                "\"username\": \"" + username + "\"" +
                 "," +
-                "id: " + id +
+                "\"id\": " + id +
                 "," +
-                "reviews: " + reviewsJson +
+                "\"reviews\": " + reviewsJson +
                 "," +
-                "favourite_buildings: " + favBuildingsJson +
+                "\"favourite_buildings\": " + favBuildingsJson +
                 "," +
-                "favourite_rooms: " + favRoomsJson +
+                "\"favourite_rooms\": " + favRoomsJson +
                 "}";
     }
 
@@ -257,9 +257,9 @@ public class LoggedInUser implements User, JsonRepresentation {
     @Override
     public String getDeadEndJson() {
         return "{" +
-                "username: " + username +
+                "\"username\": \"" + username + "\"" +
                 "," +
-                "id: " + id +
+                "\"id\": \"" + id +
                 "}";
     }
 }

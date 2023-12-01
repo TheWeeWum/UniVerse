@@ -92,13 +92,15 @@ public class Review implements JsonRepresentation {
     @Override
     public String getJsonRepresentation() {
         return "{" +
-                "username: " + user.getJsonRepresentation() +
+                "\"user\": " + user.getJsonRepresentation() +
                 "," +
-                "date: " + date.toString() +
+                "\"date\": \"" + date.toString() + "\"" +
                 "," +
-                "title: " + title +
+                "\"title\": \"" + title + "\"" +
                 "," +
-                "rating: " + rating +
+                "\"rating\": " + rating +
+                "," +
+                "\"content\": \"" + content + "\"" +
                 "}";
     }
 
@@ -119,13 +121,15 @@ public class Review implements JsonRepresentation {
     @Override
     public String getDeadEndJson() {
         return "{" +
-                "username: " + user.getDeadEndJson() +
+                "\"user\": " + user.getDeadEndJson() +
                 "," +
-                "date: " + date.toString() +
+                "\"date\": \"" + date.toString() +
                 "," +
-                "title: " + title +
+                "\"title\": \"" + title + "\"" +
                 "," +
-                "rating: " + rating +
+                "\"rating\": " + rating +
+                "," +
+                "\"content\": \"" + content + "\"" +
                 "}";
     }
 }

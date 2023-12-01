@@ -36,28 +36,12 @@ public class BuildingReviewsServlet extends HttpServlet {
 
     public void displayReviews(BuildingReviewsOutputData buildingReviewsOutputData) {
         StringBuilder reviewsJson = new StringBuilder("[");
-        System.out.println(reviewsJson);
         for (Review review: buildingReviewsOutputData.getReviews()) {
-            User user = review.getUser();
-            Date date = review.getDate();
-            float rating = review.getRating();
-            String title = review.getTitle();
-            String content = review.getContent();
-
-            reviewsJson.append(String.format("{" +
-                            "\"username\": \"%s\", " +
-                            "\"date\": \"%s\", " +
-                            "\"rating\": \"%s\", " +
-                            "\"title\": \"%s\", " +
-                            "\"content\": \"%s\" " +
-                            "},",
-                    user.getUsername(), date, rating, title, content));
-            System.out.println(reviewsJson);
+            reviewsJson.append(review.getJsonRepresentation());
         }
         reviewsJson.delete(reviewsJson.length() - 1, reviewsJson.length());
         reviewsJson.append("]");
 
-        System.out.println(reviewsJson);
 
         try {
             response.setContentType("application/json");

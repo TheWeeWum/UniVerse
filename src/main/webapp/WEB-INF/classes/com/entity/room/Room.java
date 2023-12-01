@@ -138,15 +138,15 @@ public class Room extends Reviewable implements JsonRepresentation {
         eventsJson.append("]");
 
         return "{" +
-                "room_number: " + roomNumber +
+                "\"room_number\": \"" + roomNumber + "\"" +
                 "," +
-                "floor: " + floor +
+                "\"floor\": \"" + floor + "\"" +
                 "," +
-                "capacity: " + capacity +
+                "\"capacity\": \"" + capacity + "\"" +
                 "," +
-                "reviews: " + reviewsJson +
+                "\"reviews\": " + reviewsJson +
                 "," +
-                "events: " + eventsJson +
+                "\"events\": " + eventsJson +
                 "}";
 
     }
@@ -165,11 +165,11 @@ public class Room extends Reviewable implements JsonRepresentation {
     @Override
     public String getDeadEndJson() {
         return "{" +
-                "room_number: " + roomNumber +
+                "\"room_number\": \"" + roomNumber + "\"" +
                 "," +
-                "floor: " + floor +
+                "\"floor\": \"" + floor + "\"" +
                 "," +
-                "capacity: " + capacity +
+                "\"capacity\": \"" + capacity + "\"" +
                 "}";
     }
 }

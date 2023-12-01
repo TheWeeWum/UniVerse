@@ -6,7 +6,9 @@ import com.entity.building.BuildingBuilder;
 import com.entity.building.Location;
 import com.entity.event.Event;
 import com.entity.event.EventBuilder;
+import com.entity.review.Review;
 import com.google.gson.*;
+import com.use_case.building_reviews.BuildingReviewsDataAccessInterface;
 import com.use_case.display_markers.BuildingMarkerDataAccessInterface;
 import com.use_case.open_building.OpenBuildingDataAccessInterface;
 import com.use_case.open_buildings_list.OpenBuildingsListDataAccessInterface;
@@ -23,12 +25,15 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
 
     private final String buildingPath;
     private final String eventPath;
+    private BuildingReviewsDataAccessInterface reviewDataAccessObject;
 
     private List<Building> buildings;
 
-    public BuildingDataAccessObject(String buildingPath, String eventPath, BuildingBuilder buildingBuilder, EventBuilder eventBuilder) {
+    public BuildingDataAccessObject(String buildingPath, String eventPath, BuildingBuilder buildingBuilder, EventBuilder eventBuilder, BuildingReviewsDataAccessInterface reviewDataAccessObject) {
         this.buildingBuilder = buildingBuilder;
         this.eventBuilder = eventBuilder;
+
+        this.reviewDataAccessObject = reviewDataAccessObject;
 
         this.buildingPath = buildingPath;
         this.eventPath = eventPath;
@@ -88,10 +93,13 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
                     // event list was hopefully empty
                 }
 
+                List<Review> reviews = reviewDataAccessObject.getReviews(code);
+
                 // TODO: TEST THIS, I changed the way the buildings and events contruct themselves
                 // to match the builder pattern, may not be connected properly, requires testing
 
                 buildingBuilder.setEvents(events);
+                buildingBuilder.setReviews(reviews);
                 Building building = buildingBuilder.getBuilding();
 
                 // add finished building to list

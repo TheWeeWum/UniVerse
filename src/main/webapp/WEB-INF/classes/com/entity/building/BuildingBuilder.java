@@ -17,6 +17,10 @@ public class BuildingBuilder {
         building.setEvents(events);
     }
 
+    public void setReviews(List<Review> reviews) {
+        building.setReviews(reviews);
+    }
+
     public Building getBuilding() {
         return building;
     }
