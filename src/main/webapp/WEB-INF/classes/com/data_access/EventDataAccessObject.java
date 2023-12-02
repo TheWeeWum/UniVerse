@@ -84,8 +84,9 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
 
             JsonObject building = new JsonObject();
             try {
-                building = mainObject.get("buildingCode").getAsJsonObject();
+                building = mainObject.get(buildingCode).getAsJsonObject();
             } catch (NullPointerException e) {
+                System.out.println("Couldn't find building in JsonFile (Not an error)");
                 // building did not exist
                 mainObject.add(buildingCode, building);
                 building = mainObject.get(buildingCode).getAsJsonObject();
@@ -94,6 +95,7 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
             try {
                 events = building.get("events").getAsJsonArray();
             } catch (NullPointerException e) {
+                System.out.println("Couldn't find events in JsonFile (Not an error)");
                 // events didn't exist
                 building.add("events", events);
                 events = building.get("events").getAsJsonArray();
@@ -105,7 +107,6 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
             file.write(gson.toJson(mainObject));
             file.flush();
             file.close();
-
 
         } catch (IOException e) {
             System.out.println("Could not read Event JsonFile in addEvent (EventDataAccessObject)");

@@ -102,7 +102,7 @@
     <UL>
         <LI> Google Maps API: <br>
             This API will be used to show the map of the campus with the location of all the buildings
-            Potentially, Google Map's Collections Feature could be used to “filter” buildings by type
+            Potentially, Google Map's Collections Feature could be used to "filter" buildings by type
         </LI>
 
         <LI> Youtube API: <br>
@@ -154,7 +154,7 @@
         <LI> Reviews <br>
             Since people can leave reviews,
             we would want them to be formatted correctly
-            and have all of the required information.
+            and have all of the required information.ob
         </LI>
 
     </UL>
