@@ -115,15 +115,12 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
     @Override
     public void saveReview(Review review) {
         // Get the user's ID associated with the review
-        LoggedInUser user = findUser(review.getUser().getId());
-        user.addReview(review.reviewToString());
+        LoggedInUser user = findUser(review.getUser());
+        user.addReview(review);
 
         //update the accounts
         accounts.put(user.getId(), user);
         addUserToJsonFile();
-//
-//        System.out.println("Review added successfully for user with ID: " + review.getUser().getId());
-
     }
     public void addReview(String review) {
 

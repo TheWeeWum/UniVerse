@@ -9,21 +9,21 @@ import com.google.gson.JsonObject;
 import java.util.Date;
 
 public class Review {
-    private final User user;
+    private final int userId;
     private final Date date;
     private String title;
     private String content;
     private float rating;
 
     /**
-     * @param user the user who wrote the review
+     * @param userId the userId who wrote the review
      * @param date the time the review was written
      * @param title the title of the review
      * @param content the content of the review (String format only)
      * @param rating the rating of the review
      */
-    public Review(User user, Date date, String title, String content, float rating) {
-        this.user = user;
+    public Review(int userId, Date date, String title, String content, float rating) {
+        this.userId = userId;
         this.date = date;
         this.title = title;
         this.content = content;
@@ -35,8 +35,8 @@ public class Review {
     /**
      * @return the user who wrote the review
      */
-    public User getUser() {
-        return user;
+    public int getUser() {
+        return userId;
     }
 
     /**
@@ -67,8 +67,4 @@ public class Review {
         return rating;
     }
 
-    public String reviewToString() {
-        return String.format("{\"date\":\"%s\",\"title\":\"%s\",\"content\":\"%s\",\"rating\":%.1f}",
-                date.toString(), title, content, rating);
-    }
 }

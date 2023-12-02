@@ -22,7 +22,7 @@ public class ReviewInteractor implements ReviewInputBoundary{
 
         if (reviewInputData.getUserId() == -1) {
              Guest guest = new Guest();
-             Review review = reviewFactory.create(guest, reviewInputData.getDateTime(), reviewInputData.getTitle(),
+             Review review = reviewFactory.create(guest.getId(), reviewInputData.getDateTime(), reviewInputData.getTitle(),
                      reviewInputData.getReviewContent(), reviewInputData.getRating());
              buildingReviewsDataAccessObject.saveReview(review, reviewInputData.getBuildingCode());
         }
@@ -31,7 +31,7 @@ public class ReviewInteractor implements ReviewInputBoundary{
             // If we are here, that means that the user is logged in, and the review will for sure be entered into the json file.
             LoggedInUser user = userDataAccessObject.findUser(reviewInputData.getUserId());
 
-            Review review = reviewFactory.create(user, reviewInputData.getDateTime(), reviewInputData.getTitle(),
+            Review review = reviewFactory.create(user.getId(), reviewInputData.getDateTime(), reviewInputData.getTitle(),
                     reviewInputData.getReviewContent(), reviewInputData.getRating());
             userDataAccessObject.saveReview(review);
             buildingReviewsDataAccessObject.saveReview(review, reviewInputData.getBuildingCode());

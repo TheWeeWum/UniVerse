@@ -65,7 +65,7 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
                     String content = ro.get("content").getAsString(); // get content
 
                     // create Review
-                    Review review = reviewFactory.create(user, date, title, content, rating);
+                    Review review = reviewFactory.create(user.getId(), date, title, content, rating);
                     reviews.add(review); // append Review in Review array
                 }
             } catch (NullPointerException e) {
@@ -97,7 +97,7 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
 
             // Create a new review JSON object
             JSONObject reviewObject = new JSONObject();
-            reviewObject.put("userid", review.getUser().getId()); // Assuming User has an ID field
+            reviewObject.put("userid", review.getUser()); // Assuming User has an ID field
             reviewObject.put("date", review.getDate().toString()); // Convert Date to String representation
             reviewObject.put("rating", String.valueOf(review.getRating())); // Convert float rating to String
             reviewObject.put("title", review.getTitle());

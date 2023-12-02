@@ -38,7 +38,7 @@ public class BuildingReviewsServlet extends HttpServlet {
         StringBuilder reviewsJson = new StringBuilder("[");
         System.out.println(reviewsJson);
         for (Review review: buildingReviewsOutputData.getReviews()) {
-            User user = review.getUser();
+            int user = review.getUser();
             Date date = review.getDate();
             float rating = review.getRating();
             String title = review.getTitle();
@@ -51,7 +51,7 @@ public class BuildingReviewsServlet extends HttpServlet {
                             "\"title\": \"%s\", " +
                             "\"content\": \"%s\" " +
                             "},",
-                    user.getUsername(), date, rating, title, content));
+                    user, date, rating, title, content));
             System.out.println(reviewsJson);
         }
         reviewsJson.delete(reviewsJson.length() - 1, reviewsJson.length());

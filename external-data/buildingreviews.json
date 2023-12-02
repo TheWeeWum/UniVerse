@@ -15,13 +15,22 @@
       "content": "Too many ppl"
     }
   ]},
-  "UC": {"reviews": [{
-    "date": "Sat Dec 02 00:00:00 EST 2023",
-    "rating": "5.0",
-    "title": "The oldest college",
-    "userid": 1,
-    "content": "Very nice rooms"
-  }]},
+  "UC": {"reviews": [
+    {
+      "date": "Sat Dec 02 00:00:00 EST 2023",
+      "rating": "5.0",
+      "title": "The oldest college",
+      "userid": 1,
+      "content": "Very nice rooms"
+    },
+    {
+      "date": "Sat Dec 02 00:00:00 EST 2023",
+      "rating": "2.0",
+      "title": "Kp",
+      "userid": 1,
+      "content": "conect"
+    }
+  ]},
   "BA": {"reviews": [
     {
       "date": "2023-12-25 12:00:00",
