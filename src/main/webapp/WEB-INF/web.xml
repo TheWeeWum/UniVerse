@@ -162,6 +162,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>BuildingReviewsPage</servlet-name>
+        <servlet-class>com.view.Reviews.BuildingReviewsPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingReviewsPage</servlet-name>
+        <url-pattern>/reviews</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>AddEvent</servlet-name>
         <servlet-class>com.view.Events.AddEventServlet</servlet-class>
     </servlet>
