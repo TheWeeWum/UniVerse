@@ -9,12 +9,12 @@ import java.util.List;
 
 
 public interface ProfileUserDataAccessInterface {
-    LoggedInUser getUser();
+    LoggedInUser getUser(int userID);
 
-    String getUsername();
-    List<Reviewable> getFavourites();
+    String getUsername(int userID);
+    List<Reviewable> getFavourites(int userID);
 
-    List<Building> getFavouriteBuildings();
+    List<Building> getFavouriteBuildings(int userID);
 
-    List<Room> getFavouriteRooms();
+    List<Room> getFavouriteRooms(int userID);
 }

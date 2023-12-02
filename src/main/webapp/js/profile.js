@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function loadUserData() {
     const container = document.getElementById('reviewContainer');
 
-    // Fetch additional building data
     fetch('user_data')
         .then(response => response.json())
         .then(userData => {

@@ -11,7 +11,7 @@ public class ProfileController {
     }
 
 
-    public void execute() {
-        openProfileUseCaseInteractor.execute();
+    public void execute(int userId) {
+        openProfileUseCaseInteractor.execute(userId);
     }
 }

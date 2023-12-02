@@ -1,10 +1,10 @@
 package com.use_case.open_profile;
 
 public class ProfileInputData {
-    final  String userID;
-    public ProfileInputData(String userID){
+    final  int userID;
+    public ProfileInputData(int userID){
         this.userID = userID;
     }
 
-    String getUserID() {return userID;}
+    int getUserID() {return userID;}
 }

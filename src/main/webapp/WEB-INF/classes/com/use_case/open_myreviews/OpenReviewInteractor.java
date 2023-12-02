@@ -16,13 +16,13 @@ public class OpenReviewInteractor implements OpenReviewInputBoundary{
         this.openReviewPresenter = openReviewPresenter;
     }
     @Override
-    public void execute() {
-        // no input data
+    public void execute(OpenReviewInputData userReviewInputData) {
+
         // get reviews from database
-        List<Review> reviews = openReviewDataAccessObject.getReviews();
+        int userID= userReviewInputData.getUserID();
 
         // compile into output data
-        OpenReviewOutputData openReviewOutputData = new OpenReviewOutputData();
+        OpenReviewOutputData openReviewOutputData = new OpenReviewOutputData(userID);
         openReviewPresenter.prepareSuccessView(openReviewOutputData);
     }
 }

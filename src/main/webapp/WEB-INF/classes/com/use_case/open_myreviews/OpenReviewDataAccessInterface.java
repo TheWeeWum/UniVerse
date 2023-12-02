@@ -5,6 +5,6 @@ import com.entity.review.Review;
 import java.util.List;
 
 public interface OpenReviewDataAccessInterface {
-    List<Review> getReviews();
+    public List<Review> getReviews(int userID);
 
 }

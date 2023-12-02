@@ -15,12 +15,8 @@ public class ProfilePresenter implements ProfileOutputBoundary {
 
 
     @Override
-    public void prepareSuccessView(ProfileOutputData user) {
-
+    public void prepareSuccessView(ProfileOutputData userOutputData) {
+        userProfileServlet.writeProfile(userOutputData);
     }
 
-    @Override
-    public void prepareGuestView() {
-
-    }
 }

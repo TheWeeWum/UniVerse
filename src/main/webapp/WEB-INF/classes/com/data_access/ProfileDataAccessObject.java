@@ -148,8 +148,8 @@ public class ProfileDataAccessObject implements ProfileUserDataAccessInterface {
     }
 
 
-    public LoggedInUser getUser() {
-        Map<String, Object> profileInfo = getProfile(getUser().getId());
+    public LoggedInUser getUser(int userID) {
+        Map<String, Object> profileInfo = getProfile(userID);
         if (profileInfo != null) {
             List<Review> reviews = (List<Review>) profileInfo.get("reviews");
             List<Reviewable> favourites = (List<Reviewable>) profileInfo.get("favourites");
@@ -170,20 +170,20 @@ public class ProfileDataAccessObject implements ProfileUserDataAccessInterface {
     }
 
     @Override
-    public String getUsername() {
-        Map<String, Object> profileInfo = getProfile(getUser().getId());
+    public String getUsername(int userID) {
+        Map<String, Object> profileInfo = getProfile(userID);
         return (profileInfo != null) ? (String) profileInfo.get("username") : null;
     }
 
     @Override
-    public List<Reviewable> getFavourites() {
-        Map<String, Object> profileInfo = getProfile(getUser().getId()  );
+    public List<Reviewable> getFavourites(int userID) {
+        Map<String, Object> profileInfo = getProfile(userID);
         return (profileInfo != null) ? (List<Reviewable>) profileInfo.get("favourites") : null;
     }
 
     @Override
-    public List<Building> getFavouriteBuildings() {
-        Map<String, Object> profileInfo = getProfile( getUser().getId());
+    public List<Building> getFavouriteBuildings(int userID) {
+        Map<String, Object> profileInfo = getProfile(userID);
         List<String> favouriteBuildings = (profileInfo != null) ? (List<String>) profileInfo.get("favouriteBuildings") : null;
 
         if (favouriteBuildings != null) {
@@ -200,8 +200,8 @@ public class ProfileDataAccessObject implements ProfileUserDataAccessInterface {
     }
     // TODO: Don't know how rooms will be implemented
     @Override
-    public List<Room> getFavouriteRooms() {
-        Map<String, Object> profileInfo = getProfile( getUser().getId() );
+    public List<Room> getFavouriteRooms(int userID) {
+        Map<String, Object> profileInfo = getProfile(userID);
 //        List<String> favouriteRooms = (profileInfo != null) ? (List<String>) profileInfo.get("favouriteRooms") : null;
 //
 //        // Assuming you have a method to get a Room by room number in RoomDataAccessObject

@@ -15,15 +15,14 @@ public class ProfileInteractor implements ProfileInputBoundary{
     }
 
     @Override
-    public void execute() {
+    public void execute(int userID) {
         // no input data
 
         // get output data
-        LoggedInUser user = profileDataAccessObject.getUser();
+        LoggedInUser user = profileDataAccessObject.getUser(userID);
 
         // create output object
         ProfileOutputData profile = new ProfileOutputData(user);
         profilePresenter.prepareSuccessView(profile);
-
     }
 }

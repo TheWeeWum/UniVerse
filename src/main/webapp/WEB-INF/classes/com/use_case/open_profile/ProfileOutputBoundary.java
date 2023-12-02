@@ -4,5 +4,5 @@ public interface ProfileOutputBoundary {
 
     void prepareSuccessView(ProfileOutputData user);
 
-    void prepareGuestView();
+
 }
