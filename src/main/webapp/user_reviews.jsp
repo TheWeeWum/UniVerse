@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,8 +35,8 @@
 
 <header id="title"></header>
 
-<!-- Container for building sections -->
-<div id="userReviewsContainer"></div>
+<!-- Container for review sections -->
+<div id="reviewsContainer"></div>
 
 </body>
 </html>
