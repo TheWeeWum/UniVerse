@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/standard_background.css">
@@ -23,7 +23,7 @@
     <a class="dropbtn">Profile</a>
     <div class="dropdown-content">
       <a href="favourites">Favourites</a>
-      <a href="#userReviews">Reviews</a>
+      <a href="reviews_page">Reviews</a>
       <a href="profile">Profile</a>
     </div>
   </div>

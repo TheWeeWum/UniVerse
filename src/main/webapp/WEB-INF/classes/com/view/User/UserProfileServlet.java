@@ -30,7 +30,10 @@ public class UserProfileServlet extends HttpServlet {
         this.request = request;
         this.response = response;
 
-        if (session.getAttribute("loggedIn") == null && session.getAttribute("loggedIn").equals(false)) {
+        if (session.getAttribute("loggedIn") == null) {
+            // If the user is not logged in, set a default message
+            session.setAttribute("username", "You are not signed in");
+        } else if (session.getAttribute("loggedIn").equals(false)) {
             // If the user is not logged in, set a default message
             session.setAttribute("username", "You are not signed in");
         }

@@ -10,8 +10,12 @@ import java.io.IOException;
 public class UserReviewPageServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userID = request.getParameter("id");
         HttpSession session = request.getSession();
+        String userID = session.getAttribute("id").toString();
+
+        // TODO: if not signed in redirect to mainmap i guess
+
+        System.out.println("URPServlet");
 
         session.setAttribute("userID", userID);
         response.sendRedirect("user_reviews.jsp");

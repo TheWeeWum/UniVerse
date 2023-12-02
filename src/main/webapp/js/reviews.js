@@ -1,5 +1,3 @@
-<!-- Add this in your HTML where you want to display reviews -->
-<div id="reviewsContainer"></div>
 document.addEventListener('DOMContentLoaded', function() {
     loadReviews();
 });
@@ -8,9 +6,10 @@ function loadReviews() {
     const reviewsContainer = document.getElementById('reviewsContainer');
 
     // Fetch reviews data
-    fetch('reviews_info') // Update this with the endpoint to fetch reviews
+    fetch('review') // Update this with the endpoint to fetch reviews
         .then(response => response.json())
         .then(reviewsData => {
+            const reviewsSection = document.createElement('section');
             // Check if there are reviews to display
             if (reviewsData.length > 0) {
                 // Create a list to hold reviews
@@ -36,9 +35,11 @@ function loadReviews() {
                     reviewsList.appendChild(listItem);
                 });
 
-                reviewsContainer.appendChild(reviewsList);
+                reviewsSection.appendChild(reviewsList);
+                reviewsContainer.appendChild(reviewsSection);
             } else {
-                reviewsContainer.innerHTML = 'No reviews available.';
+                reviewsSection.innerHTML = '<p>No reviews available.</p>';
+                reviewsContainer.appendChild(reviewsSection);
             }
         })
         .catch(error => console.error('Error fetching reviews data:', error));

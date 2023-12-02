@@ -18,11 +18,11 @@ public class ProfileSetup {
     public static ProfileController setup(UserProfileServlet userProfileServlet) {
         ProfileOutputBoundary presenter = new ProfilePresenter(userProfileServlet);
         ReviewBuilder reviewFactory = new ReviewBuilder();
-        String userPath = Path.path + "external-data\\UserDataBase.json";
+        String userPath = Path.path + "external-data/UserDataBase.json";
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
         BuildingBuilder buildingFactory = new BuildingBuilder();
         EventBuilder eventFactory = new EventBuilder();
-        String buildingPath = Path.path + "external-data\\buildings.json";
+        String buildingPath = Path.path + "external-data/buildings.json";
         String eventPath = "events.json";
         ReviewBuilder reviewBuilder = new ReviewBuilder();
         String reviewPath = Path.path + "external-data/buildingreviews.json";

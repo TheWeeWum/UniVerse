@@ -14,6 +14,7 @@ public class UserReviewsController {
 
 
     public void execute(int userID) {
+        System.out.println("URC");
         OpenReviewInputData openReviewInputData = new OpenReviewInputData(userID);
         userReviewsInteractor.execute(openReviewInputData);
     }

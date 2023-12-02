@@ -23,8 +23,12 @@ public class UserReviewServlet extends HttpServlet {
         this.request = request;
         this.response = response;
 
+        System.out.println("UReviewServlet");
+
         HttpSession session = request.getSession();
         int userid = Integer.parseInt(session.getAttribute("id").toString());
+
+        System.out.println("Got id");
 
         // Initialize the loop for the use_case
         UserReviewsController userReviewsController = UserReviewSetup.setup(this);
@@ -44,6 +48,7 @@ public class UserReviewServlet extends HttpServlet {
         }
         reviewsJson.append("]");
 
+        System.out.println(reviewsJson);
 
         try {
             response.setContentType("application/json");

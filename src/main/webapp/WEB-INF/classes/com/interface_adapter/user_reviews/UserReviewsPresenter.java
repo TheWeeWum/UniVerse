@@ -15,6 +15,7 @@ public class UserReviewsPresenter implements OpenReviewOutputBoundary {
 
     @Override
     public void prepareSuccessView(OpenReviewOutputData openReviewOutputData) {
+        System.out.println("URP");
         userReviewsServlet.displayReviews(openReviewOutputData);
     }
 }

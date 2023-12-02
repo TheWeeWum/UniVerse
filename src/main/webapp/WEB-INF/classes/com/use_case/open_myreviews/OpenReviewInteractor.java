@@ -18,11 +18,12 @@ public class OpenReviewInteractor implements OpenReviewInputBoundary{
     }
     @Override
     public void execute(OpenReviewInputData userReviewInputData) {
-
+        System.out.println("ORI");
 
         // get reviews from the database
         List<Review> reviews = openReviewDataAccessObject.getReviews(userReviewInputData.getUserID());
 
+        System.out.println(reviews);
         // compile into an output data object
         OpenReviewOutputData userReviewsOutputData = new OpenReviewOutputData(reviews);
 

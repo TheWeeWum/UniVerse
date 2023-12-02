@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/buildingreviews.css">
-    <script src="js/buildingreviews.js"></script>
+    <script src="js/reviews.js"></script>
 </head>
 <body>
 <!--    NAVBAR-->
@@ -20,8 +20,8 @@
     <div class="dropdown">
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
-            <a href="#favourites">Favourites</a>
-            <a href="#userReviews">Reviews</a>
+            <a href="favourites">Favourites</a>
+            <a href="reviews_page">Reviews</a>
             <a href="profile">Profile</a>
         </div>
     </div>
