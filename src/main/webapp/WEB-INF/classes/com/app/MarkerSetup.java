@@ -1,6 +1,7 @@
 package com.app;
 
 import com.data_access.BuildingDataAccessObject;
+import com.data_access.Path;
 import com.entity.building.BuildingFactory;
 import com.entity.event.EventFactory;
 import com.interface_adapter.marker.MarkerController;
@@ -17,8 +18,8 @@ public class MarkerSetup {
 
         BuildingFactory buildingFactory = new BuildingFactory();
         EventFactory eventFactory = new EventFactory();
-        String buildingPath = "C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\buildings.json";
-        String eventPath = "C:\\Users\\liamc\\IdeaProjects\\UniVerse\\external-data\\events.json";
+        String buildingPath = Path.path + "external-data\\buildings.json";
+        String eventPath = Path.path + "external-data\\events.json";
         BuildingMarkerDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath, eventPath, buildingFactory, eventFactory);
 
         MarkerInputBoundary interactor = new MarkerInteractor(presenter, dataAccess);
