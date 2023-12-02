@@ -6,6 +6,8 @@ import com.entity.building.Building;
 import com.interface_adapter.open_building.OpenBuildingController;
 import com.use_case.open_building.OpenBuildingOutputData;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,12 +26,26 @@ public class BuildingInfoServlet extends HttpServlet {
         HttpSession session = request.getSession();
         // String buildingCode = request.getParameter("buildingCode");
         String buildingCode = session.getAttribute("buildingCode").toString();
+        int id = Integer.parseInt(session.getAttribute("id").toString());
+        System.out.println(id);
 
         // Initialize the loop for the use_case
         OpenBuildingController controller = BuildingSetup.setup(this);
 
         // call the controller passing it the inputs
-        controller.execute(buildingCode);
+        controller.execute(id, buildingCode);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        // Get session and the username
+        HttpSession session = request.getSession();
+
+        int id = Integer.parseInt(session.getAttribute("id").toString());
+        session.getAttribute("buildingCode");
+
     }
 
     public void writeBuilding(OpenBuildingOutputData openBuildingOutputData) {
@@ -62,13 +78,12 @@ public class BuildingInfoServlet extends HttpServlet {
                 "\"lng\": \"%f\" " +
                 "}", name, code, address, campus, lat, lng));
 
-        // delete comma at the end
-        // buildingJson.delete(buildingJson.length() - 1, buildingJson.length());
         buildingJson.append("]");
 
-        System.out.println(buildingJson);
+        // System.out.println(buildingJson);
 
         try {
+
             System.out.println("Trying to write building");
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();

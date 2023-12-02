@@ -25,11 +25,11 @@ section {
     cursor: pointer;
     box-shadow: 0 0 20px #000000;
 }
-#favouritesButton.favourited {
-    background-color: #fa93af; /* Style for favourited state */
-    box-shadow: 0 0 40px deeppink;
-}
-#favouritesButton:hover {
-    background-color: pink; /* Set your desired hover color */
-    box-shadow: 0 0 40px white;
-}
+/*#favouritesButton.favourited {*/
+/*    background-color: #fa93af; !* Style for favourited state *!*/
+/*    box-shadow: 0 0 40px deeppink;*/
+/*}*/
+/*#favouritesButton:hover {*/
+/*    background-color: pink; !* Set your desired hover color *!*/
+/*    box-shadow: 0 0 40px white;*/
+/*}*/

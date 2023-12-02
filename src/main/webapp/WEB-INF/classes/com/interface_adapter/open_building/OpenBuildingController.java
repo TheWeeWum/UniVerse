@@ -11,8 +11,8 @@ public class OpenBuildingController {
         this.openBuildingUseCaseInteractor = openBuildingUseCaseInteractor;
     }
 
-    public void execute(String buildingCode) {
-        OpenBuildingInputData inputData = new OpenBuildingInputData(buildingCode);
+    public void execute(int userId, String buildingCode) {
+        OpenBuildingInputData inputData = new OpenBuildingInputData(userId, buildingCode);
 
         openBuildingUseCaseInteractor.execute(inputData);
     }

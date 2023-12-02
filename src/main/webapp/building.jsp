@@ -49,8 +49,15 @@
 <!-- Container for events -->
 <div id="events"></div>
 
-<!-- Container for events -->
-<button id="favouritesButton" onclick="favourite()" onmouseover="changeText()" onmouseout="restoreText()"> 🤍 Add to Favourites 🤍 </button>
+<%--<!-- Container for events -->--%>
+<%--<button id="favouritesButton" > 🤍 Add to Favourites 🤍 </button>--%>
+<%--&lt;%&ndash;onclick="favourite()" onmouseover="changeText()" onmouseout="restoreText()"&ndash;%&gt;--%>
+
+<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+
+<form action="building" method="post" target="dummyframe">
+    <input id="favouritesButton" class="button" type="submit" value="Add to favourites">
+</form>
 
 <div class="contactInformation">
     <h1>

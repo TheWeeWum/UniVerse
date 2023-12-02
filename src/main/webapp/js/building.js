@@ -110,38 +110,58 @@ function loadBuilding() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    var favouritesButton = document.getElementById('favouritesButton');
-    var isFavourited = false;
+    var favouritesButton = document.getElementById("favouritesButton");
+    // var isFavourited = false;
 
-    favouritesButton.addEventListener('click', function() {
-        isFavourited = !isFavourited;
+    favouritesButton.addEventListener("click", function() {
 
-        if (isFavourited) {
-            favouritesButton.classList.add('favourited');
-            favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
-            // Perform additional actions when favourited
-        }
-        else {
-            favouritesButton.classList.remove('favourited');
-            favouritesButton.textContent = '🤍 Add to Favourites 🤍';
-            // Perform additional actions when not favourited
-        }
+        // var isFavourited = true;
+
+        // Check if the button is already clicked
+        //var isClicked = favouritesButton.classList.contains("clicked");
+
+        favouritesButton.value = '💞💖💕💗 Favourited 💗💕💖💞';
+        favouritesButton.style.backgroundColor = "#fa93af";
+        favouritesButton.style.boxShadow = "deeppink";
+
+        // // Update the text based on the button's state
+        // favouritesButton.value = '💞💖💕💗 Favourited 💗💕💖💞';
+        // favouritesButton.style.backgroundColor = "#fa93af";
+        // favouritesButton.style.boxShadow = "deeppink";
+
+        // Toggle the "clicked" class to update the appearance
+        //favouritesButton.classList.toggle("clicked");
+
+        // favouritesButton.classList.add('favourited');
+        // favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
+
+        // if (isFavourited) {
+        //     favouritesButton.classList.add('favourited');
+        //     favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
+        //     // Perform additional actions when favourited
+        // }
+        // else {
+        //     favouritesButton.classList.remove('favourited');
+        //     favouritesButton.textContent = '🤍 Add to Favourites 🤍';
+        //     // Perform additional actions when not favourited
+        // }
     });
+
     // Add event listener for mouseover (hover)
-    favouritesButton.addEventListener("mouseover", function() {
-        // Change the text when hovered
-        if (isFavourited) {
-            favouritesButton.textContent = '💔 Remove from Favourites 💔';
-            // Perform additional actions when favourited
-        }
-    });
-
-    // Add event listener for mouseout (when the mouse leaves)
-    favouritesButton.addEventListener("mouseout", function() {
-        // Restore the original text
-        if (isFavourited) {
-            favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
-            // Perform additional actions when favourited
-        }
-    });
+    // favouritesButton.addEventListener("mouseover", function() {
+    //     // Change the text when hovered
+    //     if (isFavourited) {
+    //         favouritesButton.textContent = '💔 Remove from Favourites 💔';
+    //         // Perform additional actions when favourited
+    //     }
+    // });
+    //
+    // // Add event listener for mouseout (when the mouse leaves)
+    // favouritesButton.addEventListener("mouseout", function() {
+    //     // Restore the original text
+    //     if (isFavourited) {
+    //         favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
+    //         // Perform additional actions when favourited
+    //     }
+    // });
 });

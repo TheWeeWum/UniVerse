@@ -10,28 +10,34 @@ import com.google.gson.*;
 import com.use_case.display_markers.BuildingMarkerDataAccessInterface;
 import com.use_case.open_building.OpenBuildingDataAccessInterface;
 import com.use_case.open_buildings_list.OpenBuildingsListDataAccessInterface;
+import com.use_case.open_favourites.OpenFavouritesDataAccessInterface;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterface, OpenBuildingsListDataAccessInterface, OpenBuildingDataAccessInterface {
+public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterface, OpenBuildingsListDataAccessInterface, OpenBuildingDataAccessInterface, OpenFavouritesDataAccessInterface {
     private BuildingFactory buildingFactory = null;
     private EventFactory eventFactory = null;
 
     private final String buildingPath;
     private final String eventPath;
 
+    private final String userPath;
+
     private List<Building> buildings;
 
-    public BuildingDataAccessObject(String buildingPath, String eventPath, BuildingFactory buildingFactory, EventFactory eventFactory) {
+    public BuildingDataAccessObject(String buildingPath, String eventPath, BuildingFactory buildingFactory, EventFactory eventFactory, String userPath) {
         this.buildingFactory = buildingFactory;
         this.eventFactory = eventFactory;
 
         this.buildingPath = buildingPath;
         this.eventPath = eventPath;
+
+        this.userPath = userPath;
 
         this.buildings = new ArrayList<>();
     }
@@ -122,5 +128,31 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Building> getFavouriteBuildings(int userId) {
+        List<Building> favouriteBuildings = new ArrayList<>();
+
+        try {
+            JsonObject jsonUser = JsonParser.parseReader(new FileReader(userPath)).getAsJsonObject().get(String.format("%d", userId)).getAsJsonObject();
+            JsonArray favouriteBuildingsJsonArray = jsonUser.get("favouriteBuildings").getAsJsonArray();
+
+            for (JsonElement temp : favouriteBuildingsJsonArray) {
+                String b = temp.toString();
+                b = b.substring(1, b.length()-1);
+
+                Building currBuilding = getBuilding(b);
+                favouriteBuildings.add(currBuilding);
+
+                System.out.println(currBuilding);
+
+                System.out.println(favouriteBuildings);
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("Could not find file in BuildingDAO getFavouriteBuildings");
+        }
+        return favouriteBuildings;
     }
 }

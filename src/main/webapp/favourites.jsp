@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/standard_background.css">
+    <script src="js/favourites.js"></script>
+
     <title>Favourites</title>
 
 </head>
@@ -39,13 +41,9 @@
 
 <section>
     <h1>Welcome, <%= session.getAttribute("username")%></h1>
-
-    <h3>Your Favorites</h3>
-    <ul id="favourites">
-        <li>Favorite 1: Your favorite study spot.</li>
-        <li>Favorite 2: The cleanest bathroom on campus.</li>
-    </ul>
 </section>
+
+<div id="favouriteBuildingsContainer"> </div>
 
 </body>
 </html>
