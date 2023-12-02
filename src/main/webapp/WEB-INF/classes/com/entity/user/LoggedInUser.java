@@ -13,7 +13,7 @@ public class LoggedInUser implements User {
     private String username;
     private String password;
     private final int id;
-    private final List<Review> reviews;
+    private final List<String> reviews;
     private final List<Building> favouriteBuildings;
     private final List<Room> favouriteRooms;
     private final List<Reviewable> favourites;
@@ -26,7 +26,7 @@ public class LoggedInUser implements User {
      * @param favouriteBuildings the list of the users favourite buildings
      * @param favouriteRooms the list of the users favourite rooms
      */
-    public LoggedInUser(String username, String password, Integer id, List<Review> reviews, List<Building> favouriteBuildings, List<Room> favouriteRooms) {
+    public LoggedInUser(String username, String password, Integer id, List<String> reviews, List<Building> favouriteBuildings, List<Room> favouriteRooms) {
         this.username = username;
         this.password = password;
         this.id = id;
@@ -78,9 +78,10 @@ public class LoggedInUser implements User {
 
     /**
      * Returns all the users reviews.
+     *
      * @return all the users reviews.
      */
-    public List<Review> getReviews() {
+    public List<String> getReviews() {
         return reviews;
     }
 
@@ -125,7 +126,7 @@ public class LoggedInUser implements User {
      * Adds the new review to the users reviews.
      * @param review the expected password which is checked against the known password.
      */
-    public void addReview(Review review) {
+    public void addReview(String review) {
         reviews.add(review);
     }
 

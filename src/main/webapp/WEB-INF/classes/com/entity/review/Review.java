@@ -3,6 +3,8 @@ package com.entity.review;
 import com.entity.Reviewable;
 import com.entity.user.LoggedInUser;
 import com.entity.user.User;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.util.Date;
 
@@ -63,5 +65,10 @@ public class Review {
      */
     public float getRating() {
         return rating;
+    }
+
+    public String reviewToString() {
+        return String.format("{\"date\":\"%s\",\"title\":\"%s\",\"content\":\"%s\",\"rating\":%.1f}",
+                date.toString(), title, content, rating);
     }
 }
