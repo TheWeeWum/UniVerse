@@ -47,5 +47,15 @@
     <input class="login-button" type="submit" value="Login">
 </form>
 
+<!--   if the getAttribute("errorMessage") of the request isn't null, then there's an error with the Sign-Ip.-->
+<% if (request.getAttribute("errorMessage") != null) { %>
+<div class="error-frame">
+    <div class="error-message">
+        <%-- Display error message here --%>
+        <p class="error-text"><%= request.getAttribute("errorMessage")%></p>
+    </div>
+</div>
+<% } %>
+
 </body>
 </html>

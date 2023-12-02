@@ -2,18 +2,20 @@
   "BA": {
     "events": [
       {
-      "building": "BA",
-      "room": "main hall",
-      "name":"Physics Event",
-      "organizer":"PHYSU",
-      "date":"2023-12-25 12:00:00"
+        "building": "BA",
+        "room": "main hall",
+        "name": "Physics Event",
+        "organizer": "PHYSU",
+        "date": "2023-12-25 12:00",
+        "description": "Come see some cool physics!!!"
       },
       {
         "building": "BA",
         "room": "room101",
-        "name":"thechristmascronicle",
-        "organizer":"DNDClub",
-        "date":"2023-12-25 12:00:00"
+        "name": "thechristmascronicle",
+        "organizer": "DNDClub",
+        "date": "2023-12-25 12:00",
+        "description": "Santa has been terrorizing the citizens for decades, drinking all their milk and stealing all their cookies and carrots."
       }
     ]
   },
@@ -24,7 +26,8 @@
         "room": "testroom",
         "name": "Chess Club",
         "organizer": "PHYSU",
-        "date": "2023-12-25 12:00:00"
+        "date": "2023-12-25 12:00",
+        "description": "Chess Club On christmas day!"
       }
     ]
   }

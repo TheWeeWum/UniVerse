@@ -18,8 +18,8 @@ public class SignupServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
         // Perform data retrieval or processing here
-
         // Set the variables as request attributes
 
         // Send user to the next page
@@ -49,7 +49,7 @@ public class SignupServlet extends HttpServlet {
         // sets the username field on the jsp
         session.setAttribute("username", outputData.getUsername());
         session.setAttribute("id", outputData.getID());
-
+        session.setAttribute("loggedIn", true);
         // Redirect to the user profile page
         response.sendRedirect("profile.jsp");
     }

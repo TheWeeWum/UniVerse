@@ -1,6 +1,7 @@
 package com.app;
 
 import com.data_access.BuildingDataAccessObject;
+import com.data_access.Path;
 import com.entity.building.BuildingFactory;
 import com.entity.event.EventFactory;
 import com.interface_adapter.open_building.OpenBuildingController;

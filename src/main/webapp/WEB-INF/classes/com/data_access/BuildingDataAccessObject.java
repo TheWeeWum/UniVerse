@@ -83,7 +83,7 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
                         String ename = eo.get("name").getAsString();
                         String organizer = eo.get("organizer").getAsString();
                         String dateStr = eo.get("date").getAsString();
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                         Date date = sdf.parse(dateStr);
                         Event event = eventFactory.create(ename, organizer, null, date);
                         events.add(event);
