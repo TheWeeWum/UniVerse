@@ -10,7 +10,4 @@ public class OpenReviewInputData {
 
     public int getUserID() {return userID;}
 
-    public List<Review> gerReviews(int userID){
-
-    }
 }

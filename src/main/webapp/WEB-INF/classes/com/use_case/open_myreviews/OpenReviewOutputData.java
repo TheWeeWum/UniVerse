@@ -8,12 +8,12 @@ import java.util.List;
 
 public class OpenReviewOutputData {
     private final List<Review> reviews;
-    private final int userID
+    public OpenReviewOutputData(List<Review> reviews) {
+        this.reviews = reviews;
+    }
 
-    public OpenReviewOutputData(int userID) {this.reviews = reviews;}
     public List<Review> getReviews() {
         return reviews;
     }
-
 
 }

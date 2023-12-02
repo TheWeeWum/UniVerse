@@ -14,7 +14,6 @@
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
 
-
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.view.User.LoginServlet</servlet-class>
@@ -134,13 +133,24 @@
 
 
     <servlet>
-        <servlet-name>Reviews</servlet-name>
-        <servlet-class>com.view.Reviews.ReviewsPageServlet</servlet-class>
+        <servlet-name>UserReviewServlet</servlet-name>
+        <servlet-class>com.view.Reviews.UserReviewServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Reviews</servlet-name>
-        <url-pattern>/reviews</url-pattern>
+        <servlet-name>UserReviewServlet</servlet-name>
+        <url-pattern>/review</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UserReviewPageServlet</servlet-name>
+        <servlet-class>com.view.Reviews.UserReviewPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserReviewPageServlet</servlet-name>
+        <url-pattern>/reviews_page</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>BuildingReviews</servlet-name>

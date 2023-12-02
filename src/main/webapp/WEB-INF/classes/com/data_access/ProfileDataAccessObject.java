@@ -3,7 +3,8 @@ package com.data_access;
 import com.entity.Reviewable;
 import com.entity.building.Building;
 import com.entity.review.Review;
-import com.entity.review.ReviewFactory;
+import com.entity.review.ReviewBuilder;
+import com.entity.review.ReviewBuilder;
 import com.entity.room.Room;
 import com.entity.user.LoggedInUser;
 
@@ -23,10 +24,10 @@ import com.use_case.open_profile.ProfileUserDataAccessInterface;
 public class ProfileDataAccessObject implements ProfileUserDataAccessInterface {
     private final String profilePath;
     private final FileUserDataAccessObject userDao;
-    private final ReviewFactory reviewFactory;
+    private final ReviewBuilder reviewFactory;
     private final BuildingDataAccessObject buildingDAO; // Add the building DAO
 
-    public ProfileDataAccessObject(String profilePath, FileUserDataAccessObject userDao, ReviewFactory reviewFactory, BuildingDataAccessObject buildingDAO) {
+    public ProfileDataAccessObject(String profilePath, FileUserDataAccessObject userDao, ReviewBuilder reviewFactory, BuildingDataAccessObject buildingDAO) {
         this.profilePath = profilePath;
         this.userDao = userDao;
         this.reviewFactory = reviewFactory;

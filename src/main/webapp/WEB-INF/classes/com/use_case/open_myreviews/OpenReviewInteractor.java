@@ -2,6 +2,7 @@ package com.use_case.open_myreviews;
 
 import com.entity.building.Building;
 import com.entity.review.Review;
+import com.use_case.building_reviews.BuildingReviewsOutputData;
 
 
 import java.util.List;
@@ -18,11 +19,14 @@ public class OpenReviewInteractor implements OpenReviewInputBoundary{
     @Override
     public void execute(OpenReviewInputData userReviewInputData) {
 
-        // get reviews from database
-        int userID= userReviewInputData.getUserID();
 
-        // compile into output data
-        OpenReviewOutputData openReviewOutputData = new OpenReviewOutputData(userID);
-        openReviewPresenter.prepareSuccessView(openReviewOutputData);
+        // get reviews from the database
+        List<Review> reviews = openReviewDataAccessObject.getReviews(userReviewInputData.getUserID());
+
+        // compile into an output data object
+        OpenReviewOutputData userReviewsOutputData = new OpenReviewOutputData(reviews);
+
+        // set back up the chain
+        openReviewPresenter.prepareSuccessView(userReviewsOutputData);
     }
 }
