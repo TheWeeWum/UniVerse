@@ -81,6 +81,7 @@ public class BuildingInfoServlet extends HttpServlet {
         buildingJson.append("]");
 
         // System.out.println(buildingJson);
+        System.out.println(openBuildingOutputData.getIsFavourited());
 
         try {
 
