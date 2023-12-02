@@ -1,5 +1,6 @@
 package com.entity.user;
 
+import com.entity.JsonRepresentation;
 import com.entity.Reviewable;
 import com.entity.building.Building;
 import com.entity.review.Review;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class LoggedInUser implements User {
+public class LoggedInUser implements User, JsonRepresentation {
     private String username;
     private String password;
     private final int id;
@@ -186,5 +187,79 @@ public class LoggedInUser implements User {
     @Override
     public String getPassword() {
         return password;
+    }
+
+    /**
+     * Gets the Json representation of the User Object in the following format.
+     * <pre>
+     * {
+     *      username: String
+     *      id: String
+     *      reviews: []
+     *      favourite_buildings: []
+     *      favourite_rooms: []
+     * }
+     * </pre>
+     * @return String in Json format:
+     */
+    @Override
+    public String getJsonRepresentation() {
+        StringBuilder reviewsJson = new StringBuilder("[");
+        for (Review review : reviews) {
+            reviewsJson.append(review.getJsonRepresentation()).append(",");
+        }
+        if (!reviews.isEmpty()) {
+            reviewsJson.deleteCharAt(reviewsJson.length() - 1);
+        }
+        reviewsJson.append("]");
+
+        StringBuilder favBuildingsJson = new StringBuilder("[");
+        for (Building building : favouriteBuildings) {
+            favBuildingsJson.append(building.getJsonRepresentation()).append(",");
+        }
+        if (!favouriteBuildings.isEmpty()) {
+            favBuildingsJson.deleteCharAt(favBuildingsJson.length() - 1);
+        }
+        favBuildingsJson.append("]");
+
+        StringBuilder favRoomsJson = new StringBuilder("[");
+        for (Room room : favouriteRooms) {
+            favRoomsJson.append(room.getJsonRepresentation()).append(",");
+        }
+        if (!favouriteRooms.isEmpty()) {
+            favRoomsJson.deleteCharAt(favRoomsJson.length() - 1);
+        }
+        favRoomsJson.append("]");
+
+        return "{" +
+                "\"username\": \"" + username + "\"" +
+                "," +
+                "\"id\": " + id +
+                "," +
+                "\"reviews\": " + reviewsJson +
+                "," +
+                "\"favourite_buildings\": " + favBuildingsJson +
+                "," +
+                "\"favourite_rooms\": " + favRoomsJson +
+                "}";
+    }
+
+    /**
+     * Gets the Json representation of the User Object in the following format.
+     * <pre>
+     * {
+     *      username: String
+     *      id: String
+     * }
+     * </pre>
+     * @return String in Json format:
+     */
+    @Override
+    public String getDeadEndJson() {
+        return "{" +
+                "\"username\": \"" + username + "\"" +
+                "," +
+                "\"id\": \"" + id +
+                "}";
     }
 }

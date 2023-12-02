@@ -5,9 +5,9 @@ import com.entity.review.Review;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public abstract class Reviewable {
-    private final List<Review> reviews;
-    private float rating;
+public abstract class Reviewable implements JsonRepresentation {
+    public List<Review> reviews;
+    public float rating;
 
     /**
      * @param reviews the list of reviews

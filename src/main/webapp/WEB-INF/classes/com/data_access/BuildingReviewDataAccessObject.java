@@ -1,7 +1,7 @@
 package com.data_access;
 
 import com.entity.review.Review;
-import com.entity.review.ReviewFactory;
+import com.entity.review.ReviewBuilder;
 import com.entity.user.User;
 import com.use_case.building_reviews.BuildingReviewsDataAccessInterface;
 
@@ -15,15 +15,15 @@ import java.util.List;
 import com.google.gson.*;
 
 public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccessInterface {
-    private ReviewFactory reviewFactory = null;
+    private ReviewBuilder reviewBuilder = null;
 
     private final String reviewPath;
 
     private final FileUserDataAccessObject userDao;
 
-    public BuildingReviewDataAccessObject(String reviewPath, ReviewFactory reviewFactory, FileUserDataAccessObject userDao) {
+    public BuildingReviewDataAccessObject(String reviewPath, ReviewBuilder reviewBuilder, FileUserDataAccessObject userDao) {
         this.reviewPath = reviewPath;
-        this.reviewFactory = reviewFactory;
+        this.reviewBuilder = reviewBuilder;
         this.userDao = userDao;
     }
 
@@ -55,7 +55,7 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
                     String content = ro.get("content").getAsString(); // get content
 
                     // create Review
-                    Review review = reviewFactory.create(user, date, title, content, rating);
+                    Review review = reviewBuilder.create(user, date, title, content, rating);
                     reviews.add(review); // append Review in Review array
                 }
             } catch (NullPointerException e) {

@@ -1,7 +1,7 @@
 package com.data_access;
 
 import com.entity.event.Event;
-import com.entity.event.EventFactory;
+import com.entity.event.EventBuilder;
 import com.google.gson.*;
 import com.use_case.add_event.AddEventDataAccessInterface;
 import com.use_case.building_events.BuildingEventsDataAccessInterface;
@@ -19,12 +19,12 @@ import java.util.Date;
 import java.util.List;
 
 public class EventDataAccessObject implements BuildingEventsDataAccessInterface, AddEventDataAccessInterface {
-    private EventFactory eventFactory = null;
+    private EventBuilder eventBuilder = null;
 
     private final String eventPath;
 
-    public EventDataAccessObject(String eventPath, EventFactory eventFactory) {
-        this.eventFactory = eventFactory;
+    public EventDataAccessObject(String eventPath, EventBuilder eventBuilder) {
+        this.eventBuilder = eventBuilder;
 
         this.eventPath = eventPath;
     }
@@ -47,8 +47,8 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
                     String dateStr = eo.get("date").getAsString();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     Date date = sdf.parse(dateStr);
-                    Event event = eventFactory.create(ename, organizer, null, date);
-                    events.add(event);
+                    eventBuilder.createEvent(ename, organizer, date);
+                    events.add(eventBuilder.getEvent());
                 }
             } catch (NullPointerException e) {
                 // event list was hopefully empty

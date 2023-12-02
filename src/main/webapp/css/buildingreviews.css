@@ -1,19 +1,12 @@
-#reviewsContainer {
-    display: flex;
-    justify-content: center; /* Center the reviews horizontally */
-    align-items: center; /* Center the reviews vertically */
-}
-
 .reviewSection {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 10px;
-    padding: 15px;
-    width: 300px;
+    position: relative; /* Set the positioning context for absolute positioning */
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
     background-color: rgba(256, 256, 256, 0.9);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #000000;
 }
 
 .reviewHeader {
@@ -24,11 +17,12 @@
 .reviewDate {
     font-size: 0.8em;
     color: #555;
-    align-self: flex-end;
+    position: absolute;
+    top: 10px; /* Adjust as needed for the desired vertical position */
+    right: 10px; /* Adjust as needed for the desired horizontal position */
 }
 
 .reviewRating {
-    color: #ff9800; /* Adjust the color based on your rating scale */
     font-weight: bold;
 }
 

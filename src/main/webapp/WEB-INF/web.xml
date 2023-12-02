@@ -34,6 +34,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AboutServlet</servlet-name>
+        <servlet-class>com.view.User.AboutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AboutServlet</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>com.view.User.IndexServlet</servlet-class>
     </servlet>
