@@ -19,17 +19,5 @@ public class MainMapServlet extends HttpServlet {
         // Send user to the next page
         response.sendRedirect("mainmap.jsp");
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        // Create a session and store the username
-        HttpSession session = request.getSession();
-        // session.setAttribute("username", username);
-
-        // TODO: Redirect to the user to building page maybe?
-        // response.sendRedirect("profile.jsp");
-    }
 }
 

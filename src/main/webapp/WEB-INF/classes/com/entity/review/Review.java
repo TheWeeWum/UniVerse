@@ -4,6 +4,7 @@ import com.entity.JsonRepresentation;
 import com.entity.Reviewable;
 import com.entity.building.Building;
 import com.entity.room.Room;
+import com.entity.user.Guest;
 import com.entity.user.LoggedInUser;
 import com.entity.user.User;
 
@@ -91,17 +92,31 @@ public class Review implements JsonRepresentation {
      */
     @Override
     public String getJsonRepresentation() {
-        return "{" +
-                "\"user\": " + user.getJsonRepresentation() +
-                "," +
-                "\"date\": \"" + date.toString() + "\"" +
-                "," +
-                "\"title\": \"" + title + "\"" +
-                "," +
-                "\"rating\": " + rating +
-                "," +
-                "\"content\": \"" + content + "\"" +
-                "}";
+        if (user != null) {
+            return "{" +
+                    "\"user\": " + user.getJsonRepresentation() +
+                    "," +
+                    "\"date\": \"" + date.toString() + "\"" +
+                    "," +
+                    "\"title\": \"" + title + "\"" +
+                    "," +
+                    "\"rating\": " + rating +
+                    "," +
+                    "\"content\": \"" + content + "\"" +
+                    "}";
+        } else {
+            return "{" +
+                    "\"user\": " + new Guest().getJsonRepresentation() +
+                    "," +
+                    "\"date\": \"" + date.toString() + "\"" +
+                    "," +
+                    "\"title\": \"" + title + "\"" +
+                    "," +
+                    "\"rating\": " + rating +
+                    "," +
+                    "\"content\": \"" + content + "\"" +
+                    "}";
+        }
     }
 
     /**
@@ -120,16 +135,30 @@ public class Review implements JsonRepresentation {
      */
     @Override
     public String getDeadEndJson() {
-        return "{" +
-                "\"user\": " + user.getDeadEndJson() +
-                "," +
-                "\"date\": \"" + date.toString() +
-                "," +
-                "\"title\": \"" + title + "\"" +
-                "," +
-                "\"rating\": " + rating +
-                "," +
-                "\"content\": \"" + content + "\"" +
-                "}";
+        if (user != null) {
+            return "{" +
+                    "\"user\": " + user.getDeadEndJson() +
+                    "," +
+                    "\"date\": \"" + date.toString() +
+                    "," +
+                    "\"title\": \"" + title + "\"" +
+                    "," +
+                    "\"rating\": " + rating +
+                    "," +
+                    "\"content\": \"" + content + "\"" +
+                    "}";
+        } else {
+            return "{" +
+                    "\"user\": " + new Guest().getDeadEndJson() +
+                    "," +
+                    "\"date\": \"" + date.toString() + "\"" +
+                    "," +
+                    "\"title\": \"" + title + "\"" +
+                    "," +
+                    "\"rating\": " + rating +
+                    "," +
+                    "\"content\": \"" + content + "\"" +
+                    "}";
+        }
     }
 }

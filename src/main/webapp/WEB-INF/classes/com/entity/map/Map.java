@@ -26,17 +26,14 @@ public class Map {
     }
 
     /**
-     * Gets the building at the specified address or name.
+     * Gets the building at the specified name.
      *
-     * @param addressOrName the address or name of the building.
-     * @return the building at that address or name.
+     * @param name the name of the building.
+     * @return the building at that name.
      */
-    public Building getBuilding(String addressOrName) {
+    public Building getBuilding(String name) {
         for (Building building : buildings) {
-            if (building.getAddress().equals(addressOrName)) {
-                return building;
-            }
-            if (building.getName().equals(addressOrName)) {
+            if (building.getName().equals(name)) {
                 return building;
             }
         }
