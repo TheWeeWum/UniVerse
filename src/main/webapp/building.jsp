@@ -57,7 +57,7 @@
     <div class="input-group">
         <label for="reviewContent">Review:</label>
         <textarea id="reviewContent" name="reviewContent" placeholder="Enter review content"
-                  style="width: 500px; height: 150px;"></textarea>
+                  style="width: 350px; height: 150px;"></textarea>
     </div>
     <br>
     <input type="submit" value="Submit"></input>
