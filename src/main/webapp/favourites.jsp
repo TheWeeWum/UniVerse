@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.entity.Reviewable" %><%--
   Created by IntelliJ IDEA.
   User: evan
   Date: 11/17/2023
@@ -22,6 +22,7 @@
     <h1>Favourites</h1>
 </header>
 
+
 <nav>
     <a href="index">Home</a>
     <a href="mainmap">Main Map</a>
@@ -29,21 +30,32 @@
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
             <a href="favourites">Favourites</a>
-            <a href="#userReviews">Reviews</a>
+            <a href="reviews_page">Reviews</a>
             <a href="profile">Profile</a>
         </div>
     </div>
-    <a href="#about">About</a>
-    <a href="signout">Sign Out</a>
+    <a href="about">About</a>
+    <a href="signup">Signup</a>
+    <a href="login">Login</a>
+    <a href="buildings">Buildings</a>
+
+    <!-- Add more links as needed -->
 </nav>
 
 <section>
     <h1>Welcome, <%= session.getAttribute("username")%></h1>
 
     <h3>Your Favorites</h3>
+    <% Reviewable[] favourites = (Reviewable[]) session.getAttribute("favourites");%>
+    <h3>Your Favorites</h3>
     <ul id="favourites">
-        <li>Favorite 1: Your favorite study spot.</li>
-        <li>Favorite 2: The cleanest bathroom on campus.</li>
+        <% if (favourites != null && favourites.length > 0) { %>
+        <% for (Reviewable place : favourites) { %>
+        <!-- get something-->
+        <% } %>
+        <% } else { %>
+        <li>No favourites available.</li>
+        <% } %>
     </ul>
 </section>
 

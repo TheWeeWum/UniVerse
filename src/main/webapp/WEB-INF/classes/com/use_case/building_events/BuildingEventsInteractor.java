@@ -17,7 +17,7 @@ public class BuildingEventsInteractor implements BuildingEventsInputBoundary {
     public void execute(BuildingEventsInputData inputData) {
         // No input data
 
-        // get the events from the database
+        // get the events from the database (They do not contain the building objects)
         List<Event> events = dataAccess.getEvents(inputData.getBuildingCode());
 
         // compile into an output data object

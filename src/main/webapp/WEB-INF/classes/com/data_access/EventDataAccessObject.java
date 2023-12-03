@@ -1,7 +1,7 @@
 package com.data_access;
 
 import com.entity.event.Event;
-import com.entity.event.EventFactory;
+import com.entity.event.EventBuilder;
 import com.google.gson.*;
 import com.use_case.add_event.AddEventDataAccessInterface;
 import com.use_case.building_events.BuildingEventsDataAccessInterface;
@@ -19,12 +19,12 @@ import java.util.Date;
 import java.util.List;
 
 public class EventDataAccessObject implements BuildingEventsDataAccessInterface, AddEventDataAccessInterface {
-    private EventFactory eventFactory = null;
+    private EventBuilder eventBuilder = null;
 
     private final String eventPath;
 
-    public EventDataAccessObject(String eventPath, EventFactory eventFactory) {
-        this.eventFactory = eventFactory;
+    public EventDataAccessObject(String eventPath, EventBuilder eventBuilder) {
+        this.eventBuilder = eventBuilder;
 
         this.eventPath = eventPath;
     }
@@ -38,20 +38,31 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
         List<Event> events = new ArrayList<>();
         try {
             JsonObject jsonEvents = JsonParser.parseReader(new FileReader(eventPath)).getAsJsonObject();
+            JsonObject building = new JsonObject();
             try {
-                JsonArray eventsInBuilding = jsonEvents.get(buildingCode).getAsJsonObject().get("events").getAsJsonArray();
+                building = jsonEvents.get(buildingCode).getAsJsonObject();
+            } catch (NullPointerException e) {
+                System.out.println("Building does not exist in events.json");
+                return new ArrayList<>();
+            }
+            try {
+                JsonArray eventsInBuilding = building.get("events").getAsJsonArray();
                 for (JsonElement eventElement : eventsInBuilding) {
                     JsonObject eo = eventElement.getAsJsonObject();
                     String ename = eo.get("name").getAsString();
                     String organizer = eo.get("organizer").getAsString();
                     String dateStr = eo.get("date").getAsString();
+
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     Date date = sdf.parse(dateStr);
-                    Event event = eventFactory.create(ename, organizer, null, date);
-                    events.add(event);
+
+                    eventBuilder.createEvent(ename, organizer, date);
+                    events.add(eventBuilder.getEvent());
                 }
             } catch (NullPointerException e) {
                 // event list was hopefully empty
+                System.out.println("No events for this building");
+                return new ArrayList<>();
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
@@ -84,8 +95,9 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
 
             JsonObject building = new JsonObject();
             try {
-                building = mainObject.get("buildingCode").getAsJsonObject();
+                building = mainObject.get(buildingCode).getAsJsonObject();
             } catch (NullPointerException e) {
+                System.out.println("Couldn't find building in JsonFile (Not an error)");
                 // building did not exist
                 mainObject.add(buildingCode, building);
                 building = mainObject.get(buildingCode).getAsJsonObject();
@@ -94,6 +106,7 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
             try {
                 events = building.get("events").getAsJsonArray();
             } catch (NullPointerException e) {
+                System.out.println("Couldn't find events in JsonFile (Not an error)");
                 // events didn't exist
                 building.add("events", events);
                 events = building.get("events").getAsJsonArray();
@@ -105,7 +118,6 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
             file.write(gson.toJson(mainObject));
             file.flush();
             file.close();
-
 
         } catch (IOException e) {
             System.out.println("Could not read Event JsonFile in addEvent (EventDataAccessObject)");

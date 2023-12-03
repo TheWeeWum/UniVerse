@@ -1,6 +1,8 @@
 package com.entity.user;
 
-public class Guest implements User {
+import com.entity.JsonRepresentation;
+
+public class Guest implements User, JsonRepresentation {
 
     @Override
     public int getId() {
@@ -18,5 +20,15 @@ public class Guest implements User {
     }
     public Guest(){
 
+    }
+
+    @Override
+    public String getJsonRepresentation() {
+        return "{username: Guest, id: 0}";
+    }
+
+    @Override
+    public String getDeadEndJson() {
+        return "{username: Guest, id: 0}";
     }
 }

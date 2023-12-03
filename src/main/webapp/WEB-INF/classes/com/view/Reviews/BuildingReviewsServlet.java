@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 
 public class BuildingReviewsServlet extends HttpServlet {
     private HttpServletRequest request;
@@ -35,29 +36,16 @@ public class BuildingReviewsServlet extends HttpServlet {
     }
 
     public void displayReviews(BuildingReviewsOutputData buildingReviewsOutputData) {
+        List<Review> reviews = buildingReviewsOutputData.getReviews();
         StringBuilder reviewsJson = new StringBuilder("[");
-        System.out.println(reviewsJson);
-        for (Review review: buildingReviewsOutputData.getReviews()) {
-            User user = review.getUser();
-            Date date = review.getDate();
-            float rating = review.getRating();
-            String title = review.getTitle();
-            String content = review.getContent();
-
-            reviewsJson.append(String.format("{" +
-                            "\"username\": \"%s\", " +
-                            "\"date\": \"%s\", " +
-                            "\"rating\": \"%s\", " +
-                            "\"title\": \"%s\", " +
-                            "\"content\": \"%s\" " +
-                            "},",
-                    user.getUsername(), date, rating, title, content));
-            System.out.println(reviewsJson);
+        for (Review review: reviews) {
+            reviewsJson.append(review.getJsonRepresentation()).append(",");
         }
-        reviewsJson.delete(reviewsJson.length() - 1, reviewsJson.length());
+        if (!reviews.isEmpty()) {
+            reviewsJson.delete(reviewsJson.length() - 1, reviewsJson.length());
+        }
         reviewsJson.append("]");
 
-        System.out.println(reviewsJson);
 
         try {
             response.setContentType("application/json");

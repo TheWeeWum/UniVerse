@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.welcome-section {
+    position: relative; /* Ensure relative positioning for absolute positioning within */
+    background-image: url('space.png'); /* Replace with the path to your background image */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.welcome-link {
+    animation: fadeInUp 2s ease-in-out;
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline from the link */
+    display: block; /* Make the link a block element to occupy the full width of its container */
+    text-align: center; /* Center the text within the link */
+}
+
+.welcome-link p:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.welcome-link h2 {
+    font-size: 3em;
+    z-index: 1;
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+.welcome-link p {
+    font-size: 2em; /* Adjust the font size as needed */
+    margin-top: 5px; /* Adjust margin as needed */
+}
+
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*.rocket {*/
+/*    position: absolute;*/
+/*    width: 300px; !* Adjust size as needed *!*/
+/*    height: auto; !* Maintain aspect ratio *!*/
+/*    animation: flyAround 5s linear infinite; !* Adjust the animation duration *!*/
+/*    z-index: 0.5;*/
+/*}*/
+
+/*@keyframes flyAround {*/
+/*    0% { transform: translate(-700px, 300px); }*/
+/*    100% { transform: translate(900px, 300px); }*/
+/*}*/
+
+.saturn {
+    position: absolute;
+    width: 150px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    animation: moveInCircleSat 10s linear infinite;
+}
+
+@keyframes moveInCircleSat {
+    0% {
+        transform: rotate(0deg)
+        translateY(300px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg)
+        translateY(300px) rotate(-360deg);
+    }
+}
+
+.uranus {
+    position: absolute;
+    width: 70px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    animation: moveInCircleUr 20s linear infinite;
+}
+
+@keyframes moveInCircleUr {
+    0% {
+        transform: rotate(0deg)
+        translateY(450px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg)
+        translateY(450px) rotate(-360deg);
+    }
+}
+
+

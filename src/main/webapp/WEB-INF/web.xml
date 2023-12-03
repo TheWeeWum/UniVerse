@@ -33,6 +33,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AboutServlet</servlet-name>
+        <servlet-class>com.view.User.AboutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AboutServlet</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>com.view.User.IndexServlet</servlet-class>
     </servlet>
@@ -124,13 +133,24 @@
 
 
     <servlet>
-        <servlet-name>Reviews</servlet-name>
-        <servlet-class>com.view.Reviews.ReviewsPageServlet</servlet-class>
+        <servlet-name>UserReviewServlet</servlet-name>
+        <servlet-class>com.view.Reviews.UserReviewServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Reviews</servlet-name>
-        <url-pattern>/reviews</url-pattern>
+        <servlet-name>UserReviewServlet</servlet-name>
+        <url-pattern>/review</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UserReviewPageServlet</servlet-name>
+        <servlet-class>com.view.Reviews.UserReviewPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserReviewPageServlet</servlet-name>
+        <url-pattern>/reviews_page</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>BuildingReviews</servlet-name>
@@ -139,6 +159,15 @@
     <servlet-mapping>
         <servlet-name>BuildingReviews</servlet-name>
         <url-pattern>/building_reviews</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuildingReviewsPage</servlet-name>
+        <servlet-class>com.view.Reviews.BuildingReviewsPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuildingReviewsPage</servlet-name>
+        <url-pattern>/reviews</url-pattern>
     </servlet-mapping>
 
     <servlet>

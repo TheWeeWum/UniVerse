@@ -20,12 +20,12 @@
     <div class="dropdown">
         <a class="dropbtn">Profile</a>
         <div class="dropdown-content">
-            <a href="#favourites">Favourites</a>
-            <a href="#userReviews">Reviews</a>
+            <a href="favourites">Favourites</a>
+            <a href="reviews_page">Reviews</a>
             <a href="profile">Profile</a>
         </div>
     </div>
-    <a href="#about">About</a>
+    <a href="about">About</a>
     <a href="signup">Signup</a>
     <a href="login">Login</a>
     <a href="buildings">Buildings</a>
@@ -33,9 +33,7 @@
     <!-- Add more links as needed -->
 </nav>
 
-<header>
-    <h1>Reviews</h1>
-</header>
+<header id="title"></header>
 
 <!-- Container for building sections -->
 <div id="reviewsContainer"></div>

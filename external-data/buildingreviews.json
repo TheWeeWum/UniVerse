@@ -2,44 +2,44 @@
   "BA": {
     "reviews": [
       {
-        "userid": "1",
-        "date": "2023-12-25 12:00:00",
-        "rating": "3.4",
+        "userid": 1,
+        "date": "2023-11-02 12:00:00",
+        "rating": 3.4,
         "title": "helo",
         "content": "buah"
       },
       {
-        "userid": "447938204",
-        "date": "2023-12-25 12:00:00",
-        "rating": "5",
+        "userid": 447938204,
+        "date": "2023-11-05 12:00:00",
+        "rating": 5,
         "title": "oop",
         "content": "chuu"
       },
       {
-        "userid": "2",
-        "date": "2023-12-25 12:00:00",
-        "rating": "4.0",
+        "userid": 2,
+        "date": "2023-11-17 08:00:00",
+        "rating": 4.0,
         "title": "Evan Wang sleeps here",
         "content": "Idk, im so annoyed. evan wang sleeps here everyday and snores. it disturbs others students. i hate it here."
       },
       {
-        "userid": "447949816",
-        "date": "2023-12-25 12:00:00",
-        "rating": "4.6",
+        "userid": 447949816,
+        "date": "2023-12-04 07:00:00",
+        "rating": 4.6,
         "title": "bahen is THE BEST",
         "content": "I LOOOOOOOOOOOOOOOVE BAHEN. SO MANY COMPUTERS. SO EXCITING. I LOVE CODE. I CODE EVERYDAY. YUMMMMM!!!!!!!!! I WISH I COULD CODE EVERY. SINGLE. DAY!!!"
       },
       {
-        "userid": "447951020",
-        "date": "2023-12-25 12:00:00",
-        "rating": "0.1",
+        "userid": 447951020,
+        "date": "2023-12-14 11:00:00",
+        "rating": 0.1,
         "title": "bahen is THE WORST",
-        "content": "i DISAGREE WITH LIAM. WHAT IS HE SAYING????? bahen makes me STRESSED. boo. E.J.PRATT 🔛🔝"
+        "content": "i DISAGREE WITH LIAM. WHAT IS HE SAYING????? bahen makes me STRESSED. boo. E.J.PRATT on top"
       },
       {
-        "userid": "447951497",
+        "userid": 447951497,
         "date": "2023-12-25 12:00:00",
-        "rating": "5",
+        "rating": 5,
         "title": "beyonce",
         "content": "idk, they played beyonce's music here once. and i love beyonce."
       }
@@ -48,9 +48,9 @@
   "HH": {
     "reviews": [
       {
-        "userid": "2",
+        "userid": 2,
         "date": "2023-12-25 12:00:00",
-        "rating": "",
+        "rating": 0,
         "title": "",
         "content": ""
       }

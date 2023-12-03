@@ -1,13 +1,17 @@
 package com.entity.review;
 
+import com.entity.JsonRepresentation;
 import com.entity.Reviewable;
+import com.entity.building.Building;
+import com.entity.room.Room;
+import com.entity.user.Guest;
 import com.entity.user.LoggedInUser;
 import com.entity.user.User;
 
 import java.util.Date;
 
-public class Review {
-    private final User user;
+public class Review implements JsonRepresentation {
+    private final LoggedInUser user;
     private final Date date;
     private String title;
     private String content;
@@ -21,7 +25,14 @@ public class Review {
      * @param rating the rating of the review
      */
     public Review(User user, Date date, String title, String content, float rating) {
-        this.user = user;
+        LoggedInUser user1;
+        try {
+            user1 = (LoggedInUser) user;
+        } catch (ClassCastException e) {
+            user1 = null;
+            System.out.println("Non logged in user tried to create review");
+        }
+        this.user = user1;
         this.date = date;
         this.title = title;
         this.content = content;
@@ -33,7 +44,7 @@ public class Review {
     /**
      * @return the user who wrote the review
      */
-    public User getUser() {
+    public LoggedInUser getUser() {
         return user;
     }
 
@@ -63,5 +74,91 @@ public class Review {
      */
     public float getRating() {
         return rating;
+    }
+
+    /**
+     * Gets the Json representation of the Review Object in the following format.
+     * <pre>
+     * {
+     *      username: String
+     *      userid: String
+     *      date: String
+     *      title: String
+     *      content: String
+     *      rating: float
+     * }
+     * </pre>
+     * @return String in Json format:
+     */
+    @Override
+    public String getJsonRepresentation() {
+        if (user != null) {
+            return "{" +
+                    "\"user\": " + user.getJsonRepresentation() +
+                    "," +
+                    "\"date\": \"" + date.toString() + "\"" +
+                    "," +
+                    "\"title\": \"" + title + "\"" +
+                    "," +
+                    "\"rating\": " + rating +
+                    "," +
+                    "\"content\": \"" + content + "\"" +
+                    "}";
+        } else {
+            return "{" +
+                    "\"user\": " + new Guest().getJsonRepresentation() +
+                    "," +
+                    "\"date\": \"" + date.toString() + "\"" +
+                    "," +
+                    "\"title\": \"" + title + "\"" +
+                    "," +
+                    "\"rating\": " + rating +
+                    "," +
+                    "\"content\": \"" + content + "\"" +
+                    "}";
+        }
+    }
+
+    /**
+     * Gets the Json representation of the Review Object in the following format.
+     * <pre>
+     * {
+     *      username: String
+     *      userid: String
+     *      date: String
+     *      title: String
+     *      content: String
+     *      rating: float
+     * }
+     * </pre>
+     * @return String in Json format:
+     */
+    @Override
+    public String getDeadEndJson() {
+        if (user != null) {
+            return "{" +
+                    "\"user\": " + user.getDeadEndJson() +
+                    "," +
+                    "\"date\": \"" + date.toString() +
+                    "," +
+                    "\"title\": \"" + title + "\"" +
+                    "," +
+                    "\"rating\": " + rating +
+                    "," +
+                    "\"content\": \"" + content + "\"" +
+                    "}";
+        } else {
+            return "{" +
+                    "\"user\": " + new Guest().getDeadEndJson() +
+                    "," +
+                    "\"date\": \"" + date.toString() + "\"" +
+                    "," +
+                    "\"title\": \"" + title + "\"" +
+                    "," +
+                    "\"rating\": " + rating +
+                    "," +
+                    "\"content\": \"" + content + "\"" +
+                    "}";
+        }
     }
 }
