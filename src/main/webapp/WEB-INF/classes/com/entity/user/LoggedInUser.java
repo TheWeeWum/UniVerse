@@ -79,6 +79,7 @@ public class LoggedInUser implements User, JsonRepresentation {
 
     /**
      * Returns all the users reviews.
+     *
      * @return all the users reviews.
      */
     public List<Review> getReviews() {

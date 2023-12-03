@@ -1,26 +1,32 @@
 package com.data_access;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.entity.review.Review;
 import com.entity.user.LoggedInUser;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
 import com.entity.user.User;
+import com.use_case.leave_review.ReviewDataAccessInterface;
 import com.use_case.signup.SignupUserDataAccessInterface;
 import com.use_case.login.LoginUserDataAccessInterface;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface {
+public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
+        LoginUserDataAccessInterface, ReviewDataAccessInterface {
 
-    private final Map<Integer, User> accounts;
+    private final Map<Integer, LoggedInUser> accounts;
 
     // THE ABSOLUTE PATH IS DIFFERENT FOR EVERYONE. TO FIND IT, RIGHT CLICK ON THE UserData.json FILE,
     // CLICK ON "COPY PATH/REFERENCE",
     // Pick "ABSOLUTE PATH" and paste it below.
-    private final String filePath = Path.path + "external-data/UserDataBase.json";
-
+    private final String filePath = Path.path + "external-data\\UserDataBase.json";
+    private final String testFilePath = Path.path + "external-data\\TestUserDataBase.json";
     public FileUserDataAccessObject() {
         accounts = new HashMap<>();
         populateAccountsFromJson();
@@ -52,7 +58,7 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
 
     @Override
     public void save(User user) {
-        accounts.put(user.getId(), user);
+        accounts.put(user.getId(), (LoggedInUser) user);
         // UserData.json is our main file where users will be stored, so there's no reason
         // to pass an additional variable to the addUserToJsonFile method
         addUserToJsonFile();
@@ -99,11 +105,35 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
             Gson gson = new Gson();
             gson.toJson(accounts, writer);
         } catch (IOException e) {
-            System.out.println("Error writing to file:" + e.getMessage());
+            System.out.println("Error writing to file: " + e.getMessage());
         }
     }
-
-    public Map<Integer, User> getAccounts() {
+    public Map<Integer, LoggedInUser> getAccounts() {
         return accounts;
+    }
+
+    @Override
+    public void saveReview(Review review) {
+        // Get the user's ID associated with the review
+        LoggedInUser user = findUser(review.getUser());
+        user.addReview(review);
+
+        //update the accounts
+        accounts.put(user.getId(), user);
+        addUserToJsonFile();
+    }
+    public void addReview(String review) {
+
+    }
+
+
+    @Override
+    public LoggedInUser findUser(int userId) {
+        for (LoggedInUser user : accounts.values()) {
+            if (user.getId() == userId) {
+                return user;
+            }
+        }
+        return null;
     }
 }

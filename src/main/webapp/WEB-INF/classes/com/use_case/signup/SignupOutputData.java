@@ -13,7 +13,7 @@ public class SignupOutputData {
         return username;
     }
 
-    public Object getID() {
+    public int getID() {
         return id;
     }
 }
