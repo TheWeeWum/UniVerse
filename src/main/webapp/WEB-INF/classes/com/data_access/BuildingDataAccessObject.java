@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterface, OpenBuildingsListDataAccessInterface, OpenBuildingDataAccessInterface {
+public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterface, OpenBuildingsListDataAccessInterface, OpenBuildingDataAccessInterface, OpenFavouritesDataAccessInterface {
     private BuildingBuilder buildingBuilder = null;
     private EventBuilder eventBuilder = null;
 
@@ -29,7 +29,7 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
     private final String eventPath;
     private BuildingReviewsDataAccessInterface reviewDataAccessObject;
 
-    private final String userPath;
+    private String userPath;
 
     private List<Building> buildings;
 
@@ -38,6 +38,16 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
         this.eventBuilder = eventBuilder;
 
         this.reviewDataAccessObject = reviewDataAccessObject;
+
+        this.buildingPath = buildingPath;
+        this.eventPath = eventPath;
+
+        this.buildings = new ArrayList<>();
+    }
+
+    public BuildingDataAccessObject(String buildingPath, String eventPath, String userPath, BuildingBuilder buildingBuilder, EventBuilder eventBuilder) {
+        this.buildingBuilder = buildingBuilder;
+        this.eventBuilder = eventBuilder;
 
         this.buildingPath = buildingPath;
         this.eventPath = eventPath;

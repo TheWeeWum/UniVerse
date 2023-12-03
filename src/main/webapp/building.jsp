@@ -87,7 +87,7 @@
 
 <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
 
-<form action="building" method="post" target="dummyframe">
+<form action="add_to_favourite" method="post" target="dummyframe">
     <input id="favouritesButton" class="button" type="submit" value="Add to favourites">
 </form>
 

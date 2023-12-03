@@ -18,7 +18,7 @@ public class BuildingReviewsSetup {
         BuildingReviewsOutputBoundary presenter = new BuildingReviewsPresenter(buildingsReviewsServlet);
 
         ReviewBuilder reviewBuilder = new ReviewBuilder();
-        String reviewPath = Path.path + "external-data/buildingreviews.json";
+        String reviewPath = Path.path + "external-data\\buildingreviews.json";
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
         BuildingReviewsDataAccessInterface dataAccess = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);
 

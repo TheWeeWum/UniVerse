@@ -186,4 +186,13 @@
         <servlet-name>AddEvent</servlet-name>
         <url-pattern>/add_event</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddToFavourites</servlet-name>
+        <servlet-class>com.view.Building.AddToFavouritesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToFavourites</servlet-name>
+        <url-pattern>/add_to_favourite</url-pattern>
+    </servlet-mapping>
 </web-app>

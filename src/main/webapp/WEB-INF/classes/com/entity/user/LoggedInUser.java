@@ -15,7 +15,7 @@ public class LoggedInUser implements User, JsonRepresentation {
     private String password;
     private final int id;
     private final List<Review> reviews;
-    private final List<String> favouriteBuildings;
+    private final List<Building> favouriteBuildings;
     private final List<Room> favouriteRooms;
     // private final List<Reviewable> favourites;
 
@@ -27,7 +27,7 @@ public class LoggedInUser implements User, JsonRepresentation {
      * @param favouriteBuildings the list of the users favourite buildings
      * @param favouriteRooms the list of the users favourite rooms
      */
-    public LoggedInUser(String username, String password, Integer id, List<Review> reviews, List<String> favouriteBuildings, List<Room> favouriteRooms) {
+    public LoggedInUser(String username, String password, Integer id, List<Review> reviews, List<Building> favouriteBuildings, List<Room> favouriteRooms) {
         this.username = username;
         this.password = password;
         this.id = id;
@@ -101,7 +101,7 @@ public class LoggedInUser implements User, JsonRepresentation {
      * Returns the users favourite Buildings.
      * @return any of the users favourite buildings
      */
-    public List<String> getFavouriteBuildings() {
+    public List<Building> getFavouriteBuildings() {
         return favouriteBuildings;
     }
 

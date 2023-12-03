@@ -17,7 +17,7 @@ public class UserReviewSetup {
         OpenReviewOutputBoundary presenter = new UserReviewsPresenter(userReviewServlet);
 
         ReviewBuilder reviewBuilder = new ReviewBuilder();
-        String userPath = Path.path + "external-data/UserDataBase.json";
+        String userPath = Path.path + "external-data\\UserDataBase.json";
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
         OpenReviewDataAccessInterface dataAccess = new UserReviewDataAccessObject(userPath, reviewBuilder, userDAO);
 

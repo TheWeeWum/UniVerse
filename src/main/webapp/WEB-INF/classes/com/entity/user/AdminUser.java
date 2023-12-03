@@ -16,7 +16,7 @@ public class AdminUser extends LoggedInUser {
      * @param favouriteBuildings the list of the users favourite buildings
      * @param favouriteRooms the list of the users favourite rooms
      */
-    public AdminUser(String username, String password, Integer id, List<Review> reviews, List<String> favouriteBuildings, List<Room> favouriteRooms) {
+    public AdminUser(String username, String password, Integer id, List<Review> reviews, List<Building> favouriteBuildings, List<Room> favouriteRooms) {
         super(username, password, id, reviews, favouriteBuildings, favouriteRooms);
     }
 }

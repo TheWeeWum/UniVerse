@@ -48,20 +48,4 @@ public class BuildingPageServlet extends HttpServlet {
         request.setAttribute("ReviewMessage", message);
         request.getRequestDispatcher("building.jsp").forward(request, response);
     }
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        int userId = Integer.parseInt(session.getAttribute("id").toString());
-        String buildingCode = session.getAttribute("buildingCode").toString();
-
-        // save the request and response for use later in
-        this.request = request;
-        this.response = response;
-        // Initialize the loop for the use_case
-        AddToFavouritesController controller = AddToFavouritesSetup.setup(this);
-
-        // call the controller passing it the inputs
-        controller.execute(userId, buildingCode);
-    }
 }

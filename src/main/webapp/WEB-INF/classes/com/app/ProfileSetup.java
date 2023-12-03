@@ -17,18 +17,21 @@ public class ProfileSetup {
 
     public static ProfileController setup(UserProfileServlet userProfileServlet) {
         ProfileOutputBoundary presenter = new ProfilePresenter(userProfileServlet);
-        ReviewBuilder reviewFactory = new ReviewBuilder();
-        String userPath = Path.path + "external-data/UserDataBase.json";
+
+        String userPath = Path.path + "external-data\\UserDataBase.json";
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
-        BuildingBuilder buildingFactory = new BuildingBuilder();
-        EventBuilder eventFactory = new EventBuilder();
-        String buildingPath = Path.path + "external-data/buildings.json";
-        String eventPath = "events.json";
+        String buildingPath = Path.path + "external-data\\buildings.json";
+        String eventPath = "external-data\\events.json";
+        String reviewPath = Path.path + "external-data\\buildingreviews.json";
+
+        BuildingBuilder buildingBuilder = new BuildingBuilder();
+        EventBuilder eventBuilder = new EventBuilder();
         ReviewBuilder reviewBuilder = new ReviewBuilder();
-        String reviewPath = Path.path + "external-data/buildingreviews.json";
+
         BuildingReviewsDataAccessInterface reviewdataAccess = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);
-        BuildingDataAccessObject dataAccessBuilding = new BuildingDataAccessObject(buildingPath, eventPath, buildingFactory, eventFactory, reviewdataAccess);
-        ProfileUserDataAccessInterface dataAccess = new ProfileDataAccessObject(userPath, userDAO, reviewFactory, dataAccessBuilding);
+        BuildingDataAccessObject dataAccessBuilding = new BuildingDataAccessObject(buildingPath, eventPath, buildingBuilder, eventBuilder, reviewdataAccess);
+        ProfileUserDataAccessInterface dataAccess = new ProfileDataAccessObject(userPath, userDAO, reviewBuilder, dataAccessBuilding);
+
         ProfileInputBoundary interactor = new ProfileInteractor(dataAccess, presenter);
         return new ProfileController(interactor);
     }

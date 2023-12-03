@@ -1,6 +1,8 @@
 package com.app;
 
 import com.data_access.BuildingDataAccessObject;
+import com.data_access.BuildingReviewDataAccessObject;
+import com.data_access.FileUserDataAccessObject;
 import com.data_access.Path;
 import com.entity.building.BuildingBuilder;
 import com.entity.event.EventBuilder;
@@ -28,7 +30,6 @@ public class BuildingListSetup {
         EventBuilder eventBuilder = new EventBuilder();
         ReviewBuilder reviewBuilder = new ReviewBuilder();
 
-        OpenBuildingsListDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath,eventPath, buildingFactory, eventFactory, userPath);
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
 
         BuildingReviewsDataAccessInterface reviewDataAccessObject = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);

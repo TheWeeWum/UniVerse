@@ -9,6 +9,7 @@ public class MarkerController {
     }
 
     public void execute() {
+        System.out.println("MarkerController");
         interactor.execute();
     }
 }

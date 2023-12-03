@@ -5,6 +5,7 @@ import com.data_access.BuildingReviewDataAccessObject;
 import com.data_access.FileUserDataAccessObject;
 import com.data_access.Path;
 import com.entity.building.BuildingBuilder;
+import com.entity.event.Event;
 import com.entity.event.EventBuilder;
 import com.entity.review.ReviewBuilder;
 import com.interface_adapter.open_building.OpenBuildingController;
@@ -24,21 +25,14 @@ public class BuildingSetup {
         BuildingBuilder buildingBuilder = new BuildingBuilder();
         EventBuilder eventBuilder = new EventBuilder();
         ReviewBuilder reviewBuilder = new ReviewBuilder();
-        String buildingPath = Path.path + "external-data/buildings.json";
-        String eventPath = Path.path + "external-data/events.json";
-        String reviewPath = Path.path + "external-data/buildingreviews.json";
+        String buildingPath = Path.path + "external-data\\buildings.json";
+        String eventPath = Path.path + "external-data\\events.json";
+        String reviewPath = Path.path + "external-data\\buildingreviews.json";
 
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
 
         BuildingReviewsDataAccessInterface reviewDataAccessObject = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);
         OpenBuildingDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath,eventPath, buildingBuilder, eventBuilder, reviewDataAccessObject);
-        BuildingFactory buildingFactory = new BuildingFactory();
-        EventFactory eventFactory = new EventFactory();
-        String buildingPath = Path.path + "external-data\\buildings.json";
-        String eventPath = Path.path + "external-data\\events.json";
-        String userPath = Path.path + "external-data\\UserDataBase.json";
-
-        OpenBuildingDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath,eventPath, buildingFactory, eventFactory, userPath);
 
         OpenBuildingInputBoundary interactor = new OpenBuildingInteractor(dataAccess, presenter);
         return new OpenBuildingController(interactor);

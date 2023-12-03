@@ -1,6 +1,6 @@
 package com.data_access;
 
-import com.entity.building.BuildingFactory;
+import com.entity.building.BuildingBuilder;
 import com.entity.user.UserFactory;
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
@@ -13,11 +13,11 @@ import java.util.List;
 
 public class AddToFavouritesDataAccessObject implements AddToFavouritesDataAccessInterface {
     String buildingPath;
-    BuildingFactory buildingFactory;
+    BuildingBuilder buildingFactory;
     String userPath;
     UserFactory userFactory;
 
-    public AddToFavouritesDataAccessObject(String buildingPath, BuildingFactory buildingFactory, String userPath, UserFactory userFactory){
+    public AddToFavouritesDataAccessObject(String buildingPath, BuildingBuilder buildingFactory, String userPath, UserFactory userFactory){
         this.buildingPath = buildingPath;
         this.buildingFactory = buildingFactory;
         this.userPath = userPath;
