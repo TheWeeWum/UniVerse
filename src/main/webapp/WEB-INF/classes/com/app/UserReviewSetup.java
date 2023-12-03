@@ -1,7 +1,6 @@
 package com.app;
 
 import com.data_access.FileUserDataAccessObject;
-import com.data_access.Path;
 import com.data_access.UserReviewDataAccessObject;
 import com.entity.review.ReviewBuilder;
 import com.interface_adapter.user_reviews.UserReviewsController;
@@ -16,10 +15,7 @@ public class UserReviewSetup {
     public static UserReviewsController setup(UserReviewServlet userReviewServlet) {
         OpenReviewOutputBoundary presenter = new UserReviewsPresenter(userReviewServlet);
 
-        ReviewBuilder reviewBuilder = new ReviewBuilder();
-        String userPath = Path.path + "external-data\\UserDataBase.json";
-        FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
-        OpenReviewDataAccessInterface dataAccess = new UserReviewDataAccessObject(userPath, reviewBuilder, userDAO);
+        OpenReviewDataAccessInterface dataAccess = DataAccessBuilder.getUserReviewDataAccessObject();
 
         OpenReviewInputBoundary interactor = new OpenReviewInteractor(dataAccess, presenter);
         return new UserReviewsController(interactor);

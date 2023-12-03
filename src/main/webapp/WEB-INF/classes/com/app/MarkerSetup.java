@@ -3,7 +3,6 @@ package com.app;
 import com.data_access.BuildingDataAccessObject;
 import com.data_access.BuildingReviewDataAccessObject;
 import com.data_access.FileUserDataAccessObject;
-import com.data_access.Path;
 import com.entity.building.BuildingBuilder;
 import com.entity.event.EventBuilder;
 import com.entity.review.ReviewBuilder;
@@ -20,21 +19,7 @@ public class MarkerSetup {
     public static MarkerController setup(MarkerServlet markerServlet) {
         MarkerOutputBoundary presenter = new MarkerPresenter(markerServlet);
 
-        System.out.println("MarkerSetup0");
-
-        BuildingBuilder buildingBuilder = new BuildingBuilder();
-        EventBuilder eventBuilder = new EventBuilder();
-        String buildingPath = Path.path + "external-data\\buildings.json";
-        String eventPath = Path.path + "external-data\\events.json";
-        String reviewPath = Path.path + "external-data\\buildingreviews.json";
-
-        System.out.println("MarkerSetup1");
-        FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
-        System.out.println("MarkerSetup2");
-        BuildingReviewsDataAccessInterface buildingReviewDAO = new BuildingReviewDataAccessObject(reviewPath, new ReviewBuilder(), userDAO);
-        System.out.println("MarkerSetup3");
-        BuildingMarkerDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath, eventPath, buildingBuilder, eventBuilder, buildingReviewDAO);
-        System.out.println("MarkerSetup4");
+        BuildingMarkerDataAccessInterface dataAccess = DataAccessBuilder.getBuildingDataAccessObject();
 
         MarkerInputBoundary interactor = new MarkerInteractor(presenter, dataAccess);
         return new MarkerController(interactor);

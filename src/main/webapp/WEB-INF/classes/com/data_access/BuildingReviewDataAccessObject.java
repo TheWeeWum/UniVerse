@@ -1,5 +1,6 @@
 package com.data_access;
 
+import com.app.Path;
 import com.entity.review.Review;
 import com.entity.review.ReviewBuilder;
 import com.entity.user.User;
@@ -28,12 +29,6 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
     public BuildingReviewDataAccessObject(String reviewPath, ReviewBuilder reviewBuilder, FileUserDataAccessObject userDao) {
         this.reviewPath = reviewPath;
         this.reviewBuilder = reviewBuilder;
-        this.userDao = userDao;
-    }
-
-    public BuildingReviewDataAccessObject(FileUserDataAccessObject userDao) {
-        this.reviewPath = Path.path + "external-data\\buildingreviews.json";
-        this.reviewBuilder = new ReviewBuilder();
         this.userDao = userDao;
     }
 

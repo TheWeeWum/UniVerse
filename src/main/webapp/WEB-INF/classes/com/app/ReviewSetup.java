@@ -14,8 +14,8 @@ import com.view.Building.BuildingPageServlet;
 
 public class ReviewSetup {
     public static ReviewController setup(BuildingPageServlet buildingPageServlet) {
-        ReviewDataAccessInterface userDataAccessObject = new FileUserDataAccessObject();
-        BuildingReviewsDataAccessInterface buildingReviewsDataAccessObject = new BuildingReviewDataAccessObject((FileUserDataAccessObject) userDataAccessObject);
+        ReviewDataAccessInterface userDataAccessObject = DataAccessBuilder.getFileUserDataAccessObject();
+        BuildingReviewsDataAccessInterface buildingReviewsDataAccessObject = DataAccessBuilder.getBuildingReviewDataAccessObject();
 
         ReviewOutputBoundary presenter = new ReviewPresenter(buildingPageServlet);
         ReviewInputBoundary interactor = new ReviewInteractor(presenter, userDataAccessObject, buildingReviewsDataAccessObject);

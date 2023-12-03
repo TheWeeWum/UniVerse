@@ -1,11 +1,8 @@
 package com.data_access;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.app.Path;
 import com.entity.review.Review;
 import com.entity.user.LoggedInUser;
-import com.google.gson.ExclusionStrategy;
-import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
@@ -31,6 +28,7 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
         accounts = new HashMap<>();
         populateAccountsFromJson();
     }
+
     // The populate method works correctly.
     public void populateAccountsFromJson()
     {

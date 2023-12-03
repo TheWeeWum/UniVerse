@@ -1,7 +1,6 @@
 package com.app;
 
 import com.data_access.BuildingDataAccessObject;
-import com.data_access.Path;
 import com.entity.building.BuildingBuilder;
 import com.entity.event.EventBuilder;
 import com.interface_adapter.open_favourites.OpenFavouritesController;
@@ -16,14 +15,7 @@ public class FavouritesSetup {
     public static OpenFavouritesController setup(FavouritesInfoServlet favouritesInfoServlet) {
         OpenFavouritesOutputBoundary presenter = new OpenFavouritesPresenter(favouritesInfoServlet);
 
-        BuildingBuilder buildingFactory = new BuildingBuilder();
-        EventBuilder eventFactory = new EventBuilder();
-
-        String buildingPath = Path.path + "external-data\\buildings.json";
-        String eventPath = Path.path + "external-data\\events.json";
-        String userPath = Path.path + "external-data\\UserDataBase.json";
-
-        OpenFavouritesDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath, eventPath, userPath, buildingFactory, eventFactory);
+        OpenFavouritesDataAccessInterface dataAccess = DataAccessBuilder.getBuildingDataAccessObject();
 
         OpenFavouritesInputBoundary interactor = new OpenFavouritesInteractor(dataAccess, presenter);
         return new OpenFavouritesController(interactor);

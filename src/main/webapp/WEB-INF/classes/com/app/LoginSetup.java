@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class LoginSetup {
     public static LoginController setup(LoginServlet loginServlet) throws IOException {
-        FileUserDataAccessObject userDataAccessObject = new FileUserDataAccessObject();
+        FileUserDataAccessObject userDataAccessObject = DataAccessBuilder.getFileUserDataAccessObject();
 
         LoginOutputBoundary presenter = new LoginPresenter(loginServlet);
         LoginInputBoundary interactor = new LoginInteractor(presenter, userDataAccessObject);
