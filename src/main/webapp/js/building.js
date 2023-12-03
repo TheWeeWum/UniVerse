@@ -5,8 +5,7 @@ function loadBuilding() {
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
-            const buildingInfo = buildingData[0]
-            var text = "\n🏫 " + buildingInfo.name + " 🏫\n";
+            var text = "\n🏫 " + buildingData.name + " 🏫\n";
             container1.append(text)
 
             var headerElement = document.getElementById('title')
@@ -21,12 +20,11 @@ function loadBuilding() {
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
-            const buildingInfo = buildingData[0]
             var text =
-                "Name: " + buildingInfo.name +
-                "\n\nBuilding Code: " + buildingInfo.code +
-                "\n\nAddress: " + buildingInfo.address +
-                "\n\nCampus: " + buildingInfo.campus;
+                "Name: " + buildingData.name +
+                "\n\nBuilding Code: " + buildingData.code +
+                "\n\nAddress: " + buildingData.address +
+                "\n\nCampus: " + buildingData.campus;
             const newSection = document.createElement('section');
             newSection.innerText = text;
             container2.appendChild(newSection);
@@ -46,9 +44,8 @@ function loadBuilding() {
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
-            const buildingInfo = buildingData[0]
-            const lat = Number(buildingInfo.lat);
-            const lng = Number(buildingInfo.lng);
+            const lat = Number(buildingData.lat);
+            const lng = Number(buildingData.lng);
 
             const container4Element1 = document.createElement('section');
 

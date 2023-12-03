@@ -5,9 +5,6 @@ import com.entity.building.BuildingBuilder;
 import com.entity.event.EventBuilder;
 import com.entity.review.ReviewBuilder;
 import com.entity.user.CommonUserFactory;
-import com.entity.user.User;
-import com.entity.user.UserFactory;
-import com.use_case.building_reviews.BuildingReviewsDataAccessInterface;
 
 public class DataAccessBuilder {
     private static String buildingReviewsPath = Path.path + "external-data\\buildingreviews.json";

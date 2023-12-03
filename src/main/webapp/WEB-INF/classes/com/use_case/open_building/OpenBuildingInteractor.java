@@ -16,18 +16,21 @@ public class OpenBuildingInteractor implements OpenBuildingInputBoundary {
 
     @Override
     public void execute(OpenBuildingInputData inputData) {
-        List<Building> favouriteBuildings = openBuildingDataAccessObject.getFavouriteBuildings(inputData.getUserId());
-
+        System.out.println("interactor");
+        // TODO: add favourite building getter so that we can display the favourites
+        // button as clicked or unclicked
+//        List<Building> favouriteBuildings = openBuildingDataAccessObject.getFavouriteBuildings(inputData.getUserId());
         Building building = openBuildingDataAccessObject.getBuilding(inputData.getBuildingCode());
+        System.out.println("got buildings");
 
         boolean isFavourited = false;
-        if (favouriteBuildings.contains(building)) {
-            isFavourited = true;
-        }
+//        if (favouriteBuildings.contains(building)) {
+//            isFavourited = true;
+//        }
 
         // compile into output data
         OpenBuildingOutputData openBuildingOutputData = new OpenBuildingOutputData(building, isFavourited);
-
+        System.out.println("sending to presenter");
         openBuildingPresenter.prepareSuccessView(openBuildingOutputData);
     }
 }

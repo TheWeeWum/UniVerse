@@ -15,6 +15,7 @@
     <script src="js/building.js"></script>
 </head>
 <body>
+
 <!--    NAVBAR-->
 <nav>
     <a href="index">Home</a>

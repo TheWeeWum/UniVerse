@@ -13,7 +13,7 @@ public class OpenBuildingController {
 
     public void execute(int userId, String buildingCode) {
         OpenBuildingInputData inputData = new OpenBuildingInputData(userId, buildingCode);
-
+        System.out.println("controller");
         openBuildingUseCaseInteractor.execute(inputData);
     }
 }

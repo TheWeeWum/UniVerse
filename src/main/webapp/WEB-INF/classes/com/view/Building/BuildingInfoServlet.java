@@ -24,9 +24,10 @@ public class BuildingInfoServlet extends HttpServlet {
         this.response = response;
 
         HttpSession session = request.getSession();
-        // String buildingCode = request.getParameter("buildingCode");
         String buildingCode = session.getAttribute("buildingCode").toString();
+
         int id = Integer.parseInt(session.getAttribute("id").toString());
+
         System.out.println(id);
 
         // Initialize the loop for the use_case
@@ -51,35 +52,37 @@ public class BuildingInfoServlet extends HttpServlet {
     public void writeBuilding(OpenBuildingOutputData openBuildingOutputData) {
         Building building = openBuildingOutputData.getBuilding();
 
-        StringBuilder buildingJson = new StringBuilder("[");
+//        StringBuilder buildingJson = new StringBuilder("[");
+//
+//        String name = building.getName();
+//
+//        String code = building.getCode();
+//
+//        String street = building.getAddress().getStreet();
+//        String city = building.getAddress().getCity();
+//        String province = building.getAddress().getProvince();
+//        String country = building.getAddress().getCountry();
+//        String postal = building.getAddress().getPostal();
+//        String address = street + ", " + city + ", " + province + ", " + country + ", " + postal;
+//
+//        float lat = building.getLocation().getLatitude();
+//        float lng = building.getLocation().getLongitude();
+//
+//        String campus = building.getCampus();
+//
+//        buildingJson.append(String.format("{ " +
+//                "\"name\": \"%s\", " +
+//                "\"code\": \"%s\", " +
+//                "\"address\": \"%s\", " +
+//                "\"campus\": \"%s\", " +
+//                "\"lat\": \"%f\", " +
+//                "\"lng\": \"%f\" " +
+//                "}", name, code, address, campus, lat, lng));
+//
+//        buildingJson.append("]");
 
-        String name = building.getName();
-
-        String code = building.getCode();
-
-        String street = building.getAddress().getStreet();
-        String city = building.getAddress().getCity();
-        String province = building.getAddress().getProvince();
-        String country = building.getAddress().getCountry();
-        String postal = building.getAddress().getPostal();
-        String address = street + ", " + city + ", " + province + ", " + country + ", " + postal;
-
-        float lat = building.getLocation().getLatitude();
-        float lng = building.getLocation().getLongitude();
-
-        String campus = building.getCampus();
-
-        buildingJson.append(String.format("{ " +
-                "\"name\": \"%s\", " +
-                "\"code\": \"%s\", " +
-                "\"address\": \"%s\", " +
-                "\"campus\": \"%s\", " +
-                "\"lat\": \"%f\", " +
-                "\"lng\": \"%f\" " +
-                "}", name, code, address, campus, lat, lng));
-
-        buildingJson.append("]");
-
+        String buildingJson = building.getJsonRepresentation();
+        System.out.println(buildingJson);
         // System.out.println(buildingJson);
         System.out.println(openBuildingOutputData.getIsFavourited());
 
