@@ -29,6 +29,12 @@ public class MarkerSetup {
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
         BuildingReviewsDataAccessInterface buildingReviewDAO = new BuildingReviewDataAccessObject(reviewPath, new ReviewBuilder(), userDAO);
         BuildingMarkerDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath, eventPath, buildingBuilder, eventBuilder, buildingReviewDAO);
+        BuildingFactory buildingFactory = new BuildingFactory();
+        EventFactory eventFactory = new EventFactory();
+        String buildingPath = Path.path + "external-data\\buildings.json";
+        String eventPath = Path.path + "external-data\\events.json";
+        String userPath = Path.path + "external-data\\UserDataBase.json";
+        BuildingMarkerDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath, eventPath, buildingFactory, eventFactory, userPath);
 
         MarkerInputBoundary interactor = new MarkerInteractor(presenter, dataAccess);
         return new MarkerController(interactor);

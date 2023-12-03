@@ -15,9 +15,9 @@ public class LoggedInUser implements User, JsonRepresentation {
     private String password;
     private final int id;
     private final List<Review> reviews;
-    private final List<Building> favouriteBuildings;
+    private final List<String> favouriteBuildings;
     private final List<Room> favouriteRooms;
-    private final List<Reviewable> favourites;
+    // private final List<Reviewable> favourites;
 
     /**
      * @param username the users username
@@ -27,14 +27,14 @@ public class LoggedInUser implements User, JsonRepresentation {
      * @param favouriteBuildings the list of the users favourite buildings
      * @param favouriteRooms the list of the users favourite rooms
      */
-    public LoggedInUser(String username, String password, Integer id, List<Review> reviews, List<Building> favouriteBuildings, List<Room> favouriteRooms) {
+    public LoggedInUser(String username, String password, Integer id, List<Review> reviews, List<String> favouriteBuildings, List<Room> favouriteRooms) {
         this.username = username;
         this.password = password;
         this.id = id;
         this.reviews = reviews;
         this.favouriteBuildings = favouriteBuildings;
         this.favouriteRooms = favouriteRooms;
-        this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
+        // this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
     }
 
 
@@ -47,7 +47,7 @@ public class LoggedInUser implements User, JsonRepresentation {
         this.reviews = new ArrayList<>();
         this.favouriteBuildings = new ArrayList<>();
         this.favouriteRooms = new ArrayList<>();
-        this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
+        // this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
     }
 
     // READ
@@ -101,7 +101,7 @@ public class LoggedInUser implements User, JsonRepresentation {
      * Returns the users favourite Buildings.
      * @return any of the users favourite buildings
      */
-    public List<Building> getFavouriteBuildings() {
+    public List<String> getFavouriteBuildings() {
         return favouriteBuildings;
     }
 
@@ -136,29 +136,29 @@ public class LoggedInUser implements User, JsonRepresentation {
      *
      * @param favourite the favourite object to be saved to the users favourite buildings
      */
-    public void addFavourite(Building favourite) {
-        favourites.add(favourite);
-        favouriteBuildings.add(favourite);
-    }
+//    public void addFavourite(Building favourite) {
+//        favourites.add(favourite);
+//        favouriteBuildings.add(favourite);
+//    }
 
     /**
      * Adds the favourite Room object to the users favourite rooms.
      *
      * @param favourite the favourite object to be saved to the users favourite rooms
      */
-    public void addFavourite(Room favourite) {
-        favourites.add(favourite);
-        favouriteRooms.add(favourite);
-    }
+//    public void addFavourite(Room favourite) {
+//        favourites.add(favourite);
+//        favouriteRooms.add(favourite);
+//    }
 
     /**
      * Adds the general favourite object to the users favourites.
      *
      * @param favourite the favourite object to be saved to the users favourites
      */
-    public void addFavourite(Reviewable favourite) {
-        favourites.add(favourite);
-    }
+//    public void addFavourite(Reviewable favourite) {
+//        favourites.add(favourite);
+//    }
 
 
     // DELETE

@@ -3,6 +3,13 @@ package com.view.Building;
 import com.app.ReviewSetup;
 import com.interface_adapter.leave_review.ReviewController;
 
+import com.app.AddEventSetup;
+import com.app.AddToFavouritesSetup;
+import com.interface_adapter.add_to_favourites.AddToFavouritesController;
+import com.interface_adapter.event.AddEventController;
+import com.use_case.add_event.AddEventOutputData;
+import com.use_case.add_to_favourites.AddToFavouritesOutputData;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,5 +47,21 @@ public class BuildingPageServlet extends HttpServlet {
 
         request.setAttribute("ReviewMessage", message);
         request.getRequestDispatcher("building.jsp").forward(request, response);
+    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        int userId = Integer.parseInt(session.getAttribute("id").toString());
+        String buildingCode = session.getAttribute("buildingCode").toString();
+
+        // save the request and response for use later in
+        this.request = request;
+        this.response = response;
+        // Initialize the loop for the use_case
+        AddToFavouritesController controller = AddToFavouritesSetup.setup(this);
+
+        // call the controller passing it the inputs
+        controller.execute(userId, buildingCode);
     }
 }

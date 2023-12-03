@@ -1,8 +1,6 @@
 package com.app;
 
 import com.data_access.BuildingDataAccessObject;
-import com.data_access.BuildingReviewDataAccessObject;
-import com.data_access.FileUserDataAccessObject;
 import com.data_access.Path;
 import com.entity.building.BuildingBuilder;
 import com.entity.event.EventBuilder;
@@ -21,13 +19,16 @@ public class BuildingListSetup {
     public static OpenBuildingsListController setup(BuildingsListServlet buildingsListServlet) {
         OpenBuildingsListOutputBoundary presenter = new OpenBuildingsListPresenter(buildingsListServlet);
 
+        String buildingPath = Path.path + "external-data\\buildings.json";
+        String eventPath = Path.path + "external-data\\events.json";
+        String userPath = Path.path + "external-data\\UserDataBase.json";
+        String reviewPath = Path.path + "external-data\\buildingreviews.json";
+
         BuildingBuilder buildingBuilder = new BuildingBuilder();
         EventBuilder eventBuilder = new EventBuilder();
         ReviewBuilder reviewBuilder = new ReviewBuilder();
-        String buildingPath = Path.path + "external-data/buildings.json";
-        String eventPath = Path.path + "external-data/events.json";
-        String reviewPath = Path.path + "external-data/buildingreviews.json";
 
+        OpenBuildingsListDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath,eventPath, buildingFactory, eventFactory, userPath);
         FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
 
         BuildingReviewsDataAccessInterface reviewDataAccessObject = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);

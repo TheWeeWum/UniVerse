@@ -32,6 +32,13 @@ public class BuildingSetup {
 
         BuildingReviewsDataAccessInterface reviewDataAccessObject = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);
         OpenBuildingDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath,eventPath, buildingBuilder, eventBuilder, reviewDataAccessObject);
+        BuildingFactory buildingFactory = new BuildingFactory();
+        EventFactory eventFactory = new EventFactory();
+        String buildingPath = Path.path + "external-data\\buildings.json";
+        String eventPath = Path.path + "external-data\\events.json";
+        String userPath = Path.path + "external-data\\UserDataBase.json";
+
+        OpenBuildingDataAccessInterface dataAccess = new BuildingDataAccessObject(buildingPath,eventPath, buildingFactory, eventFactory, userPath);
 
         OpenBuildingInputBoundary interactor = new OpenBuildingInteractor(dataAccess, presenter);
         return new OpenBuildingController(interactor);
