@@ -13,6 +13,7 @@ public class MarkerPresenter implements MarkerOutputBoundary {
 
     @Override
     public void execute(MarkerOutputData outputData) {
+        System.out.println("MarkerPresenter");
         markerServlet.writeMarkers(outputData);
     }
 }

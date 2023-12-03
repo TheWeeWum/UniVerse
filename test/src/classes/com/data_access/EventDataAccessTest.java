@@ -1,7 +1,7 @@
 package src.classes.com.data_access;
 
 import com.data_access.EventDataAccessObject;
-import com.data_access.Path;
+import com.app.Path;
 import com.entity.event.Event;
 import com.entity.event.EventBuilder;
 import org.junit.jupiter.api.Assertions;

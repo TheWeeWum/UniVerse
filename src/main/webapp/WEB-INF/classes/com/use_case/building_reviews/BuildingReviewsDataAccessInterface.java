@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface BuildingReviewsDataAccessInterface {
     public List<Review> getReviews(String buildingCode);
+
+    void saveReview(Review review, String buildingCode);
 }

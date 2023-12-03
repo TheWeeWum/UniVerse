@@ -34,7 +34,7 @@ public class RoomTest {
         } catch (ParseException e) {
             System.out.println("DIDNT PARSE IN TEST RoomTest");
         }
-        testReview.add(new Review(null, date, "NullReview", "This is a blank review.", 4.5f));
+        testReview.add(new Review(1, "testRoomTestUsername", date, "NullReview", "This is a blank review.", 4.5f));
 
         bathroom = new Bathroom("101", "1", 100, testReview, new ArrayList<Event>(), "genderNeutral");
         lecture = new Lecture("101", "1", 100, testReview, new ArrayList<Event>());
@@ -106,10 +106,8 @@ public class RoomTest {
                 "\"reviews\": " +
                     "[" +
                         "{" +
-                            "\"user\": " +
-                                "{" +
-                                    "username: Guest, id: 0" +
-                                "}," +
+                            "\"username\": \"testRoomTestUsername\"," +
+                            "\"userID\": 1," +
                             "\"date\": \"Sat Sep 18 00:00:00 EDT 2004\"," +
                             "\"title\": \"NullReview\"," +
                             "\"rating\": 4.5," +
@@ -125,10 +123,8 @@ public class RoomTest {
                 "\"reviews\": " +
                 "[" +
                 "{" +
-                "\"user\": " +
-                "{" +
-                "username: Guest, id: 0" +
-                "}," +
+                "\"username\": \"testRoomTestUsername\"," +
+                "\"userID\": 1," +
                 "\"date\": \"Sat Sep 18 00:00:00 EDT 2004\"," +
                 "\"title\": \"NullReview\"," +
                 "\"rating\": 4.5," +
@@ -144,10 +140,8 @@ public class RoomTest {
                 "\"reviews\": " +
                 "[" +
                 "{" +
-                "\"user\": " +
-                "{" +
-                "username: Guest, id: 0" +
-                "}," +
+                "\"username\": \"testRoomTestUsername\"," +
+                "\"userID\": 1," +
                 "\"date\": \"Sat Sep 18 00:00:00 EDT 2004\"," +
                 "\"title\": \"NullReview\"," +
                 "\"rating\": 4.5," +

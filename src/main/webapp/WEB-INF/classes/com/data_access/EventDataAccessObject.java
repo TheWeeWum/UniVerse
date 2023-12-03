@@ -51,8 +51,8 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
                     JsonObject eo = eventElement.getAsJsonObject();
                     String ename = eo.get("name").getAsString();
                     String organizer = eo.get("organizer").getAsString();
-                    String dateStr = eo.get("date").getAsString();
 
+                    String dateStr = eo.get("date").getAsString();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     Date date = sdf.parse(dateStr);
 

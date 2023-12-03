@@ -23,9 +23,10 @@ public class MarkerServlet extends HttpServlet {
         this.request = request;
         this.response = response;
 
+        System.out.println("MarkerServlet");
         // Initialize the loop for the use_case
         MarkerController controller = MarkerSetup.setup(this);
-
+        System.out.println("MarkerServlet");
         // call the SignupController passing it the inputs
         controller.execute();
     }
