@@ -19,7 +19,6 @@ public class MarkerInteractor implements MarkerInputBoundary {
 
         // get the markers from the database
         List<Building> buildings = dataAccess.getBuildings();
-
         // compile into a output data object
         MarkerOutputData outputData = new MarkerOutputData(buildings);
 

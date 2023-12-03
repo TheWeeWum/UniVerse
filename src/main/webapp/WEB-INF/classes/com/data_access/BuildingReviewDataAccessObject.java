@@ -33,7 +33,7 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
 
     public BuildingReviewDataAccessObject(FileUserDataAccessObject userDao) {
         this.reviewPath = Path.path + "external-data\\buildingreviews.json";
-        this.reviewFactory = new ReviewFactory();
+        this.reviewBuilder = new ReviewBuilder();
         this.userDao = userDao;
     }
 
@@ -50,11 +50,13 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
                 for (JsonElement reviewElement: reviewsInBuilding) {
                     // set review element in the array as JsonObject
                     JsonObject ro = reviewElement.getAsJsonObject();
-
                     // getting review attributes from json
                     Integer userid = ro.get("userid").getAsInt(); // get userid
                     userDao.populateAccountsFromJson();
                     User user = userDao.getUser(userid); // make User
+                    if (user == null) {
+                        System.out.println("User who wrote the review no longer exists");
+                    }
 
                     String dateStr = ro.get("date").getAsString(); // get date data
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -65,12 +67,13 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
                     String content = ro.get("content").getAsString(); // get content
 
                     // create Review
-                    Review review = reviewBuilder.create(user, date, title, content, rating);
+                    Review review = reviewBuilder.create(user.getId(), user.getUsername(), date, title, content, rating);
                     reviews.add(review); // append Review in Review array
                 }
             } catch (NullPointerException e) {
                 // review list was hopefully empty
             } catch (ParseException e) {
+                System.out.println("Parse Error");
                 throw new RuntimeException(e);
             }
         } catch (FileNotFoundException e) {
@@ -98,7 +101,8 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
             // Create a new review JSON object
             JSONObject reviewObject = new JSONObject();
             reviewObject.put("userid", review.getUser()); // Assuming User has an ID field
-            reviewObject.put("date", review.getDate()); // Convert Date to String representation
+            reviewObject.put("username", review.getUsername()); // Assuming User has an ID field
+            reviewObject.put("date", review.getDate().toString()); // Convert Date to String representation
             reviewObject.put("rating", String.valueOf(review.getRating())); // Convert float rating to String
             reviewObject.put("title", review.getTitle());
             reviewObject.put("content", review.getContent());

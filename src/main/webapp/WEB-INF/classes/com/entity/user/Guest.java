@@ -33,11 +33,11 @@ public class Guest implements User, JsonRepresentation {
 
     @Override
     public String getJsonRepresentation() {
-        return "{username: Guest, id: 0}";
+        return "{\"username\": \"Guest\", \"id\": -1}";
     }
 
     @Override
     public String getDeadEndJson() {
-        return "{username: Guest, id: 0}";
-
+        return "{\"username\": \"Guest\", \"id\": -1}";
+    }
 }

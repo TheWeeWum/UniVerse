@@ -30,7 +30,6 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
     public FileUserDataAccessObject() {
         accounts = new HashMap<>();
         populateAccountsFromJson();
-
     }
     // The populate method works correctly.
     public void populateAccountsFromJson()
@@ -117,7 +116,7 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
         // Get the user's ID associated with the review
         LoggedInUser user = findUser(review.getUser());
         user.addReview(review);
-
+        System.out.println(review.getDate());
         //update the accounts
         accounts.put(user.getId(), user);
         addUserToJsonFile();

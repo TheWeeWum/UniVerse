@@ -60,7 +60,7 @@ public class GetEntitiesTest {
             for (int i = 0; i < numReviews; i++) {
                 String title = String.format("%d, Title for %s", i, user.getUsername());
                 String content = String.format("%d, Content for %s", i, user.getUsername());
-                Review review = new Review((LoggedInUser) user, new Date(), title, content, rand.nextFloat()*5);
+                Review review = new Review(user.getId(), user.getUsername(), new Date(), title, content, rand.nextFloat()*5);
                 reviews.add(review);
             }
         }

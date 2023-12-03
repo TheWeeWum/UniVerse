@@ -48,7 +48,7 @@ function loadMoreReviews() {
                 const ratingColor = getColorForRating(reviewInfo.rating);
 
                 newSection.innerHTML = `
-                        <div class="reviewHeader">👤${reviewInfo.user.username}</div>
+                        <div class="reviewHeader">👤${reviewInfo.username}</div>
                         <div class="reviewDate">${reviewInfo.date}</div>
                         <div class="reviewRating" style="color: ${ratingColor};">Rating: ${reviewInfo.rating}</div>
                         <div class="reviewTitle">${reviewInfo.title}</div>
