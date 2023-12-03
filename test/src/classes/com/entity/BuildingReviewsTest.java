@@ -19,12 +19,12 @@ public class BuildingReviewsTest {
     @Test
     void getUser() {
         List<Review> reviews = entities.buildings.get(70).getReviews();
-        Assertions.assertEquals(1, reviews.get(0).getUser().getId());
-        Assertions.assertEquals(447938204, reviews.get(1).getUser().getId());
-        Assertions.assertEquals(2, reviews.get(2).getUser().getId());
-        Assertions.assertEquals(447949816, reviews.get(3).getUser().getId());
-        Assertions.assertEquals(447951020, reviews.get(4).getUser().getId());
-        Assertions.assertEquals(447951497, reviews.get(5).getUser().getId());
+        Assertions.assertEquals(1, reviews.get(0).getUser());
+        Assertions.assertEquals(447938204, reviews.get(1).getUser());
+        Assertions.assertEquals(2, reviews.get(2).getUser());
+        Assertions.assertEquals(447949816, reviews.get(3).getUser());
+        Assertions.assertEquals(447951020, reviews.get(4).getUser());
+        Assertions.assertEquals(447951497, reviews.get(5).getUser());
     }
 
     @Test

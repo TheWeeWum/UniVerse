@@ -38,20 +38,31 @@ public class EventDataAccessObject implements BuildingEventsDataAccessInterface,
         List<Event> events = new ArrayList<>();
         try {
             JsonObject jsonEvents = JsonParser.parseReader(new FileReader(eventPath)).getAsJsonObject();
+            JsonObject building = new JsonObject();
             try {
-                JsonArray eventsInBuilding = jsonEvents.get(buildingCode).getAsJsonObject().get("events").getAsJsonArray();
+                building = jsonEvents.get(buildingCode).getAsJsonObject();
+            } catch (NullPointerException e) {
+                System.out.println("Building does not exist in events.json");
+                return new ArrayList<>();
+            }
+            try {
+                JsonArray eventsInBuilding = building.get("events").getAsJsonArray();
                 for (JsonElement eventElement : eventsInBuilding) {
                     JsonObject eo = eventElement.getAsJsonObject();
                     String ename = eo.get("name").getAsString();
                     String organizer = eo.get("organizer").getAsString();
+
                     String dateStr = eo.get("date").getAsString();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     Date date = sdf.parse(dateStr);
+
                     eventBuilder.createEvent(ename, organizer, date);
                     events.add(eventBuilder.getEvent());
                 }
             } catch (NullPointerException e) {
                 // event list was hopefully empty
+                System.out.println("No events for this building");
+                return new ArrayList<>();
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }

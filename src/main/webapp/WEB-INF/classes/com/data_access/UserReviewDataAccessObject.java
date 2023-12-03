@@ -65,7 +65,7 @@ public class UserReviewDataAccessObject implements OpenReviewDataAccessInterface
                             String content = ro.get("content").getAsString(); // get content
 
                             // create Review
-                            Review review = reviewBuilder.create(reviewer, date, title, content, rating);
+                            Review review = reviewBuilder.create(reviewer.getId(), reviewer.getUsername(), date, title, content, rating);
                             reviews.add(review); // append Review in Review array
                         }
                     }

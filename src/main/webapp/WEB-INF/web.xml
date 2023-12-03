@@ -51,8 +51,8 @@
     </servlet-mapping>
 
     <servlet>
-    <servlet-name>BuildingsServlet</servlet-name>
-    <servlet-class>com.view.Buildings.BuildingsServlet</servlet-class>
+        <servlet-name>BuildingsServlet</servlet-name>
+        <servlet-class>com.view.Buildings.BuildingsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BuildingsServlet</servlet-name>
@@ -87,11 +87,19 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>FavouritesServlet</servlet-name>
-        <servlet-class>com.view.User.FavouritesServlet</servlet-class>
+        <servlet-name>FavouritesInfoServlet</servlet-name>
+        <servlet-class>com.view.Favourites.FavouritesInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>FavouritesServlet</servlet-name>
+        <servlet-name>FavouritesInfoServlet</servlet-name>
+        <url-pattern>/favourites_info</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FavouritesPageServlet</servlet-name>
+        <servlet-class>com.view.Favourites.FavouritesPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FavouritesPageServlet</servlet-name>
         <url-pattern>/favourites</url-pattern>
     </servlet-mapping>
 
@@ -177,5 +185,14 @@
     <servlet-mapping>
         <servlet-name>AddEvent</servlet-name>
         <url-pattern>/add_event</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddToFavourites</servlet-name>
+        <servlet-class>com.view.Building.AddToFavouritesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToFavourites</servlet-name>
+        <url-pattern>/add_to_favourite</url-pattern>
     </servlet-mapping>
 </web-app>

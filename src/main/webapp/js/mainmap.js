@@ -32,7 +32,7 @@ function initMap() {
                             var review = markerInfo.reviews[i];
                             console.log(review);
                             reviewstr +=
-                                'Username: ' + review.user.username + '<br>' +
+                                'Username: ' + review.username + '<br>' +
                                 'Date: ' + review.date + '<br>' +
                                 'Title: ' + review.title + '<br>' +
                                 'Rating: ' + review.rating + '<br>' +
@@ -43,7 +43,7 @@ function initMap() {
                                 var review = markerInfo.reviews[i];
                                 console.log(review);
                                 reviewstr +=
-                                    'Username: ' + review.user.username + '<br>' +
+                                    'Username: ' + review.username + '<br>' +
                                     'Date: ' + review.date + '<br>' +
                                     'Title: ' + review.title + '<br>' +
                                     'Rating: ' + review.rating + '<br>' +

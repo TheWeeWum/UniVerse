@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/standard_background.css">
+    <script src="js/favourites.js"></script>
+
     <title>Favourites</title>
 
 </head>
@@ -22,7 +24,7 @@
     <h1>Favourites</h1>
 </header>
 
-
+<!--    NAVBAR-->
 <nav>
     <a href="index">Home</a>
     <a href="mainmap">Main Map</a>
@@ -58,6 +60,8 @@
         <% } %>
     </ul>
 </section>
+
+<div id="favouriteBuildingsContainer"> </div>
 
 </body>
 </html>

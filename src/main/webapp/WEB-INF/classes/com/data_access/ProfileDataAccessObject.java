@@ -142,7 +142,7 @@ public class ProfileDataAccessObject implements ProfileUserDataAccessInterface {
             String content = reviewJson.get("content").getAsString();
 
             // Create and return the Review object
-            return reviewFactory.create(user, date, title, content, rating);
+            return reviewFactory.create(user.getId(), user.getUsername(), date, title, content, rating);
         } catch (ParseException e) {
             throw new RuntimeException("Error parsing date from JSON", e);
         }

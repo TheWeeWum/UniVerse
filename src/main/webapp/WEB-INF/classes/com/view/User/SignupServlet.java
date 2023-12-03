@@ -23,8 +23,6 @@ public class SignupServlet extends HttpServlet {
         // Set the variables as request attributes
 
         // Send user to the next page
-
-        // TODO: old. but new not implemented yet
         response.sendRedirect("signup.jsp");
     }
 
