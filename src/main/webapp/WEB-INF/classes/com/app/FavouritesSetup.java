@@ -15,7 +15,7 @@ public class FavouritesSetup {
     public static OpenFavouritesController setup(FavouritesInfoServlet favouritesInfoServlet) {
         OpenFavouritesOutputBoundary presenter = new OpenFavouritesPresenter(favouritesInfoServlet);
 
-        OpenFavouritesDataAccessInterface dataAccess = DataAccessBuilder.getBuildingDataAccessObject();
+        OpenFavouritesDataAccessInterface dataAccess = DataAccessBuilder.getFileUserDataAccessObject();
 
         OpenFavouritesInputBoundary interactor = new OpenFavouritesInteractor(dataAccess, presenter);
         return new OpenFavouritesController(interactor);

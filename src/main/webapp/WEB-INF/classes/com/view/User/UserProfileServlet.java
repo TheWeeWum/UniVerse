@@ -6,6 +6,7 @@ import com.entity.building.Building;
 import com.entity.review.Review;
 import com.entity.room.Room;
 import com.entity.user.LoggedInUser;
+import com.entity.user.User;
 import com.interface_adapter.open_profile.ProfileController;
 import com.use_case.open_profile.ProfileInteractor;
 import com.use_case.open_profile.ProfileOutputData;
@@ -30,16 +31,10 @@ public class UserProfileServlet extends HttpServlet {
         this.request = request;
         this.response = response;
 
-        if (session.getAttribute("loggedIn") == null) {
-            // If the user is not logged in, set a default message
-            session.setAttribute("username", "You are not signed in");
-        } else if (session.getAttribute("loggedIn").equals(false)) {
-            // If the user is not logged in, set a default message
-            session.setAttribute("username", "You are not signed in");
-        }
+        int id = Integer.parseInt(session.getAttribute("id").toString());
 
-        // Redirect to the profile.jsp page
-        response.sendRedirect("profile.jsp");
+        ProfileController controller = ProfileSetup.setup(this);
+        controller.execute(id);
     }
 
 
@@ -80,7 +75,7 @@ public class UserProfileServlet extends HttpServlet {
             }
             // Add more conditions for other types if necessary
         }
-        if (profileOutputData.getFavourites().size() > 0) {
+        if (!profileOutputData.getFavourites().isEmpty()) {
             // delete comma at the end
             favoritesJson.delete(favoritesJson.length() - 1, favoritesJson.length());
         }
@@ -88,28 +83,25 @@ public class UserProfileServlet extends HttpServlet {
 
         // Print or write JSON for reviews and favorites as needed
         System.out.println("Reviews JSON: " + reviewsJson);
-        System.out.println("Favorites JSON: " + favoritesJson);
+        System.out.println("Favorites JSON: " + favoritesJson);;
+
+        String username = profileOutputData.getUser().getUsername();
+
+//        LoggedInUser user = profileOutputData.getUser();
+//        String userProfileJson = user.getJsonRepresentation();
+//
+//        System.out.println("got json representation");
+//        System.out.println(userProfileJson);
 
         try {
             // Set content type and write JSON response
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
-            out.print("{ \"reviews\": " + reviewsJson + ", \"favorites\": " + favoritesJson + "}");
+            out.print("{\"username\": \"" + username + "\", \"reviews\": " + reviewsJson + ", \"favorites\": " + favoritesJson + "}");
+//            out.print(userProfileJson);
             out.flush();
         } catch (IOException e) {
             System.out.println("Could not write profile data");
         }
-    }
-
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        // save the request and response for use later in
-        // sendToProfileScreen and signupFailed
-        this.request = request;
-        this.response = response;
-        // Initialize the loop for the use_case
-
     }
 }

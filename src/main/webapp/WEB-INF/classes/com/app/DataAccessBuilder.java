@@ -22,6 +22,10 @@ public class DataAccessBuilder {
         return new BuildingDataAccessObject(buildings, events, new BuildingBuilder(), new EventBuilder(), buidingReviewDAO);
     }
 
+    private static BuildingDataAccessObject getBuildingDataAccessObjectNoReview() {
+        return new BuildingDataAccessObject(buildings, events, new BuildingBuilder(), new EventBuilder());
+    }
+
     public static BuildingReviewDataAccessObject getBuildingReviewDataAccessObject() {
         return new BuildingReviewDataAccessObject(buildingReviewsPath, new ReviewBuilder(), getFileUserDataAccessObject());
     }
@@ -31,7 +35,7 @@ public class DataAccessBuilder {
     }
 
     public static FileUserDataAccessObject getFileUserDataAccessObject() {
-        return new FileUserDataAccessObject();
+        return new FileUserDataAccessObject(userDataBase, getBuildingDataAccessObjectNoReview());
     }
 
     public static ProfileDataAccessObject getProfileDataAccessObject() {

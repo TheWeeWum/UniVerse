@@ -1,31 +1,38 @@
 package com.data_access;
 import com.app.Path;
+import com.entity.building.Building;
+import com.entity.building.BuildingBuilder;
 import com.entity.review.Review;
+import com.entity.room.Room;
 import com.entity.user.LoggedInUser;
-import com.google.gson.Gson;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
 import com.entity.user.User;
 import com.use_case.leave_review.ReviewDataAccessInterface;
+import com.use_case.open_favourites.OpenFavouritesDataAccessInterface;
 import com.use_case.signup.SignupUserDataAccessInterface;
 import com.use_case.login.LoginUserDataAccessInterface;
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
-        LoginUserDataAccessInterface, ReviewDataAccessInterface {
+        LoginUserDataAccessInterface, ReviewDataAccessInterface, OpenFavouritesDataAccessInterface {
 
     private final Map<Integer, LoggedInUser> accounts;
+    private final BuildingDataAccessObject buildingDAO;
 
     // THE ABSOLUTE PATH IS DIFFERENT FOR EVERYONE. TO FIND IT, RIGHT CLICK ON THE UserData.json FILE,
     // CLICK ON "COPY PATH/REFERENCE",
     // Pick "ABSOLUTE PATH" and paste it below.
-    private final String filePath = Path.path + "external-data\\UserDataBase.json";
-    private final String testFilePath = Path.path + "external-data\\TestUserDataBase.json";
-    public FileUserDataAccessObject() {
+    private final String filePath;
+    public FileUserDataAccessObject(String filePath, BuildingDataAccessObject buildingDataAccessObject) {
         accounts = new HashMap<>();
+        this.filePath = filePath;
+        this.buildingDAO = buildingDataAccessObject;
         populateAccountsFromJson();
     }
 
@@ -36,16 +43,42 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
             // Use the inputStream to read the file content
             // Example: You can use libraries like Gson or Jackson to parse the JSON content
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath)))
+        try
         {
-            Gson gson = new Gson();
-            Type userType = new TypeToken<Map<Integer, LoggedInUser>>() {}.getType();
+            JsonObject jsonUsers = JsonParser.parseReader(new FileReader(filePath)).getAsJsonObject();
+            int id;
+            for (String s : jsonUsers.keySet()) {
+                JsonObject userObject = jsonUsers.get(s).getAsJsonObject();
 
-            // Parse JSON into Map<Integer, User>
-            Map<Integer, LoggedInUser> users = gson.fromJson(reader, userType);
+                String username = userObject.get("username").getAsString();
+                String password = userObject.get("password").getAsString();
+                id = userObject.get("id").getAsInt();
 
-            // Populate the 'accounts' map with data from JSON
-            accounts.putAll(users);
+                List<Review> reviews = new ArrayList<>();
+                JsonArray reviewsJson = userObject.get("reviews").getAsJsonArray();
+                for (JsonElement review : reviewsJson) {
+                    // not done yet
+                }
+
+                List<Building> favouriteBuildings = new ArrayList<>();
+                JsonArray favBuildingsJson = userObject.get("favouriteBuildings").getAsJsonArray();
+                for (JsonElement favBuilding : favBuildingsJson) {
+                    Building building = buildingDAO.getBuilding(favBuilding.getAsString());
+                    favouriteBuildings.add(building);
+                }
+
+                List<Room> favouriteRooms = new ArrayList<>();
+                JsonArray favRoomsJson = userObject.get("favouriteBuildings").getAsJsonArray();
+                for (JsonElement favRoom : favRoomsJson) {
+//                    Room favouriteRoom = ...
+//                    favouriteRooms.add(favouriteRoom);
+                }
+
+                LoggedInUser loggedInUser = new LoggedInUser(username, password, id, reviews, favouriteBuildings, favouriteRooms);
+
+                // Populate the 'accounts' map with data from JSON
+                accounts.put(id, loggedInUser);
+            }
         }
         catch (IOException e)
         {
@@ -111,14 +144,39 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
 
     @Override
     public void saveReview(Review review) {
-        // Get the user's ID associated with the review
-        LoggedInUser user = findUser(review.getUser());
-        user.addReview(review);
-        System.out.println(review.getDate());
-        //update the accounts
-        accounts.put(user.getId(), user);
-        addUserToJsonFile();
+        try {
+            // get jsonReviews object
+            Object obj = JsonParser.parseReader(new FileReader(filePath));
+            JsonObject mainObject = (JsonObject) obj;
+            JsonObject user = mainObject.get("" + review.getUser()).getAsJsonObject();
+            JsonArray reviews = user.get("reviews").getAsJsonArray();
+
+            // create new JsonReview object
+            JsonObject reviewJson = new JsonObject();
+            reviewJson.addProperty("userID", review.getUser());
+            reviewJson.addProperty("username", review.getUsername());
+
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            String timeAsString = df.format(review.getDate());
+            reviewJson.addProperty("date", timeAsString);
+
+            reviewJson.addProperty("title", review.getTitle());
+            reviewJson.addProperty("content", review.getContent());
+            reviewJson.addProperty("rating", review.getRating());
+
+            reviews.add(reviewJson);
+
+            Gson gson = new Gson();
+            FileWriter file = new FileWriter(filePath);
+            file.write(gson.toJson(mainObject));
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            System.out.println("Could not find file in saveReview FUDAO");
+        }
     }
+
     public void addReview(String review) {
 
     }
@@ -132,5 +190,10 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Building> getFavouriteBuildings(int userId) {
+        return accounts.get(userId).getFavouriteBuildings();
     }
 }

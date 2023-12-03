@@ -20,10 +20,18 @@ function loadBuilding() {
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
+            var addressText =
+                buildingData.address.street + ', ' +
+                buildingData.address.city + ', ' +
+                buildingData.address.province + ', ' +
+                buildingData.address.country + ', ' +
+                buildingData.address.postal
+            ;
+
             var text =
                 "Name: " + buildingData.name +
                 "\n\nBuilding Code: " + buildingData.code +
-                "\n\nAddress: " + buildingData.address +
+                "\n\nAddress: " + addressText +
                 "\n\nCampus: " + buildingData.campus;
             const newSection = document.createElement('section');
             newSection.innerText = text;

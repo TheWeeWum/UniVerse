@@ -83,7 +83,6 @@ public class BuildingInfoServlet extends HttpServlet {
 
         String buildingJson = building.getJsonRepresentation();
         System.out.println(buildingJson);
-        // System.out.println(buildingJson);
         System.out.println(openBuildingOutputData.getIsFavourited());
 
         try {
