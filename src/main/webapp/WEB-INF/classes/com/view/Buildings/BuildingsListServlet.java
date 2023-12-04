@@ -4,7 +4,6 @@ import com.app.BuildingListSetup;
 import com.entity.building.Building;
 import com.interface_adapter.open_buildings_list.OpenBuildingsListController;
 import com.use_case.open_buildings_list.OpenBuildingsListOutputData;
-import org.mockito.internal.matchers.Null;
 
 import java.io.IOException;
 import java.io.PrintWriter;

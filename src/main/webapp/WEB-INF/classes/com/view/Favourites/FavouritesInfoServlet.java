@@ -19,7 +19,7 @@ public class FavouritesInfoServlet extends HttpServlet {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.request = request;
         this.response = response;
 
