@@ -4,6 +4,7 @@ import com.app.BuildingListSetup;
 import com.entity.building.Building;
 import com.interface_adapter.open_buildings_list.OpenBuildingsListController;
 import com.use_case.open_buildings_list.OpenBuildingsListOutputData;
+import org.mockito.internal.matchers.Null;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +16,7 @@ public class BuildingsListServlet extends HttpServlet {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.request = request;
         this.response = response;
 
@@ -49,6 +50,8 @@ public class BuildingsListServlet extends HttpServlet {
             out.flush();
         } catch (IOException e) {
             System.out.println("Could not write buildings");
+        } catch (NullPointerException e) {
+            System.out.println("Went in a full loop!");
         }
     }
 }

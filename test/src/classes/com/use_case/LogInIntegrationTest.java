@@ -1,6 +1,6 @@
 package src.classes.com.use_case;
 
-import com.app.DataAccessBuilderTest;
+import com.app.DataAccessBuilder;
 import com.app.LoginSetup;
 import com.data_access.FileUserDataAccessObject;
 import com.interface_adapter.login.LoginController;
@@ -32,7 +32,7 @@ public class LogInIntegrationTest {
 
     @Before
     public void setUp() {
-        userDataAccessObject = DataAccessBuilderTest.getFileUserDataAccessObject(); // Using the actual implementation for testing
+        userDataAccessObject = DataAccessBuilder.getFileUserDataAccessObject(); // Using the actual implementation for testing
         LoginPresenter presenterMock = mock(LoginPresenter.class);
         interactor = new LoginInteractor(presenterMock, userDataAccessObject);
     }
