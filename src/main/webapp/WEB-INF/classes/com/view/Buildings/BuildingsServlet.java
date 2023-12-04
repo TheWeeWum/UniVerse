@@ -16,12 +16,6 @@ public class BuildingsServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Perform data retrieval or processing here
-        // outputdata
-        // Set the variables as request attributes
-        HttpSession session = request.getSession();
-        //session;
-        // Send user to the next page
         response.sendRedirect("buildings.jsp");
     }
 }
