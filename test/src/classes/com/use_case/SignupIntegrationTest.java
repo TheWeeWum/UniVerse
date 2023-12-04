@@ -75,6 +75,7 @@ public class SignupIntegrationTest {
 
         verify(servletMock).signupFailed("Passwords don't match.");
     }
+
     @Test
     public void testInteractorExecutionWithExisitngUsername() throws ServletException, IOException {
         // Mock required dependencies - Presenter, UserFactory, and UserDataAccessInterface
@@ -123,7 +124,7 @@ public class SignupIntegrationTest {
         SignupOutputData capturedOutputData = captor.getValue();
 
 
-        // Assert specific data in the captured input data. IMPORTANT: CHANGE THE USERNAME TO THE ONE ABOVE
+        // Assert specific data in the captured input data.
         assertEquals("liam", capturedOutputData.getUsername());
         assertEquals(123, capturedOutputData.getID());
     }
@@ -155,7 +156,7 @@ public class SignupIntegrationTest {
         SignupOutputData capturedOutputData = captor.getValue();
 
 
-        // Assert specific data in the captured input data. IMPORTANT: CHANGE THE USERNAME TO THE ONE ABOVE
+        // Assert specific data in the captured input data.
         assertEquals(username, capturedOutputData.getUsername());
         assertEquals(123, capturedOutputData.getID());
     }
