@@ -3,7 +3,9 @@ package com.interface_adapter.login;
 import com.use_case.login.LoginInputBoundary;
 import com.use_case.login.LoginInputData;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 public class LoginController {
 private final LoginInputBoundary interactor;
@@ -12,7 +14,7 @@ private final LoginInputBoundary interactor;
         this.interactor = interactor;
     }
 
-    public void execute(HttpServletRequest request) {
+    public void execute(HttpServletRequest request) throws ServletException, IOException {
         // get the username password and repeatedPassword from the input
         // fields in the jsp file.
         String username = request.getParameter("username");

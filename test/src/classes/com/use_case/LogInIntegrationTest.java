@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
@@ -36,7 +37,7 @@ public class LogInIntegrationTest {
     }
 
     @Test
-    public void testValidLogin() throws IOException {
+    public void testValidLogin() throws IOException, ServletException {
         LoginServlet servletMock = mock(LoginServlet.class);
         LoginController loginController = LoginSetup.setup(servletMock);
         // Mocking input data
@@ -55,5 +56,28 @@ public class LogInIntegrationTest {
         assertEquals("ikraskov", capturedOutputData.getUsername());
         assertEquals(1, capturedOutputData.getId());
     }
+
+    @Test
+    public void test2() throws IOException, ServletException {
+        LoginServlet servletMock = mock(LoginServlet.class);
+        LoginController loginController = LoginSetup.setup(servletMock);
+        // Mocking input data
+        LoginInputData validInput = new LoginInputData("Noname", "dark");
+        HttpServletRequest request = mock(HttpServletRequest.class);
+        when(request.getParameter("username")).thenReturn("Noname");
+        when(request.getParameter("password")).thenReturn("dark");
+        loginController.execute(request);
+
+        // Capture the argument passed to signInFailed method
+        ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+
+        // Verify that the fail  view was prepared
+        verify(servletMock).signInFailed(captor.capture());
+        String capturedOutputData = captor.getValue();
+
+        assertEquals("User with the following credentials doesn't exist.", capturedOutputData);
+    }
+
+
 
 }
