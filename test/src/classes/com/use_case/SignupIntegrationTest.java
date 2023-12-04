@@ -1,5 +1,6 @@
 package src.classes.com.use_case;
 
+import com.app.DataAccessBuilder;
 import com.data_access.FileUserDataAccessObject;
 import com.entity.user.CommonUserFactory;
 import com.entity.user.UserFactory;
@@ -83,7 +84,7 @@ public class SignupIntegrationTest {
         // Create the presenter with the mocked servlet
         SignupPresenter presenter = new SignupPresenter(servletMock);
         UserFactory userFactoryMock = mock(UserFactory.class);
-        SignupUserDataAccessInterface userDataAccess = new FileUserDataAccessObject();
+        SignupUserDataAccessInterface userDataAccess = DataAccessBuilder.getFileUserDataAccessObject();
 
         // Create interactor instance with mock dependencies
         SignupInteractor interactor = new SignupInteractor(presenter, userFactoryMock, userDataAccess);
@@ -104,7 +105,7 @@ public class SignupIntegrationTest {
         // Create the presenter with the mocked servlet
         SignupPresenter presenter = new SignupPresenter(servletMock);
         UserFactory userFactoryMock = new CommonUserFactory();
-        SignupUserDataAccessInterface userDataAccess = new FileUserDataAccessObject();
+        SignupUserDataAccessInterface userDataAccess = DataAccessBuilder.getFileUserDataAccessObject();
 
         // Create interactor instance with mock dependencies and real dependencies as well
         SignupInteractor interactor = new SignupInteractor(presenter, userFactoryMock, userDataAccess);
@@ -136,7 +137,7 @@ public class SignupIntegrationTest {
         // Create the presenter with the mocked servlet
         SignupPresenter presenter = new SignupPresenter(servletMock);
         UserFactory userFactoryMock = new CommonUserFactory();
-        SignupUserDataAccessInterface userDataAccess = new FileUserDataAccessObject();
+        SignupUserDataAccessInterface userDataAccess = DataAccessBuilder.getFileUserDataAccessObject();
 
         // Create interactor instance with mock dependencies and real dependencies as well
         SignupInteractor interactor = new SignupInteractor(presenter, userFactoryMock, userDataAccess);
