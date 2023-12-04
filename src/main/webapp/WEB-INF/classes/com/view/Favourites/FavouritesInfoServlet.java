@@ -57,7 +57,6 @@ public class FavouritesInfoServlet extends HttpServlet {
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
             out.print(buildingsJson);
-            // out.print("[{\"name\": \"test\"}]");
             out.flush();
         } catch (IOException e) {
             System.out.println("Could not write buildings");

@@ -1,5 +1,6 @@
 package src.classes.com.entity;
 
+import com.app.DataAccessBuilder;
 import com.data_access.BuildingDataAccessObject;
 import com.data_access.BuildingReviewDataAccessObject;
 import com.data_access.FileUserDataAccessObject;
@@ -36,7 +37,7 @@ public class GetEntitiesTest {
         String eventPath = Path.path + "external-data/events.json";
         String reviewPath = Path.path + "external-data/buildingreviews.json";
 
-        FileUserDataAccessObject userDAO = new FileUserDataAccessObject();
+        FileUserDataAccessObject userDAO = DataAccessBuilder.getFileUserDataAccessObject();
 
         BuildingReviewsDataAccessInterface reviewDataAccessObject = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);
 

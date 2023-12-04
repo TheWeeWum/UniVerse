@@ -27,7 +27,7 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
 
     private final String buildingPath;
     private final String eventPath;
-    private BuildingReviewsDataAccessInterface reviewDataAccessObject;
+    private BuildingReviewsDataAccessInterface reviewDataAccessObject = null;
 
     private String userPath;
 
@@ -45,14 +45,12 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
         this.buildings = new ArrayList<>();
     }
 
-    public BuildingDataAccessObject(String buildingPath, String eventPath, String userPath, BuildingBuilder buildingBuilder, EventBuilder eventBuilder) {
+    public BuildingDataAccessObject(String buildingPath, String eventPath, BuildingBuilder buildingBuilder, EventBuilder eventBuilder) {
         this.buildingBuilder = buildingBuilder;
         this.eventBuilder = eventBuilder;
 
         this.buildingPath = buildingPath;
         this.eventPath = eventPath;
-
-        this.userPath = userPath;
 
         this.buildings = new ArrayList<>();
     }
@@ -109,13 +107,13 @@ public class BuildingDataAccessObject implements BuildingMarkerDataAccessInterfa
                     // event list was hopefully empty
                 }
 
-                List<Review> reviews = reviewDataAccessObject.getReviews(code);
-
-                // TODO: TEST THIS, I changed the way the buildings and events contruct themselves
-                // to match the builder pattern, may not be connected properly, requires testing
-
+                if (reviewDataAccessObject != null) {
+                    List<Review> reviews = reviewDataAccessObject.getReviews(code);
+                    buildingBuilder.setReviews(reviews);
+                } else {
+                    buildingBuilder.setReviews(new ArrayList<>());
+                }
                 buildingBuilder.setEvents(events);
-                buildingBuilder.setReviews(reviews);
                 Building building = buildingBuilder.getBuilding();
 
                 // add finished building to list

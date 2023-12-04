@@ -1,6 +1,6 @@
 package com.entity.user;
 
-public interface User {
+public interface User{
     int getId();
 
     String getUsername();

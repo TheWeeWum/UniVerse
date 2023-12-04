@@ -22,14 +22,14 @@ public abstract class Reviewable implements JsonRepresentation {
      * @param unknown
      * @return the review at the specified __unknown__
      */
-    Review getReview(String unknown) {
-        return null;
-    }
+//    Review getReview(String unknown) {
+//        return null;
+//    }
 
     /**
      * @return the rating of the reviewable object
      */
-    float getRating() {
+    public float getRating() {
         return rating;
     }
 
@@ -39,7 +39,7 @@ public abstract class Reviewable implements JsonRepresentation {
      * and recalculate the rating of the reviewable object
      * @param review the review to add to the list of reviews
      */
-    void rate(Review review) {
+    public void rate(Review review) {
         reviews.add(review);
         rating = calculateRating();
     }
