@@ -1,5 +1,6 @@
 package src.classes.com.data_access;
 
+import com.app.DataAccessBuilderTest;
 import com.data_access.EventDataAccessObject;
 import com.app.Path;
 import com.entity.event.Event;
@@ -33,7 +34,7 @@ class EventDataAccessTest {
 
     @Test
     void getEvents() {
-        EventDataAccessObject EDAO = new EventDataAccessObject(Path.path + "external-data/events.json", new EventBuilder());
+        EventDataAccessObject EDAO = DataAccessBuilderTest.getEventDataAccessObject();
         Assertions.assertEquals(new ArrayList<Event>(), EDAO.getEvents("NOTABUILDINGCODE"));
         System.out.println(EDAO.getEvents("HH"));
         assertFalse(EDAO.getEvents("BA").isEmpty());
@@ -41,7 +42,7 @@ class EventDataAccessTest {
 
     @Test
     void addEvent() {
-        EventDataAccessObject EDAO = new EventDataAccessObject(Path.path + "external-data/events.json", new EventBuilder());
+        EventDataAccessObject EDAO = DataAccessBuilderTest.getEventDataAccessObject();
         EDAO.addEvent("TESTCODE", "testtitle", "testOrganizer", "NotARoom", new Date(), "This is a test event added by the EventDataAccessTest");
         assertFalse(EDAO.getEvents("TESTCODE").isEmpty());
     }
