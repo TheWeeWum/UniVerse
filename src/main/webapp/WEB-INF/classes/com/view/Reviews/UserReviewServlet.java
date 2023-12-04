@@ -26,7 +26,14 @@ public class UserReviewServlet extends HttpServlet {
         System.out.println("UReviewServlet");
 
         HttpSession session = request.getSession();
-        int userid = Integer.parseInt(session.getAttribute("id").toString());
+        int userid;
+        try {
+            userid = Integer.parseInt(session.getAttribute("id").toString());
+        } catch (NullPointerException e) {
+            System.out.println("user not signed in");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         System.out.println("Got id");
 

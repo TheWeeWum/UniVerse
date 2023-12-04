@@ -1,59 +1,436 @@
 {
-  "HH": {
-    "reviews": [
-      {
-        "date": "2023-12-25 12:00:00",
-        "rating": 0,
-        "title": "ttttt",
-        "userid": 2,
-        "content": "dwadadwda"
-      }
-    ]
-  },
-  "BA": {
-    "reviews": [
-      {
-        "date": "2023-11-02 12:00:00",
-        "rating": 3.4,
-        "title": "helo",
-        "userid": 1,
-        "content": "buah"
-      },
-      {
-        "date": "2023-11-05 12:00:00",
-        "rating": 5,
-        "title": "oop",
-        "userid": 447938204,
-        "content": "chuu"
-      },
-      {
-        "date": "2023-11-17 08:00:00",
-        "rating": 4,
-        "title": "Evan Wang sleeps here",
-        "userid": 2,
-        "content": "Idk, im so annoyed. evan wang sleeps here everyday and snores. it disturbs others students. i hate it here."
-      },
-      {
-        "date": "2023-12-04 07:00:00",
-        "rating": 4.6,
-        "title": "bahen is THE BEST",
-        "userid": 447949816,
-        "content": "I LOOOOOOOOOOOOOOOVE BAHEN. SO MANY COMPUTERS. SO EXCITING. I LOVE CODE. I CODE EVERYDAY. YUMMMMM!!!!!!!!! I WISH I COULD CODE EVERY. SINGLE. DAY!!!"
-      },
-      {
-        "date": "2023-12-14 11:00:00",
-        "rating": 0.1,
-        "title": "bahen is THE WORST",
-        "userid": 447951020,
-        "content": "i DISAGREE WITH LIAM. WHAT IS HE SAYING????? bahen makes me STRESSED. boo. E.J.PRATT on top"
-      },
-      {
-        "date": "2023-12-25 12:00:00",
-        "rating": 5,
-        "title": "beyonce",
-        "userid": 447951497,
-        "content": "idk, they played beyonce's music here once. and i love beyonce."
-      }
-    ]
-  }
+  "HH": {"reviews": [{
+    "date": "2023-12-25 12:00:00",
+    "rating": 0,
+    "title": "ttttt",
+    "userid": 2,
+    "content": "dwadadwda",
+    "username": "test"
+  }]},
+  "MM": {"reviews": [
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "title": "reviewTitle",
+      "userid": 1,
+      "content": "reviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "title": "reviewTitle",
+      "userid": 1,
+      "content": "reviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "title": "reviewTitle",
+      "userid": 1,
+      "content": "reviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "title": "reviewTitle",
+      "userid": 1,
+      "content": "reviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "title": "reviewTitle",
+      "userid": 1,
+      "content": "reviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "title": "reviewTitle",
+      "userid": 1,
+      "content": "reviewContent",
+      "username": "ikraskov"
+    }
+  ]},
+  "MR": {"reviews": [{
+    "date": "2023-12-03 00:00",
+    "rating": "4.0",
+    "title": "Never been here",
+    "userid": 448780446,
+    "content": "What even is this building",
+    "username": "TheWeeWum"
+  }]},
+  "MS": {"reviews": [{
+    "date": "2023-12-04 00:00",
+    "rating": "4.0",
+    "title": "ILOVESTARBIES",
+    "userid": 448579419,
+    "content": "I love starbucks so much, I WOULD GIVE FIVE STARS IF THEY MADE 2 STARBIES' HERE SO THE LINES WOULD BE SHORTER AND I COULD GET 2 DOUBBLE CHOCOLATELY CHIP FRAPS AT THE SAME TIME!!!",
+    "username": "loggin"
+  }]},
+  "UC": {"reviews": [
+    {
+      "date": "2023-12-03 00:00",
+      "rating": "4.0",
+      "title": "TestReview",
+      "userid": 448780446,
+      "content": "test",
+      "username": "TheWeeWum"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "4.0",
+      "title": "4",
+      "userid": -1,
+      "content": "4",
+      "username": "Guest"
+    }
+  ]},
+  "BA": {"reviews": [
+    {
+      "date": "2023-11-02 12:00:00",
+      "rating": 3.4,
+      "title": "helo",
+      "userid": 1,
+      "content": "buah",
+      "username": "ivan"
+    },
+    {
+      "date": "2023-11-05 12:00:00",
+      "rating": 5,
+      "title": "oop",
+      "userid": 447938204,
+      "content": "chuu",
+      "username": "tes"
+    },
+    {
+      "date": "2023-11-17 08:00:00",
+      "rating": 4,
+      "title": "Evan Wang sleeps here",
+      "userid": 2,
+      "content": "Idk, im so annoyed. evan wang sleeps here everyday and snores. it disturbs others students. i hate it here.",
+      "username": "test"
+    },
+    {
+      "date": "2023-12-04 07:00:00",
+      "rating": 4.6,
+      "title": "bahen is THE BEST",
+      "userid": 447949816,
+      "content": "I LOOOOOOOOOOOOOOOVE BAHEN. SO MANY COMPUTERS. SO EXCITING. I LOVE CODE. I CODE EVERYDAY. YUMMMMM!!!!!!!!! I WISH I COULD CODE EVERY. SINGLE. DAY!!!",
+      "username": "test"
+    },
+    {
+      "date": "2023-12-14 11:00:00",
+      "rating": 0.1,
+      "title": "bahen is THE WORST",
+      "userid": 447951020,
+      "content": "i DISAGREE WITH LIAM. WHAT IS HE SAYING????? bahen makes me STRESSED. boo. E.J.PRATT on top",
+      "username": "test"
+    },
+    {
+      "date": "2023-12-25 12:00:00",
+      "rating": 5,
+      "title": "beyonce",
+      "userid": 447951497,
+      "content": "idk, they played beyonce's music here once. and i love beyonce.",
+      "username": "test"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "userid": 1,
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "userid": 1,
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "userid": 1,
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "userid": 1,
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "userid": 1,
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "userid": 1,
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "title": "reviewTitle",
+      "userid": 1,
+      "content": "reviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "title": "reviewTitle",
+      "userid": 1,
+      "content": "reviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": -1,
+      "content": "TestReviewContent",
+      "username": "Guest"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "TestReview",
+      "userid": 1,
+      "content": "TestReviewContent",
+      "username": "ikraskov"
+    }
+  ]}
 }

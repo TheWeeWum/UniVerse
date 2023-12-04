@@ -9,6 +9,7 @@ function loadMoreBuildings() {
     fetch('buildings_list')
         .then(response => response.json())
         .then(buildingData => {
+            console.log(buildingData)
             const nextBuildings = buildingData.slice(buildingsLoaded, buildingsLoaded + 7);
 
             // Load additional buildings

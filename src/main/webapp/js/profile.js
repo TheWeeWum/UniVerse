@@ -8,6 +8,7 @@ function loadUserData() {
     fetch('user_data')
         .then(response => response.json())
         .then(userData => {
+            console.log(userData)
             renderUserSection(userData, container);
             renderFavouriteSection(userData, container);
             renderReviewsSection(userData, container);
@@ -20,8 +21,9 @@ function renderUserSection(userData, container) {
     userSection.innerHTML = `
         <h2>User Information</h2>
         <p>Username: ${userData.username}</p>
-        <p>User ID: ${userData.userId}</p>
-        <!-- Add more user information here -->
+        ` + // <p>User ID: ${userData.userId}</p>
+          <!-- Add more user information here -->
+        `
     `;
     container.appendChild(userSection);
 }

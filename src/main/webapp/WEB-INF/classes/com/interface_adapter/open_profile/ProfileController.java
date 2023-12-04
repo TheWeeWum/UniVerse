@@ -12,6 +12,7 @@ public class ProfileController {
 
 
     public void execute(int userId) {
+        System.out.println("ProfileController");
         openProfileUseCaseInteractor.execute(userId);
     }
 }

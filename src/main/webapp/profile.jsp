@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/standard_background.css">
+    <script src="js/profile.js"></script>
     <title>User Profile</title>
 </head>
 

@@ -1,5 +1,7 @@
 package src.classes.com.data_access;
 
+import com.app.DataAccessBuilder;
+import com.app.DataAccessBuilderTest;
 import com.app.Path;
 import com.data_access.*;
 import com.entity.building.BuildingBuilder;
@@ -21,9 +23,7 @@ class BuildingDataAccessTest {
 
     @Test
     void getByBuildingCode() {
-        FileUserDataAccessObject userDao = new FileUserDataAccessObject();
-        BuildingReviewDataAccessObject RDAO = new BuildingReviewDataAccessObject(Path.path + "external-data/buildingreviews.json", new ReviewBuilder(), userDao);
-        BuildingDataAccessObject BDAO = new BuildingDataAccessObject(Path.path + "external-data/buildings.json", Path.path + "external-data/events.json",new BuildingBuilder(), new EventBuilder(), RDAO);
+        BuildingDataAccessObject BDAO = DataAccessBuilderTest.getBuildingDataAccessObject();
         Assertions.assertEquals("Hart House", BDAO.getBuilding("HH").getName());
     }
 }

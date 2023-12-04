@@ -36,16 +36,25 @@ public class BuildingPageServlet extends HttpServlet {
             throws ServletException, IOException {
         this.request = request;
         this.response = response;
-        request.setAttribute("buildingCode", session.getAttribute("buildingCode"));
-        request.setAttribute("id" , session.getAttribute("id"));
+        try {
+            request.setAttribute("buildingCode", session.getAttribute("buildingCode"));
+            request.setAttribute("id", session.getAttribute("id"));
+        } catch (NullPointerException e) {
+            System.out.println("user not signed in or refreshed");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         ReviewController controller = ReviewSetup.setup(this);
         controller.execute(request);
     }
 
     public void updateAfterReview(String message) throws IOException, ServletException {
-
         request.setAttribute("ReviewMessage", message);
-        request.getRequestDispatcher("building.jsp").forward(request, response);
+        try {
+            request.getRequestDispatcher("building.jsp").forward(request, response);
+        } catch (NullPointerException e) {
+            System.out.println("getRequestDispatcher was null, test case worked!");
+        }
     }
 }

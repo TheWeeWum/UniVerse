@@ -26,7 +26,14 @@ public class FavouritesInfoServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         // String buildingCode = session.getAttribute("buildingCode").toString();
-        int userId = Integer.parseInt(session.getAttribute("id").toString());
+        int userId;
+        try {
+            userId = Integer.parseInt(session.getAttribute("id").toString());
+        } catch (NullPointerException e) {
+            System.out.println("user not signed in");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         // Initialize the loop for the use_case
         OpenFavouritesController controller = FavouritesSetup.setup(this);
@@ -57,7 +64,6 @@ public class FavouritesInfoServlet extends HttpServlet {
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
             out.print(buildingsJson);
-            // out.print("[{\"name\": \"test\"}]");
             out.flush();
         } catch (IOException e) {
             System.out.println("Could not write buildings");

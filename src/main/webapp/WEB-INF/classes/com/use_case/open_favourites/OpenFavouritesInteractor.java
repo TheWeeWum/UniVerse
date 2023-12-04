@@ -21,7 +21,10 @@ public class OpenFavouritesInteractor implements OpenFavouritesInputBoundary {
     public void execute(int userId) {
         // no input data
         // get buildings from database
+        System.out.println("OpenFavInteractor");
         List<Building> favouriteBuildings = openFavouritesDataAccessObject.getFavouriteBuildings(userId);
+        System.out.println("Got favourite buildings");
+
         // compile into output data
         OpenFavouritesOutputData openFavouritesOutputData = new OpenFavouritesOutputData(favouriteBuildings);
         openFavouritesPresenter.execute(openFavouritesOutputData);

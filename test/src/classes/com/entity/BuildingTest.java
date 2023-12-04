@@ -92,7 +92,7 @@ public class BuildingTest {
     @Test
     void getReviewsTest() {
         List<Building> buildings = entities.buildings;
-        Assertions.assertEquals(new ArrayList<Review>(), buildings.get(0).getReviews());
+        Assertions.assertEquals(new ArrayList<Review>(), buildings.get(101).getReviews());
     }
 
     @Test
@@ -119,7 +119,14 @@ public class BuildingTest {
                 "\"floors\": []" + "," +
                 "\"lat\": 43.663197" + "," +
                 "\"lng\": -79.39582" + "," +
-                "\"reviews\": []" + "," +
+                "\"reviews\": [" +
+                    "{\"username\": \"TheWeeWum\"," +
+                    "\"userID\": 448780446," +
+                    "\"date\": \"Sun Dec 03 00:00:00 EST 2023\"," +
+                    "\"title\": \"TestReview\"," +
+                    "\"rating\": 4.0," +
+                    "\"content\": \"test\"}" +
+                "]" + "," +
                 "\"events\": []" +
                 "}";
 

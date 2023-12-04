@@ -11,6 +11,15 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UserProfileServlet</servlet-name>
+        <url-pattern>/user_data</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserProfilePageServlet</servlet-name>
+        <servlet-class>com.view.User.UserProfilePageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserProfilePageServlet</servlet-name>
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
 
