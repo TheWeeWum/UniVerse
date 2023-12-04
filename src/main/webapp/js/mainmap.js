@@ -88,6 +88,7 @@ function initMap() {
                         'Lng ' + markerInfo.lng +
                         '</p>' +
                         '<p>GoogleMaps: <a href=https://www.google.com/maps/search/?api=1&query=' + addr + '>Link to GoogleMaps</a></p>' +
+                        '<h2><a href=building?buildingCode=' + markerInfo.code + '>GoToBuilding Page</a></h2>' +
                         '<h2><a href=reviews?buildingCode=' + markerInfo.code + '>Reviews:</a><br></h2><p>' + reviewstr + '</p>' +
                         '<h2><a href=events?buildingCode=' + markerInfo.code + '>Events:</a><br></h2><p>' + eventstr + '</p>' +
                         '';

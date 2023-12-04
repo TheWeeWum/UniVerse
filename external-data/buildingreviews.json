@@ -1,12 +1,22 @@
 {
-  "HH": {"reviews": [{
-    "date": "2023-12-25 12:00:00",
-    "rating": 0,
-    "title": "ttttt",
-    "userid": 2,
-    "content": "dwadadwda",
-    "username": "test"
-  }]},
+  "HH": {"reviews": [
+    {
+      "date": "2023-12-25 12:00:00",
+      "rating": 5,
+      "title": "Cool Building",
+      "userid": 2,
+      "content": "This building has everything! A gym a library and CHESS CLUB!!! I wish I lived closer to here.",
+      "username": "pluto"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "5.0",
+      "title": "CHESSCLUB",
+      "userid": 448780446,
+      "content": "I love chess club, I wish they would have it more than once a week. And I wish I actualyl had time to go...",
+      "username": "TheWeeWum"
+    }
+  ]},
   "MM": {"reviews": [
     {
       "date": "2023-12-04 00:00",
@@ -297,13 +307,57 @@
     "content": "What even is this building",
     "username": "TheWeeWum"
   }]},
-  "MS": {"reviews": [{
+  "CH": {"reviews": [
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "3.0",
+      "title": "Failed a class here",
+      "userid": 448780446,
+      "content": "So crowded, too many people.",
+      "username": "TheWeeWum"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "4.0",
+      "title": "PresentationReview",
+      "userid": 448691947,
+      "content": "Presentation",
+      "username": "Presentation"
+    }
+  ]},
+  "MS": {"reviews": [
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "4.0",
+      "title": "ILOVESTARBIES",
+      "userid": 448579419,
+      "content": "I love starbucks so much, I WOULD GIVE FIVE STARS IF THEY MADE 2 STARBIES' HERE SO THE LINES WOULD BE SHORTER AND I COULD GET 2 DOUBBLE CHOCOLATELY CHIP FRAPS AT THE SAME TIME!!!",
+      "username": "loggin"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "4.0",
+      "title": "PresentationReview",
+      "userid": 448691342,
+      "content": "Presentation demonstration review",
+      "username": "PresentationUser"
+    },
+    {
+      "date": "2023-12-04 00:00",
+      "rating": "4.0",
+      "title": "Testreivew",
+      "userid": 448780446,
+      "content": "test",
+      "username": "TheWeeWum"
+    }
+  ]},
+  "BL": {"reviews": [{
     "date": "2023-12-04 00:00",
     "rating": "4.0",
-    "title": "ILOVESTARBIES",
-    "userid": 448579419,
-    "content": "I love starbucks so much, I WOULD GIVE FIVE STARS IF THEY MADE 2 STARBIES' HERE SO THE LINES WOULD BE SHORTER AND I COULD GET 2 DOUBBLE CHOCOLATELY CHIP FRAPS AT THE SAME TIME!!!",
-    "username": "loggin"
+    "title": "Ttest",
+    "userid": 448780446,
+    "content": "test",
+    "username": "TheWeeWum"
   }]},
   "UC": {"reviews": [
     {

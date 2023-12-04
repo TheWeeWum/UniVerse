@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() { loadBuilding(); });
 
+function getColorForRating(rating) {
+    // Define a color scale based on the rating values
+    if (rating >= 4) {
+        return 'green'; // Higher ratings are green
+    } else if (rating >= 2.5) {
+        return 'orange'; // Moderate ratings are orange
+    } else {
+        return 'red'; // Lower ratings are red
+    }
+}
+
 function loadBuilding() {
     const container1 = document.getElementById('title');
     fetch('building_info')
@@ -40,11 +51,6 @@ function loadBuilding() {
 
         })
         .catch(error => console.error('Error fetching building data:', error));
-
-    const container3 = document.getElementById('mapTitle');
-    const container3Element = document.createElement('section');
-    container3Element.innerText = "Location: ";
-    container3.appendChild(container3Element);
 
 
     const container4 = document.getElementById('map');
@@ -105,13 +111,44 @@ function loadBuilding() {
             // Call the function initially
             centerContainer4();
 
+            const container5 = document.getElementById('events');
+            const container5Element = document.createElement('section');
+            let eventText = '<h2>Events: </h2><ul>';
+            buildingData.events.forEach(function (eventInfo) {
+                eventText +=
+                    `<li>
+                    <h3>${eventInfo.name} </h3>
+                    <p>Organizer ${eventInfo.organizer} </p>
+                    <p>Location ${eventInfo.location.name} </p>
+                    <p>Date ${eventInfo.date} </p>
+                    </li>`
+            });
+            eventText += '</ul>';
+
+            container5Element.innerHTML = eventText;
+            container5.appendChild(container5Element);
+
+            const container6 = document.getElementById('reviews');
+            const container6Element = document.createElement('section');
+            let reivewText = '<h2>Reviews: </h2><ul>';
+            buildingData.reviews.forEach(function (reviewInfo) {
+                const ratingColor = getColorForRating(reviewInfo.rating);
+                reivewText +=
+                    `<li>
+                        <div class="reviewHeader">👤${reviewInfo.username}</div>
+                        <div class="reviewDate">${reviewInfo.date}</div>
+                        <div class="reviewRating" style="color: ${ratingColor};">Rating: ${reviewInfo.rating}</div>
+                        <div class="reviewTitle">${reviewInfo.title}</div>
+                        <div class="reviewContent">${reviewInfo.content}</div>
+                    </li>`
+            });
+            reivewText += '</ul>';
+
+            container6Element.innerHTML = reivewText;
+            container6.appendChild(container6Element);
+
         })
         .catch(error => console.error('Error fetching building data:', error));
-
-    const container5 = document.getElementById('events');
-    const container5Element = document.createElement('section');
-    container5Element.innerText = "Events: ";
-    container5.appendChild(container5Element);
 
 }
 
