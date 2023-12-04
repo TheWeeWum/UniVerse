@@ -1,5 +1,8 @@
 package com.use_case.login;
 
+import javax.servlet.ServletException;
+import java.io.IOException;
+
 public class LoginInteractor implements LoginInputBoundary{
 
     private LoginOutputBoundary presenter;
@@ -12,10 +15,9 @@ public class LoginInteractor implements LoginInputBoundary{
 
 
     @Override
-    public void execute(LoginInputData inputData) {
+    public void execute(LoginInputData inputData) throws ServletException, IOException {
         // check if the username already exists
         Integer userId = userDataAccessObject.existsByUsernameAndPassword(inputData.getUsername(), inputData.getPassword());
-        // If passwords are different, then it's easy.
         if (userId == null)
         {
             presenter.prepareFailView("User with the following credentials doesn't exist.");
