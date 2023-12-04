@@ -21,18 +21,22 @@ public class BuildingReviewsServlet extends HttpServlet {
     private HttpServletResponse response;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.request = request;
         this.response = response;
 
         HttpSession session = request.getSession();
-        String buildingCode = session.getAttribute("buildingCode").toString();
+        String buildingCode = (String) session.getAttribute("buildingCode");
 
-        // Initialize the loop for the use_case
-        BuildingReviewsController buildingReviewsController = BuildingReviewsSetup.setup(this);
+        if (buildingCode != null) {
+            // Initialize the loop for the use_case
+            BuildingReviewsController buildingReviewsController = BuildingReviewsSetup.setup(this);
 
-        // call the SignupController passing it the inputs
-        buildingReviewsController.execute(buildingCode);
+            // call the SignupController passing it the inputs
+            buildingReviewsController.execute(buildingCode);
+        } else {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Building code not found in session");
+        }
     }
 
     public void displayReviews(BuildingReviewsOutputData buildingReviewsOutputData) {
