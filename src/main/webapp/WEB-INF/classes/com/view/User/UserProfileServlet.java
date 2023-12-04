@@ -39,6 +39,7 @@ public class UserProfileServlet extends HttpServlet {
 
 
     public void writeProfile(ProfileOutputData profileOutputData) {
+        System.out.println("writeProfile UPS");
         // Prepare JSON for reviews
         StringBuilder reviewsJson = new StringBuilder("[");
 

@@ -3,6 +3,7 @@ import com.app.Path;
 import com.entity.building.Building;
 import com.entity.building.BuildingBuilder;
 import com.entity.review.Review;
+import com.entity.review.ReviewBuilder;
 import com.entity.room.Room;
 import com.entity.user.LoggedInUser;
 import com.google.gson.*;
@@ -16,6 +17,7 @@ import com.use_case.signup.SignupUserDataAccessInterface;
 import com.use_case.login.LoginUserDataAccessInterface;
 import java.io.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -57,7 +59,23 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
                 List<Review> reviews = new ArrayList<>();
                 JsonArray reviewsJson = userObject.get("reviews").getAsJsonArray();
                 for (JsonElement review : reviewsJson) {
-                    // not done yet
+                    JsonObject reviewJson = review.getAsJsonObject();
+                    int reviewUserID = reviewJson.get("userID").getAsInt();
+                    String reviewUsername = reviewJson.get("username").getAsString();
+                    Date reviewDate = null;
+                    try {
+                        String dateString = reviewJson.get("date").getAsString();
+                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                        reviewDate = df.parse(dateString);
+                    } catch (ParseException e) {
+                        System.out.println("Could not parse date from UserReview");
+                    }
+                    String reviewTitle = reviewJson.get("title").getAsString();
+                    String reviewContent = reviewJson.get("content").getAsString();
+                    float reviewRating = reviewJson.get("rating").getAsFloat();
+
+                    // TODO: turn into review builder
+                    reviews.add(new Review(reviewUserID, reviewUsername, reviewDate, reviewTitle, reviewContent, reviewRating));
                 }
 
                 List<Building> favouriteBuildings = new ArrayList<>();

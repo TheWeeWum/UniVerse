@@ -8,6 +8,7 @@ function getFavourites() {
     fetch('favourites_info')
         .then(response => response.json())
         .then(favouritesData => {
+            console.log(favouritesData)
 
             // Load additional buildings
             favouritesData.forEach(favouriteData => {

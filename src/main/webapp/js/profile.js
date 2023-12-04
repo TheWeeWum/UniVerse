@@ -8,6 +8,7 @@ function loadUserData() {
     fetch('user_data')
         .then(response => response.json())
         .then(userData => {
+            console.log(userData)
             renderUserSection(userData, container);
             renderFavouriteSection(userData, container);
             renderReviewsSection(userData, container);

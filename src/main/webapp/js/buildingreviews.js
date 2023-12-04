@@ -20,6 +20,7 @@ function loadMoreReviews() {
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
+            console.log(buildingData)
             const buildingInfo = buildingData[0]
             var text = "Reviews for " + buildingInfo.name;
             container1.append(text)

@@ -8,6 +8,7 @@ function initMap() {
     fetch('markers')
         .then(response => response.json())
         .then(markerData => {
+            console.log(markerData)
             // Create markers based on the retrieved data
             markerData.forEach(function (markerInfo) {
                 var marker = new google.maps.Marker({

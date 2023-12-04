@@ -20,6 +20,7 @@ function loadBuilding() {
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
+            console.log(buildingData)
             var addressText =
                 buildingData.address.street + ', ' +
                 buildingData.address.city + ', ' +

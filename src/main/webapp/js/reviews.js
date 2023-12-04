@@ -9,6 +9,7 @@ function loadReviews() {
     fetch('review') // Update this with the endpoint to fetch reviews
         .then(response => response.json())
         .then(reviewsData => {
+            console.log(reviewsData)
             const reviewsSection = document.createElement('section');
             // Check if there are reviews to display
             if (reviewsData.length > 0) {
