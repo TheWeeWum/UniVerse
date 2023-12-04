@@ -26,7 +26,14 @@ public class BuildingReviewsServlet extends HttpServlet {
         this.response = response;
 
         HttpSession session = request.getSession();
-        String buildingCode = (String) session.getAttribute("buildingCode");
+        String buildingCode;
+        try {
+            buildingCode = (String) session.getAttribute("buildingCode");
+        } catch (NullPointerException e) {
+            System.out.println("Refreshed page");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         if (buildingCode != null) {
             // Initialize the loop for the use_case

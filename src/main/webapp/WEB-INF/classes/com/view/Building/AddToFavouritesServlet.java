@@ -17,11 +17,19 @@ public class AddToFavouritesServlet extends HttpServlet {
     private HttpServletResponse response;
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        int userId = Integer.parseInt(session.getAttribute("id").toString());
-        String buildingCode = session.getAttribute("buildingCode").toString();
+        int userId;
+        String buildingCode;
+        try {
+            userId = Integer.parseInt(session.getAttribute("id").toString());
+            buildingCode = session.getAttribute("buildingCode").toString();
+        } catch (NullPointerException e) {
+            System.out.println("user not signed in");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         // save the request and response for use later in
         this.request = request;

@@ -19,22 +19,13 @@ public class AddEventServlet extends HttpServlet {
     private HttpServletResponse response;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Perform data retrieval or processing here
-
-        // Set the variables as request attributes
-
-        // Send user to the next page
-
-        // TODO: old. but new not implemented yet
-        HttpSession session = request.getSession();
-        String buildingCode = session.getAttribute("buildingCode").toString();
         response.sendRedirect("addEvent.jsp");
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // save the request and response for use later in
         // sendToProfileScreen and signupFailed
@@ -48,27 +39,12 @@ public class AddEventServlet extends HttpServlet {
     }
 
     public void successView(AddEventOutputData outputData) {
-        // get the session to change the data on
-        HttpSession session = request.getSession();
-
         try {
             // Redirect to the user profile page
             response.sendRedirect("events.jsp");
         } catch (IOException e) {
-            signupFailed("Could not send to page");
+            System.out.println("Could not find events page");
         }
     }
-
-    public void signupFailed(String message) {
-        try {
-            request.setAttribute("errorMessage", message);
-            request.getRequestDispatcher("addEvent.jsp").forward(request, response);
-        } catch (IOException e) {
-            System.out.println("Could not send to addEvent page");
-        } catch (ServletException e) {
-            System.out.println("Could not forward request,response objects in AddEventServlet");
-        }
-    }
-
 }
 

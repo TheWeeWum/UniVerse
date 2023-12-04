@@ -31,7 +31,14 @@ public class UserProfileServlet extends HttpServlet {
         this.request = request;
         this.response = response;
 
-        int id = Integer.parseInt(session.getAttribute("id").toString());
+        int id;
+        try {
+            id = Integer.parseInt(session.getAttribute("id").toString());
+        } catch (NullPointerException e) {
+            System.out.println("user not signed in");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         ProfileController controller = ProfileSetup.setup(this);
         controller.execute(id);

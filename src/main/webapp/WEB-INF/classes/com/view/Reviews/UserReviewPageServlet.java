@@ -11,7 +11,14 @@ public class UserReviewPageServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String userID = session.getAttribute("id").toString();
+        int userID;
+        try {
+            userID = Integer.parseInt(session.getAttribute("id").toString());
+        } catch (NullPointerException e) {
+            System.out.println("user not signed in");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         // TODO: if not signed in redirect to mainmap i guess
 

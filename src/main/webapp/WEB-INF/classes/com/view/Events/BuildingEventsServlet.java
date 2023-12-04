@@ -22,7 +22,14 @@ public class BuildingEventsServlet extends HttpServlet {
         this.response = response;
 
         HttpSession session = request.getSession();
-        String buildingCode = session.getAttribute("buildingCode").toString();
+        String buildingCode;
+        try {
+            buildingCode = session.getAttribute("buildingCode").toString();
+        } catch (NullPointerException e) {
+            System.out.println("Refreshed page");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         // Initialize the loop for the use_case
         BuildingEventsController controller = BuildingEventsSetup.setup(this);
