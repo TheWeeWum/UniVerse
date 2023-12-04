@@ -109,7 +109,60 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
         accounts.put(user.getId(), (LoggedInUser) user);
         // UserData.json is our main file where users will be stored, so there's no reason
         // to pass an additional variable to the addUserToJsonFile method
-        addUserToJsonFile();
+        LoggedInUser loggedInUser;
+        try {
+            loggedInUser = (LoggedInUser) user;
+        } catch (ClassCastException e) {
+            System.out.println("Tried to save Guest to UserDataBase in FileUserDataAccessObject");
+            return;
+        }
+        try {
+            JsonObject jsonUsers = JsonParser.parseReader(new FileReader(filePath)).getAsJsonObject();
+            JsonObject userJson = new JsonObject();
+            userJson.addProperty("username", loggedInUser.getUsername());
+            userJson.addProperty("password", loggedInUser.getPassword());
+            userJson.addProperty("id", loggedInUser.getId());
+
+            JsonArray reviewsJson = new JsonArray();
+            for (Review review : loggedInUser.getReviews()) {
+                JsonObject reviewJson = new JsonObject();
+                reviewJson.addProperty("userID", loggedInUser.getId());
+                reviewJson.addProperty("username", loggedInUser.getUsername());
+
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                String timeAsString = df.format(review.getDate());
+                reviewJson.addProperty("date", timeAsString);
+
+                reviewJson.addProperty("title", review.getTitle());
+                reviewJson.addProperty("content", review.getContent());
+                reviewJson.addProperty("rating", review.getRating());
+
+                reviewsJson.add(reviewJson);
+            }
+            userJson.add("reviews", reviewsJson);
+
+            JsonArray favouriteBuildingsJson = new JsonArray();
+            for (Building building : loggedInUser.getFavouriteBuildings()) {
+                favouriteBuildingsJson.add(building.getCode());
+            }
+            userJson.add("favouriteBuildings", favouriteBuildingsJson);
+
+            // TODO: when rooms are implemented
+            userJson.add("favouriteRooms", new JsonArray());
+
+            jsonUsers.add("" + loggedInUser.getId(), userJson);
+
+            Gson gson = new Gson();
+            FileWriter file = new FileWriter(filePath);
+            file.write(gson.toJson(jsonUsers));
+            file.flush();
+            file.close();
+
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
+        }
+
+        // addUserToJsonFile();
     }
 
     @Override
