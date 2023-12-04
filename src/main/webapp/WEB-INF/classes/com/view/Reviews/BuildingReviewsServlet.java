@@ -58,6 +58,8 @@ public class BuildingReviewsServlet extends HttpServlet {
             out.flush();
         } catch (IOException e) {
             System.out.println("Could not write reviews");
+        } catch (NullPointerException e) {
+            System.out.println("Went in a full loop!");
         }
     }
 }

@@ -28,12 +28,12 @@ public class OpenBuildingsListTest {
         BuildingsListServlet servletMock = mock(BuildingsListServlet.class);
 
         OpenBuildingsListController openBuildingsListController = BuildingListSetup.setup(servletMock);
-        
+
         // mocking input data
         OpenBuildingsListInputData openBuildingsListInputData = new OpenBuildingsListInputData();
 
         openBuildingsListController.execute();
-        // Capture the argument passed to sendToProfileScreen method
+        // Capture the argument passed to writeBuildings method
         ArgumentCaptor<OpenBuildingsListOutputData> captor = ArgumentCaptor.forClass(OpenBuildingsListOutputData.class);
 
         // Verify that the success view was prepared

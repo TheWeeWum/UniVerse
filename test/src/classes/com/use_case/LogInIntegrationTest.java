@@ -32,7 +32,7 @@ public class LogInIntegrationTest {
 
     @Before
     public void setUp() {
-        userDataAccessObject = new FileUserDataAccessObject(); // Using the actual implementation for testing
+        userDataAccessObject = DataAccessBuilder.getFileUserDataAccessObject(); // Using the actual implementation for testing
         LoginPresenter presenterMock = mock(LoginPresenter.class);
         interactor = new LoginInteractor(presenterMock, userDataAccessObject);
     }
