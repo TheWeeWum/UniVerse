@@ -22,9 +22,4 @@ public class ReviewPresenter implements ReviewOutputBoundary {
             e.printStackTrace();
         }
     }
-
-    @Override
-    public void prepareFailView(String message) {
-
-    }
 }
