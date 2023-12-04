@@ -24,7 +24,7 @@ public class UserProfileServlet extends HttpServlet {
     private HttpServletResponse response;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Perform data retrieval or processing here
         HttpSession session = request.getSession();
@@ -55,7 +55,7 @@ public class UserProfileServlet extends HttpServlet {
             String content = review.getContent();
             float rating = review.getRating();
 
-            reviewsJson.append(String.format("{ " + "\"title\": \"%s\", " + "\"content\": \"%s\", " + "\"rating\": %d " + "},",
+            reviewsJson.append(String.format("{ " + "\"title\": \"%s\", " + "\"content\": \"%s\", " + "\"rating\": %f " + "},",
                     title, content, rating));
         }
         if (profileOutputData.getReviews().size() > 0) {

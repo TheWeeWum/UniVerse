@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 public class IndexServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Perform data retrieval or processing here
 

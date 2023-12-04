@@ -36,8 +36,24 @@ public class BuildingTest {
         AddToFavouritesServlet servlet = new AddToFavouritesServlet();
 
         servlet.doPost(request, response);
+    }
+
+    @Test
+    void addToFavouritesServletDoPostFail() throws ServletException, IOException {
+        // Create mocks for HttpServletRequest and HttpServletResponse
+        HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
+        HttpServletResponse response = Mockito.mock(HttpServletResponse.class);
+        HttpSession session = Mockito.mock(HttpSession.class);
+
+        // Associate the session mock with the request mock
+        when(request.getSession()).thenReturn(session);
+
+        // Create an instance of your servlet
+        AddToFavouritesServlet servlet = new AddToFavouritesServlet();
+
+        servlet.doPost(request, response);
         // Verify that sendRedirect was called with the expected argument
-        verify(response);
+        verify(response).sendRedirect("index.jsp");
     }
 
     @Test
