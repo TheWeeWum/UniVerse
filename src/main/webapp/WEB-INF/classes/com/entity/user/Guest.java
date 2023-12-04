@@ -4,9 +4,17 @@ import com.entity.JsonRepresentation;
 
 public class Guest implements User, JsonRepresentation {
 
+    // A constructor for the Guest class.
+    String name;
+    int id;
+    public Guest() {
+        this.name = "Guest";
+        this.id = -1;
+    }
+
     @Override
     public int getId() {
-        return 0;
+        return id;
     }
 
     @Override
@@ -18,17 +26,18 @@ public class Guest implements User, JsonRepresentation {
     public String getPassword() {
         return null;
     }
-    public Guest(){
-
+    @Override
+    public String toString() {
+        return "Guest";
     }
 
     @Override
     public String getJsonRepresentation() {
-        return "{username: Guest, id: 0}";
+        return "{\"username\": \"Guest\", \"id\": -1}";
     }
 
     @Override
     public String getDeadEndJson() {
-        return "{username: Guest, id: 0}";
+        return "{\"username\": \"Guest\", \"id\": -1}";
     }
 }

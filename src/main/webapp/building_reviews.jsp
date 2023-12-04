@@ -38,6 +38,10 @@
 <!-- Container for building sections -->
 <div id="reviewsContainer"></div>
 
+<!-- Load More button -->
+<button id="loadMoreButton" onclick="loadMoreReviews()"> Load More Reviews ↓</button>
+
+
 </body>
 </html>
 

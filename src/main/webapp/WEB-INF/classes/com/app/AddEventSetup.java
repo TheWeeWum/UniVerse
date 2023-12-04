@@ -1,7 +1,6 @@
 package com.app;
 
 import com.data_access.EventDataAccessObject;
-import com.data_access.Path;
 import com.interface_adapter.event.AddEventController;
 import com.interface_adapter.event.AddEventPresenter;
 import com.use_case.add_event.AddEventDataAccessInterface;
@@ -14,8 +13,7 @@ public class AddEventSetup {
     public static AddEventController setup(AddEventServlet servlet) {
         AddEventOutputBoundary presenter = new AddEventPresenter(servlet);
 
-        String eventPath = Path.path + "external-data/events.json";
-        AddEventDataAccessInterface dataAccess = new EventDataAccessObject(eventPath);
+        AddEventDataAccessInterface dataAccess = DataAccessBuilder.getEventDataAccessObject();
 
         AddEventInputBoundary interactor = new AddEventInteractor(presenter, dataAccess);
         return new AddEventController(interactor);

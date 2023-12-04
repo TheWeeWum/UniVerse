@@ -33,11 +33,13 @@
 
 <%--    Add sign out button?--%>
 
-<% if (session.getAttribute("loggedIn") == null || session.getAttribute("loggedIn").equals(false))  { %>
-<h1>Please Login to View Profile or Sign up to Start</h1>
-<%} else { %>
-<h1>Welcome, <%= session.getAttribute("username")%></h1>
-<% } %>
+<section>
+    <% if (session.getAttribute("loggedIn") == null || session.getAttribute("loggedIn").equals(false))  { %>
+        <h1>Please Login to View Profile or Sign up to Start</h1>
+    <%} else { %>
+        <h1>Welcome, <%= session.getAttribute("username")%></h1>
+    <% } %>
+</section>
 
 <section id="favourites">
     <h2>Favourites</h2>

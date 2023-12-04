@@ -17,7 +17,7 @@ public class LoggedInUser implements User, JsonRepresentation {
     private final List<Review> reviews;
     private final List<Building> favouriteBuildings;
     private final List<Room> favouriteRooms;
-    private final List<Reviewable> favourites;
+    // private final List<Reviewable> favourites;
 
     /**
      * @param username the users username
@@ -34,7 +34,7 @@ public class LoggedInUser implements User, JsonRepresentation {
         this.reviews = reviews;
         this.favouriteBuildings = favouriteBuildings;
         this.favouriteRooms = favouriteRooms;
-        this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
+        // this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
     }
 
 
@@ -47,7 +47,7 @@ public class LoggedInUser implements User, JsonRepresentation {
         this.reviews = new ArrayList<>();
         this.favouriteBuildings = new ArrayList<>();
         this.favouriteRooms = new ArrayList<>();
-        this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
+        // this.favourites = getFavourites(favouriteBuildings, favouriteRooms);
     }
 
     // READ
@@ -79,6 +79,7 @@ public class LoggedInUser implements User, JsonRepresentation {
 
     /**
      * Returns all the users reviews.
+     *
      * @return all the users reviews.
      */
     public List<Review> getReviews() {
@@ -135,29 +136,29 @@ public class LoggedInUser implements User, JsonRepresentation {
      *
      * @param favourite the favourite object to be saved to the users favourite buildings
      */
-    public void addFavourite(Building favourite) {
-        favourites.add(favourite);
-        favouriteBuildings.add(favourite);
-    }
+//    public void addFavourite(Building favourite) {
+//        favourites.add(favourite);
+//        favouriteBuildings.add(favourite);
+//    }
 
     /**
      * Adds the favourite Room object to the users favourite rooms.
      *
      * @param favourite the favourite object to be saved to the users favourite rooms
      */
-    public void addFavourite(Room favourite) {
-        favourites.add(favourite);
-        favouriteRooms.add(favourite);
-    }
+//    public void addFavourite(Room favourite) {
+//        favourites.add(favourite);
+//        favouriteRooms.add(favourite);
+//    }
 
     /**
      * Adds the general favourite object to the users favourites.
      *
      * @param favourite the favourite object to be saved to the users favourites
      */
-    public void addFavourite(Reviewable favourite) {
-        favourites.add(favourite);
-    }
+//    public void addFavourite(Reviewable favourite) {
+//        favourites.add(favourite);
+//    }
 
 
     // DELETE

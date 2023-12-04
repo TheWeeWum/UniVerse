@@ -7,32 +7,30 @@ import com.entity.room.Room;
 import com.entity.user.Guest;
 import com.entity.user.LoggedInUser;
 import com.entity.user.User;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.util.Date;
 
 public class Review implements JsonRepresentation {
-    private final LoggedInUser user;
+    private final int userId;
+    private final String username;
     private final Date date;
     private String title;
     private String content;
     private float rating;
 
     /**
-     * @param user the user who wrote the review
+     * @param userId the userId who wrote the review
+     * @param username the username of the user who wrote the review
      * @param date the time the review was written
      * @param title the title of the review
      * @param content the content of the review (String format only)
      * @param rating the rating of the review
      */
-    public Review(User user, Date date, String title, String content, float rating) {
-        LoggedInUser user1;
-        try {
-            user1 = (LoggedInUser) user;
-        } catch (ClassCastException e) {
-            user1 = null;
-            System.out.println("Non logged in user tried to create review");
-        }
-        this.user = user1;
+    public Review(int userId, String username, Date date, String title, String content, float rating) {
+        this.userId = userId;
+        this.username = username;
         this.date = date;
         this.title = title;
         this.content = content;
@@ -44,8 +42,15 @@ public class Review implements JsonRepresentation {
     /**
      * @return the user who wrote the review
      */
-    public LoggedInUser getUser() {
-        return user;
+    public int getUser() {
+        return userId;
+    }
+
+    /**
+     * @return the username of the user who wrote the review
+     */
+    public String getUsername() {
+        return username;
     }
 
     /**
@@ -76,6 +81,7 @@ public class Review implements JsonRepresentation {
         return rating;
     }
 
+
     /**
      * Gets the Json representation of the Review Object in the following format.
      * <pre>
@@ -92,31 +98,19 @@ public class Review implements JsonRepresentation {
      */
     @Override
     public String getJsonRepresentation() {
-        if (user != null) {
-            return "{" +
-                    "\"user\": " + user.getJsonRepresentation() +
-                    "," +
-                    "\"date\": \"" + date.toString() + "\"" +
-                    "," +
-                    "\"title\": \"" + title + "\"" +
-                    "," +
-                    "\"rating\": " + rating +
-                    "," +
-                    "\"content\": \"" + content + "\"" +
-                    "}";
-        } else {
-            return "{" +
-                    "\"user\": " + new Guest().getJsonRepresentation() +
-                    "," +
-                    "\"date\": \"" + date.toString() + "\"" +
-                    "," +
-                    "\"title\": \"" + title + "\"" +
-                    "," +
-                    "\"rating\": " + rating +
-                    "," +
-                    "\"content\": \"" + content + "\"" +
-                    "}";
-        }
+        return "{" +
+                "\"username\": \"" + username + "\"" +
+                "," +
+                "\"userID\": " + userId +
+                "," +
+                "\"date\": \"" + date.toString() + "\"" +
+                "," +
+                "\"title\": \"" + title + "\"" +
+                "," +
+                "\"rating\": " + rating +
+                "," +
+                "\"content\": \"" + content + "\"" +
+                "}";
     }
 
     /**
@@ -135,30 +129,6 @@ public class Review implements JsonRepresentation {
      */
     @Override
     public String getDeadEndJson() {
-        if (user != null) {
-            return "{" +
-                    "\"user\": " + user.getDeadEndJson() +
-                    "," +
-                    "\"date\": \"" + date.toString() +
-                    "," +
-                    "\"title\": \"" + title + "\"" +
-                    "," +
-                    "\"rating\": " + rating +
-                    "," +
-                    "\"content\": \"" + content + "\"" +
-                    "}";
-        } else {
-            return "{" +
-                    "\"user\": " + new Guest().getDeadEndJson() +
-                    "," +
-                    "\"date\": \"" + date.toString() + "\"" +
-                    "," +
-                    "\"title\": \"" + title + "\"" +
-                    "," +
-                    "\"rating\": " + rating +
-                    "," +
-                    "\"content\": \"" + content + "\"" +
-                    "}";
-        }
+        return getJsonRepresentation();
     }
 }

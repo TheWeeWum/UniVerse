@@ -5,8 +5,7 @@ function loadBuilding() {
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
-            const buildingInfo = buildingData[0]
-            var text = "\n🏫 " + buildingInfo.name + " 🏫\n";
+            var text = "\n🏫 " + buildingData.name + " 🏫\n";
             container1.append(text)
 
             var headerElement = document.getElementById('title')
@@ -21,12 +20,11 @@ function loadBuilding() {
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
-            const buildingInfo = buildingData[0]
             var text =
-                "Name: " + buildingInfo.name +
-                "\n\nBuilding Code: " + buildingInfo.code +
-                "\n\nAddress: " + buildingInfo.address +
-                "\n\nCampus: " + buildingInfo.campus;
+                "Name: " + buildingData.name +
+                "\n\nBuilding Code: " + buildingData.code +
+                "\n\nAddress: " + buildingData.address +
+                "\n\nCampus: " + buildingData.campus;
             const newSection = document.createElement('section');
             newSection.innerText = text;
             container2.appendChild(newSection);
@@ -46,9 +44,8 @@ function loadBuilding() {
     fetch('building_info')
         .then(response => response.json())
         .then(buildingData => {
-            const buildingInfo = buildingData[0]
-            const lat = Number(buildingInfo.lat);
-            const lng = Number(buildingInfo.lng);
+            const lat = Number(buildingData.lat);
+            const lng = Number(buildingData.lng);
 
             const container4Element1 = document.createElement('section');
 
@@ -110,38 +107,58 @@ function loadBuilding() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    var favouritesButton = document.getElementById('favouritesButton');
-    var isFavourited = false;
+    var favouritesButton = document.getElementById("favouritesButton");
+    // var isFavourited = false;
 
-    favouritesButton.addEventListener('click', function() {
-        isFavourited = !isFavourited;
+    favouritesButton.addEventListener("click", function() {
 
-        if (isFavourited) {
-            favouritesButton.classList.add('favourited');
-            favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
-            // Perform additional actions when favourited
-        }
-        else {
-            favouritesButton.classList.remove('favourited');
-            favouritesButton.textContent = '🤍 Add to Favourites 🤍';
-            // Perform additional actions when not favourited
-        }
+        // var isFavourited = true;
+
+        // Check if the button is already clicked
+        //var isClicked = favouritesButton.classList.contains("clicked");
+
+        favouritesButton.value = '💞💖💕💗 Favourited 💗💕💖💞';
+        favouritesButton.style.backgroundColor = "#fa93af";
+        favouritesButton.style.boxShadow = "deeppink";
+
+        // // Update the text based on the button's state
+        // favouritesButton.value = '💞💖💕💗 Favourited 💗💕💖💞';
+        // favouritesButton.style.backgroundColor = "#fa93af";
+        // favouritesButton.style.boxShadow = "deeppink";
+
+        // Toggle the "clicked" class to update the appearance
+        //favouritesButton.classList.toggle("clicked");
+
+        // favouritesButton.classList.add('favourited');
+        // favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
+
+        // if (isFavourited) {
+        //     favouritesButton.classList.add('favourited');
+        //     favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
+        //     // Perform additional actions when favourited
+        // }
+        // else {
+        //     favouritesButton.classList.remove('favourited');
+        //     favouritesButton.textContent = '🤍 Add to Favourites 🤍';
+        //     // Perform additional actions when not favourited
+        // }
     });
+
     // Add event listener for mouseover (hover)
-    favouritesButton.addEventListener("mouseover", function() {
-        // Change the text when hovered
-        if (isFavourited) {
-            favouritesButton.textContent = '💔 Remove from Favourites 💔';
-            // Perform additional actions when favourited
-        }
-    });
-
-    // Add event listener for mouseout (when the mouse leaves)
-    favouritesButton.addEventListener("mouseout", function() {
-        // Restore the original text
-        if (isFavourited) {
-            favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
-            // Perform additional actions when favourited
-        }
-    });
+    // favouritesButton.addEventListener("mouseover", function() {
+    //     // Change the text when hovered
+    //     if (isFavourited) {
+    //         favouritesButton.textContent = '💔 Remove from Favourites 💔';
+    //         // Perform additional actions when favourited
+    //     }
+    // });
+    //
+    // // Add event listener for mouseout (when the mouse leaves)
+    // favouritesButton.addEventListener("mouseout", function() {
+    //     // Restore the original text
+    //     if (isFavourited) {
+    //         favouritesButton.textContent = '💞💖💕💗 Favourited 💗💕💖💞';
+    //         // Perform additional actions when favourited
+    //     }
+    // });
 });

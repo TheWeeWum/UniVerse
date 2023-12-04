@@ -15,21 +15,12 @@ public class LoginPresenter implements LoginOutputBoundary {
     }
 
     @Override
-    public void prepareFailView(String error) {
-        try {
-            loginServlet.signInFailed(error);
-        } catch (IOException | ServletException e) {
-            System.out.println("Error in sending user to SignUp Screen");
-
-        }
+    public void prepareFailView(String error) throws ServletException, IOException {
+        loginServlet.signInFailed(error);
     }
 
     @Override
-    public void prepareSuccessView(LoginOutputData outputData) {
-        try {
-            loginServlet.sendToProfileScreen(outputData);
-        } catch (IOException e) {
-            System.out.println("Error in sending user to ProfileScreen");
-        }
+    public void prepareSuccessView(LoginOutputData outputData) throws IOException {
+        loginServlet.sendToProfileScreen(outputData);
     }
 }
