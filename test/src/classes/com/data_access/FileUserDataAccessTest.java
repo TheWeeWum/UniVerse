@@ -1,6 +1,7 @@
 package src.classes.com.data_access;
 
 import com.app.DataAccessBuilder;
+import com.app.DataAccessBuilderTest;
 import com.data_access.EventDataAccessObject;
 import com.app.Path;
 import com.data_access.FileUserDataAccessObject;
@@ -27,7 +28,7 @@ class FileUserDataAccessTest {
     private FileUserDataAccessObject fudao;
     @BeforeEach
     void setUp() {
-        this.fudao = DataAccessBuilder.getFileUserDataAccessObject();
+        this.fudao = DataAccessBuilderTest.getFileUserDataAccessObject();
     }
 
     @Test
@@ -35,12 +36,12 @@ class FileUserDataAccessTest {
         int numUsers = fudao.getAccounts().size();
 
         List<Review> reviews = new ArrayList<>();
-        reviews.add(new Review(0,"",new Date(),"","",4));
+        reviews.add(new Review(0,"testuser",new Date(),"title","content",4));
         List<Building> buildings = new ArrayList<>();
         buildings.add(new Building("NA", "NotABuilding", "NA", "Nowhere", null, new ArrayList<>(), new ArrayList<>(), null, new ArrayList<>()));
 
         Date date = new Date();
-        LoggedInUser loggedInUser = new LoggedInUser("", "", -(int) date.getTime(), reviews, new ArrayList<>(), new ArrayList<>());
+        LoggedInUser loggedInUser = new LoggedInUser("username", "password", -(int) date.getTime(), reviews, new ArrayList<>(), new ArrayList<>());
 
         fudao.save(loggedInUser);
         Assertions.assertEquals(numUsers + 1, fudao.getAccounts().size());
@@ -53,7 +54,7 @@ class FileUserDataAccessTest {
 
     @Test
     void addEvent() {
-        EventDataAccessObject EDAO = new EventDataAccessObject(Path.path + "external-data/events.json", new EventBuilder());
+        EventDataAccessObject EDAO = DataAccessBuilderTest.getEventDataAccessObject();
         EDAO.addEvent("TESTCODE", "testtitle", "testOrganizer", "NotARoom", new Date(), "This is a test event added by the EventDataAccessTest");
         assertFalse(EDAO.getEvents("TESTCODE").isEmpty());
     }

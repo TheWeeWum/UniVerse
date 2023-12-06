@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,17 +44,19 @@
     <% } %>
 </section>
 
-<section id="favourites">
-    <h2>Favourites</h2>
-    <div id="favouritesContainer">
-        <!-- Favourites content goes here -->
-    </div>
+<div id="userContainer"></div>
 
-    <h2>Your Reviews</h2>
-    <div id="reviewContainer">
-        <!-- Reviews content goes here -->
-    </div>
-</section>
+<%--<section id="favourites">--%>
+<%--    <h2>Favourites</h2>--%>
+<%--    <div id="favouritesContainer">--%>
+<%--        <!-- Favourites content goes here -->--%>
+<%--    </div>--%>
+
+<%--    <h2>Your Reviews</h2>--%>
+<%--    <div id="reviewContainer">--%>
+<%--        <!-- Reviews content goes here -->--%>
+<%--    </div>--%>
+<%--</section>--%>
 
 <div class="contactInformation">
     <h1>Contact Us</h1>

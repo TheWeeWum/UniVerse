@@ -17,12 +17,19 @@ public class BuildingEventsServlet extends HttpServlet {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.request = request;
         this.response = response;
 
         HttpSession session = request.getSession();
-        String buildingCode = session.getAttribute("buildingCode").toString();
+        String buildingCode;
+        try {
+            buildingCode = session.getAttribute("buildingCode").toString();
+        } catch (NullPointerException e) {
+            System.out.println("Refreshed page");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         // Initialize the loop for the use_case
         BuildingEventsController controller = BuildingEventsSetup.setup(this);

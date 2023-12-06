@@ -1,6 +1,7 @@
 package src.classes.com.entity;
 
 import com.app.DataAccessBuilder;
+import com.app.DataAccessBuilderTest;
 import com.data_access.BuildingDataAccessObject;
 import com.data_access.BuildingReviewDataAccessObject;
 import com.data_access.FileUserDataAccessObject;
@@ -30,18 +31,8 @@ public class GetEntitiesTest {
         Random rand = new Random();
 
         // Create buildings
-        BuildingBuilder buildingBuilder = new BuildingBuilder();
-        EventBuilder eventBuilder = new EventBuilder();
-        ReviewBuilder reviewBuilder = new ReviewBuilder();
-        String buildingPath = Path.path + "external-data/buildings.json";
-        String eventPath = Path.path + "external-data/events.json";
-        String reviewPath = Path.path + "external-data/buildingreviews.json";
-
-        FileUserDataAccessObject userDAO = DataAccessBuilder.getFileUserDataAccessObject();
-
-        BuildingReviewsDataAccessInterface reviewDataAccessObject = new BuildingReviewDataAccessObject(reviewPath, reviewBuilder, userDAO);
-
-        OpenBuildingsListDataAccessInterface buildingDAO = new BuildingDataAccessObject(buildingPath,eventPath, buildingBuilder, eventBuilder, reviewDataAccessObject);
+        FileUserDataAccessObject userDAO = DataAccessBuilderTest.getFileUserDataAccessObject();
+        OpenBuildingsListDataAccessInterface buildingDAO = DataAccessBuilderTest.getBuildingDataAccessObject();
         buildings = buildingDAO.getBuildings();
 
         // Create Users

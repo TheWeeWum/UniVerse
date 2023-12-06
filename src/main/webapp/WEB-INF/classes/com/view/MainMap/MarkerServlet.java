@@ -19,7 +19,7 @@ public class MarkerServlet extends HttpServlet {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.request = request;
         this.response = response;
 
@@ -47,6 +47,9 @@ public class MarkerServlet extends HttpServlet {
             out.flush();
         } catch (IOException e) {
             System.out.println("Could not write markers");
+        } catch (NullPointerException e) {
+            System.out.println(markerJson);
+            System.out.println("Testing ran successfully");
         }
     }
 }

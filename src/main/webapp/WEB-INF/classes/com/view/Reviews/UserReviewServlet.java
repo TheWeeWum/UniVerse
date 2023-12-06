@@ -19,14 +19,21 @@ public class UserReviewServlet extends HttpServlet {
     private HttpServletResponse response;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.request = request;
         this.response = response;
 
         System.out.println("UReviewServlet");
 
         HttpSession session = request.getSession();
-        int userid = Integer.parseInt(session.getAttribute("id").toString());
+        int userid;
+        try {
+            userid = Integer.parseInt(session.getAttribute("id").toString());
+        } catch (NullPointerException e) {
+            System.out.println("user not signed in");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         System.out.println("Got id");
 

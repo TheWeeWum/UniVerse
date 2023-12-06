@@ -19,14 +19,21 @@ public class FavouritesInfoServlet extends HttpServlet {
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.request = request;
         this.response = response;
 
         HttpSession session = request.getSession();
 
         // String buildingCode = session.getAttribute("buildingCode").toString();
-        int userId = Integer.parseInt(session.getAttribute("id").toString());
+        int userId;
+        try {
+            userId = Integer.parseInt(session.getAttribute("id").toString());
+        } catch (NullPointerException e) {
+            System.out.println("user not signed in");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         // Initialize the loop for the use_case
         OpenFavouritesController controller = FavouritesSetup.setup(this);

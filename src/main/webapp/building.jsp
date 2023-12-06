@@ -73,14 +73,17 @@
 </div>
 <% } %>
 
-<!-- Container for map header -->
-<div id="mapTitle"></div>
+<%--<!-- Container for map header -->--%>
+<%--<div id="mapTitle"></div>--%>
 
 <!-- Container for map -->
 <div id="map"></div>
 
 <!-- Container for events -->
 <div id="events"></div>
+
+<!-- Container for events -->
+<div id="reviews"></div>
 
 <%--<!-- Container for events -->--%>
 <%--<button id="favouritesButton" > 🤍 Add to Favourites 🤍 </button>--%>

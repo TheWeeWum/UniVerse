@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 public class FavouritesServlet extends HttpServlet{
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Perform data retrieval or processing here
 
@@ -17,12 +17,6 @@ public class FavouritesServlet extends HttpServlet{
 
         // Send user to the next page
         response.sendRedirect("favourites.jsp");
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
 
     }
 }

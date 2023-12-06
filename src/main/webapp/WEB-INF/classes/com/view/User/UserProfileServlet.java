@@ -24,14 +24,21 @@ public class UserProfileServlet extends HttpServlet {
     private HttpServletResponse response;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Perform data retrieval or processing here
         HttpSession session = request.getSession();
         this.request = request;
         this.response = response;
 
-        int id = Integer.parseInt(session.getAttribute("id").toString());
+        int id;
+        try {
+            id = Integer.parseInt(session.getAttribute("id").toString());
+        } catch (NullPointerException e) {
+            System.out.println("user not signed in");
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         ProfileController controller = ProfileSetup.setup(this);
         controller.execute(id);
@@ -39,7 +46,7 @@ public class UserProfileServlet extends HttpServlet {
 
 
     public void writeProfile(ProfileOutputData profileOutputData) {
-        System.out.println("writeProfile UPS");
+        LoggedInUser user = profileOutputData.getUser();
         // Prepare JSON for reviews
         StringBuilder reviewsJson = new StringBuilder("[");
 
@@ -47,11 +54,12 @@ public class UserProfileServlet extends HttpServlet {
             String title = review.getTitle();
             String content = review.getContent();
             float rating = review.getRating();
+            String date = review.getDate().toString();
 
-            reviewsJson.append(String.format("{ " + "\"title\": \"%s\", " + "\"content\": \"%s\", " + "\"rating\": %d " + "},",
-                    title, content, rating));
+            reviewsJson.append(String.format("{\"username\": \"%s\", " + "\"title\": \"%s\", " + "\"content\": \"%s\", \"date\": \"%s\", " + "\"rating\": %f " + "},",
+                    user.getUsername(), title, content, date, rating));
         }
-        if (profileOutputData.getReviews().size() > 0) {
+        if (!profileOutputData.getReviews().isEmpty()) {
             // delete comma at the end
             reviewsJson.delete(reviewsJson.length() - 1, reviewsJson.length());
         }

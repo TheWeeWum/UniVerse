@@ -22,7 +22,6 @@ public class SignupPresenter implements SignupOutputBoundary {
             signupServlet.signupFailed(error);
         } catch (IOException | ServletException e) {
             System.out.println("Error in sending user to SignUp Screen");
-
         }
     }
     public void prepareSuccessView(SignupOutputData outputData) {
