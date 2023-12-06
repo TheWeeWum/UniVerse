@@ -20,7 +20,7 @@ public class ProfileSetup {
 
         ProfileUserDataAccessInterface dataAccess = DataAccessBuilder.getProfileDataAccessObject();
 
-        ProfileInputBoundary interactor = new ProfileInteractor(dataAccess, presenter);
+        ProfileInputBoundary interactor = new ProfileInteractor(dataAccess, presenter, DataAccessBuilder.getFileUserDataAccessObject());
         return new ProfileController(interactor);
     }
 }

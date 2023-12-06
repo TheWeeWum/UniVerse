@@ -10,7 +10,7 @@ import com.entity.user.User;
 import java.util.List;
 
 public class ProfileOutputData {
-    final  LoggedInUser user;
+     final  LoggedInUser user;
      final List<Review> reviews;
      final List<Reviewable> favourites;
      final List<Building> favouriteBuildings;
@@ -22,9 +22,8 @@ public class ProfileOutputData {
         this.favouriteBuildings = user.getFavouriteBuildings();
         this.favouriteRooms = user.getFavouriteRooms();
         this.favourites = user.getFavourites(this.favouriteBuildings, this.favouriteRooms);
-
-         }
-    public User getUser() {return user;}
+    }
+    public LoggedInUser getUser() {return user;}
 
     public List<Review> getReviews() {return reviews;};
     public List<Reviewable> getFavourites() {return favourites;};

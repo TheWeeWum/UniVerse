@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
                     }
 
                     String dateStr = ro.get("date").getAsString(); // get date data
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     Date date = sdf.parse(dateStr); // make Date
 
                     float rating = ro.get("rating").getAsFloat(); // get rating
@@ -97,7 +98,12 @@ public class BuildingReviewDataAccessObject implements BuildingReviewsDataAccess
             JSONObject reviewObject = new JSONObject();
             reviewObject.put("userid", review.getUser()); // Assuming User has an ID field
             reviewObject.put("username", review.getUsername()); // Assuming User has an ID field
-            reviewObject.put("date", review.getDate().toString()); // Convert Date to String representation
+
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            String timeAsString = df.format(review.getDate());
+
+            reviewObject.put("date", timeAsString); // Convert Date to String representation
+
             reviewObject.put("rating", String.valueOf(review.getRating())); // Convert float rating to String
             reviewObject.put("title", review.getTitle());
             reviewObject.put("content", review.getContent());
